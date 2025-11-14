@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance => _instance;
 
     [SerializeField] private LoadingUI _loading;
+    private SceneType _curScene = SceneType.LoadScene;
 
     private void Awake()
     {
@@ -37,7 +38,10 @@ public class UIManager : MonoBehaviour
     /// <param name="type"></param>
     public void LoadScene(SceneType type)
     {
+        if (_curScene == type) return;
+
         _loading.gameObject.SetActive(true);
         _loading.LoadScene(type);
+        _curScene = type;
     }
 }
