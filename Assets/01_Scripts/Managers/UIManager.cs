@@ -44,4 +44,18 @@ public class UIManager : MonoBehaviour
         _loading.LoadScene(type);
         _curScene = type;
     }
+
+    #region 로딩씬 Test용 코드
+    //float _loadingtime = 0f;
+    //bool _isLoaded = false;
+    //private void Update()
+    //{
+    //    if (_loadingtime > 1f && !_isLoaded)
+    //    {
+    //        LoadScene(SceneType.StartScene);
+    //        _isLoaded = true;
+    //    }
+    //    _loadingtime += Time.deltaTime;
+    //}
+    #endregion
 }
