@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c903c83e765e784583272c78a56d1cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _loading: {fileID: 6587041117795369281}
+  _loading: {fileID: 4750343509996742845}
   _progress: {fileID: 4945597934420039291}
   _character: {fileID: 2209991651329509535}
 --- !u!1001 &3547408593924543249
@@ -156,6 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4750343509996742845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8130810504629877676, guid: 64aeafbb2c671164783a1f8741cc99bc, type: 3}
+  m_PrefabInstance: {fileID: 3547408593924543249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4945597934420039291 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8473705546007528810, guid: 64aeafbb2c671164783a1f8741cc99bc, type: 3}
@@ -167,11 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!223 &6587041117795369281 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 7661524209228550736, guid: 64aeafbb2c671164783a1f8741cc99bc, type: 3}
-  m_PrefabInstance: {fileID: 3547408593924543249}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8178622331200258671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4664217384013173118, guid: 64aeafbb2c671164783a1f8741cc99bc, type: 3}

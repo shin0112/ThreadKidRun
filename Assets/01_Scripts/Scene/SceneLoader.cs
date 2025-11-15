@@ -18,7 +18,7 @@ public class SceneLoader : MonoBehaviour
     private SceneType _curScene = SceneType.LoadScene;
 
     [Header("Loading UI")]
-    [SerializeField] private Canvas _loading;
+    [SerializeField] private GameObject _loading;
     [SerializeField] private Image _progress;
     [SerializeField] private Image _character;
 
@@ -49,7 +49,7 @@ public class SceneLoader : MonoBehaviour
 
     private IEnumerator LoadSceneCoroutine(SceneType type)
     {
-        _loading.gameObject.SetActive(true);
+        _loading.SetActive(true);
 
         AsyncOperation async = SceneManager.LoadSceneAsync(type.ToString());
 
@@ -71,7 +71,7 @@ public class SceneLoader : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        _loading.gameObject.SetActive(false);
+        _loading.SetActive(false);
     }
 
     #region 로딩씬 Test용 코드
