@@ -1,19 +1,9 @@
 using UnityEngine;
 
-public enum SceneType
-{
-    LoadScene,
-    GameScene,
-    StartScene,
-}
-
 public class UIManager : MonoBehaviour
 {
     private static UIManager _instance;
     public static UIManager Instance => _instance;
-
-    [SerializeField] private LoadingUI _loading;
-    private SceneType _curScene = SceneType.LoadScene;
 
     private void Awake()
     {
@@ -26,36 +16,4 @@ public class UIManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
-    private void Start()
-    {
-        LoadScene(SceneType.StartScene);
-    }
-
-    /// <summary>
-    /// 씬 전환하기
-    /// </summary>
-    /// <param name="type"></param>
-    public void LoadScene(SceneType type)
-    {
-        if (_curScene == type) return;
-
-        _loading.gameObject.SetActive(true);
-        _loading.LoadScene(type);
-        _curScene = type;
-    }
-
-    #region 로딩씬 Test용 코드
-    //float _loadingtime = 0f;
-    //bool _isLoaded = false;
-    //private void Update()
-    //{
-    //    if (_loadingtime > 1f && !_isLoaded)
-    //    {
-    //        LoadScene(SceneType.StartScene);
-    //        _isLoaded = true;
-    //    }
-    //    _loadingtime += Time.deltaTime;
-    //}
-    #endregion
 }
