@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [Header("아이콘 버튼")]
     [SerializeField] private Button _settingButton;
     [SerializeField] private Button _storeButton;
+    [SerializeField] private Button _pauseButton;
 
     [Header("UI")]
     [SerializeField] private GameObject _settingUI;
@@ -25,6 +26,7 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         _settingUI.SetActive(false);
+        SetMainMode();
     }
 
     private void OnEnable()
@@ -42,4 +44,18 @@ public class UIManager : MonoBehaviour
     {
         _settingUI.Toggle();
     }
+
+    #region 아이콘 On/Off
+    public void SetGameMode()
+    {
+        _storeButton.gameObject.SetActive(false);
+        _pauseButton.gameObject.SetActive(true);
+    }
+
+    public void SetMainMode()
+    {
+        _storeButton.gameObject.SetActive(true);
+        _pauseButton.gameObject.SetActive(false);
+    }
+    #endregion
 }
