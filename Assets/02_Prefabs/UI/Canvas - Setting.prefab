@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 5072135579849999302}
   - component: {fileID: 2456907697048848959}
   m_Layer: 5
-  m_Name: Text (TMP) - EffectSound
+  m_Name: Text (TMP) - SoundEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 2801287941954499325}
   - component: {fileID: 9090620603513783447}
   m_Layer: 5
-  m_Name: Slider - EffectSound
+  m_Name: Slider - SoundEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
