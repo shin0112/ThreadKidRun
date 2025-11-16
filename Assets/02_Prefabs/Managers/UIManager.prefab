@@ -127,18 +127,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8413080469523295599}
     m_Modifications:
-    - target: {fileID: 2425636140538026317, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4077975006101772437, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6133599069242453500, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8290042093826926365, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
       propertyPath: m_Name
       value: Canvas - Setting
@@ -221,10 +209,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8437147806621243643, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8994845046978560657, guid: 1b02cba20e4538a4e9caa74d38a1c585, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
