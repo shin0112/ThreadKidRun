@@ -17,7 +17,7 @@ public class SceneLoader : MonoBehaviour
 
     private SceneType _curScene = SceneType.LoadScene;
 
-    [Header("Loading UI")]
+    [Header("로딩 UI")]
     [SerializeField] private GameObject _loading;
     [SerializeField] private Image _progress;
     [SerializeField] private Image _character;
