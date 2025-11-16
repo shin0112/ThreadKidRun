@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
   m_Name: SFX_Jump
   m_EditorClassIdentifier: 
-  soundName: 
+  soundName: Jump
   soundType: 0
   audioClip: {fileID: 0}
   volume: 1
