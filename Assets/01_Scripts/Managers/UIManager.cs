@@ -18,11 +18,25 @@ public class UIManager : MonoBehaviour
     [Header("텍스트")]
     [SerializeField] private GameObject _startText;
 
+    // 카메라
+    private Camera _mainCamera;
+
     private void Awake()
     {
         _instance = this;
 
         Init();
+    }
+
+    private void Start()
+    {
+        // camera
+        _mainCamera = Camera.main;
+
+        // event
+        GameManager.Instance.OnScoreChanged += ScoreEvents;
+
+        SetDefaultMode();
     }
 
     private void Update()
@@ -31,14 +45,6 @@ public class UIManager : MonoBehaviour
         {
             SetGameMode();
         }
-    }
-
-    private void Start()
-    {
-        // event
-        GameManager.Instance.OnScoreChanged += ScoreEvents;
-
-        SetDefaultMode();
     }
 
     private void OnDestroy()
@@ -96,12 +102,14 @@ public class UIManager : MonoBehaviour
     {
         _uiActives.ForEach(ui => ui.SetDefaultMode());
         _startText.SetActive(true);
+        _mainCamera.gameObject.SetActive(true);
     }
 
     public void SetShopMode()
     {
         _uiActives.ForEach(ui => ui.SetShopMode());
         _startText.SetActive(false);
+        _mainCamera.gameObject.SetActive(false);
     }
     #endregion
 }

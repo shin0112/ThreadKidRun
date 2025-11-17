@@ -31,6 +31,7 @@ public class ShopUI : MonoBehaviour, IUIActive
     public void SetDefaultMode()
     {
         gameObject.SetActive(false);
+        _controller.ShopCamera.gameObject.SetActive(false);
     }
 
     public void SetGameMode()
@@ -41,6 +42,7 @@ public class ShopUI : MonoBehaviour, IUIActive
     public void SetShopMode()
     {
         gameObject.SetActive(true);
+        _controller.ShopCamera.gameObject.SetActive(true);
     }
     #endregion
 }
