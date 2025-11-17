@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SFX_Jump
   m_EditorClassIdentifier: 
   soundName: Jump
-  soundType: 0
+  soundType: 1
   audioClip: {fileID: 8300000, guid: e55a9362b8ab9074f9ca7bd7cf50a8be, type: 3}
   volume: 1
-  loop: 0
+  loop: 1
   pitch: 1
