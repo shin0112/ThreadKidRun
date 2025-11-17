@@ -21,5 +21,10 @@ public class CoinUI : MonoBehaviour, IUIActive
     {
         gameObject.SetActive(true);
     }
+
+    public void SetShopMode()
+    {
+        gameObject.SetActive(true);
+    }
     #endregion
 }

@@ -14,8 +14,9 @@ public class ButtonUI : MonoBehaviour, IUIActive
         UIManager instance = UIManager.Instance;
 
         _settingButton.onClick.AddListener(instance.ToggleSettingUI);
+        _storeButton.onClick.AddListener(instance.SetShopMode);
         _pauseButton.onClick.AddListener(instance.TogglePauseUI);
-        // todo: store button - ui 만들고 연결
+        _homeButton.onClick.AddListener(instance.SetDefaultMode);
     }
 
     private void OnDestroy()
@@ -23,8 +24,10 @@ public class ButtonUI : MonoBehaviour, IUIActive
         _settingButton.onClick.RemoveAllListeners();
         _storeButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.RemoveAllListeners();
+        _homeButton.onClick.RemoveAllListeners();
     }
 
+    #region 인터페이스 구현
     public void SetGameMode()
     {
         _storeButton.gameObject.SetActive(false);
@@ -35,5 +38,13 @@ public class ButtonUI : MonoBehaviour, IUIActive
     {
         _storeButton.gameObject.SetActive(true);
         _pauseButton.gameObject.SetActive(false);
+        _homeButton.gameObject.SetActive(false);
     }
+
+    public void SetShopMode()
+    {
+        _storeButton.gameObject.SetActive(false);
+        _homeButton.gameObject.SetActive(true);
+    }
+    #endregion
 }

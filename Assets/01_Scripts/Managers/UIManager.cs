@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private PauseUI _pauseUI;
     [SerializeField] private CoinUI _totalCoinUI;
     [SerializeField] private ScoreUI _scoreUI;
+    [SerializeField] private ShopUI _shopUI;
     private List<IUIActive> _uiActives = new();
 
     [Header("텍스트")]
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (_startText.activeSelf && Input.GetKeyDown(KeyCode.Space))
         {
             SetGameMode();
         }
@@ -95,6 +96,12 @@ public class UIManager : MonoBehaviour
     {
         _uiActives.ForEach(ui => ui.SetDefaultMode());
         _startText.SetActive(true);
+    }
+
+    public void SetShopMode()
+    {
+        _uiActives.ForEach(ui => ui.SetShopMode());
+        _startText.SetActive(false);
     }
     #endregion
 }

@@ -31,12 +31,18 @@ public class ScoreUI : MonoBehaviour, IUIActive
     #region 인터페이스 구현
     public void SetDefaultMode()
     {
+        gameObject.SetActive(true);
         _curScoreContainer.SetActive(false);
     }
 
     public void SetGameMode()
     {
         _curScoreContainer.SetActive(true);
+    }
+
+    public void SetShopMode()
+    {
+        gameObject.SetActive(false);
     }
     #endregion
 }
