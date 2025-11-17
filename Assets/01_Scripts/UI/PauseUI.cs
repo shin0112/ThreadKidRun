@@ -37,6 +37,6 @@ public class PauseUI : MonoBehaviour
     private void ExitGame()
     {
         // todo: 게임 그만하기
-        UIManager.Instance.SetMainMode();
+        UIManager.Instance.SetDefaultMode();
     }
 }
