@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: Jump
   soundType: 0
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: e55a9362b8ab9074f9ca7bd7cf50a8be, type: 3}
   volume: 1
   loop: 0
   pitch: 1
