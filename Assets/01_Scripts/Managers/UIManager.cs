@@ -1,45 +1,115 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     private static UIManager _instance;
     public static UIManager Instance => _instance;
 
-    [Header("아이콘 버튼")]
-    [SerializeField] private Button _settingButton;
-    [SerializeField] private Button _storeButton;
-
     [Header("UI")]
-    [SerializeField] private GameObject _settingUI;
+    [SerializeField] private SettingUI _settingUI;
+    [SerializeField] private PauseUI _pauseUI;
+    [SerializeField] private CoinUI _totalCoinUI;
+    [SerializeField] private ScoreUI _scoreUI;
+    [SerializeField] private ShopUI _shopUI;
+    private List<IUIActive> _uiActives = new();
+
+    [Header("텍스트")]
+    [SerializeField] private GameObject _startText;
+
+    // 카메라
+    private Camera _mainCamera;
 
     private void Awake()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         _instance = this;
-        DontDestroyOnLoad(gameObject);
 
-        _settingUI.SetActive(false);
+        Init();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        _settingButton.onClick.AddListener(ToggleSettingUI);
+        // camera
+        _mainCamera = Camera.main;
+
+        // event
+        GameManager.Instance.OnScoreChanged += ScoreEvents;
+
+        SetDefaultMode();
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        _settingButton.onClick.RemoveAllListeners();
-        _storeButton.onClick.RemoveAllListeners();
+        if (_startText.activeSelf && Input.GetKeyDown(KeyCode.Space))
+        {
+            SetGameMode();
+        }
     }
 
-    private void ToggleSettingUI()
+    private void OnDestroy()
     {
-        _settingUI.Toggle();
+        GameManager.Instance.OnScoreChanged -= ScoreEvents;
     }
+
+    private void Init()
+    {
+        _uiActives.Clear();
+        _uiActives = GetComponentsInChildren<IUIActive>().ToList();
+    }
+
+    /// <summary>
+    /// 점수 관련 이벤트
+    /// </summary>
+    /// <param name="value"></param>
+    private void ScoreEvents(int value)
+    {
+        _scoreUI.UpdateCurrentScore(value);
+    }
+
+    #region Window On/Off
+    /// <summary>
+    /// 설정창 여닫기
+    /// </summary>
+    public void ToggleSettingUI()
+    {
+        _settingUI.gameObject.Toggle();
+    }
+
+    /// <summary>
+    /// 일시정지창 여닫기
+    /// </summary>
+    public void TogglePauseUI()
+    {
+        _pauseUI.gameObject.Toggle();
+
+        // 켜질 경우 점수 업데이트
+        if (_pauseUI.gameObject.activeSelf)
+        {
+            _pauseUI.UpdateCurrentScoreText(_scoreUI.CurScore);
+        }
+    }
+    #endregion  
+
+    #region 게임 오브젝트 On/Off
+    public void SetGameMode()
+    {
+        _uiActives.ForEach(ui => ui.SetGameMode());
+        _startText.SetActive(false);
+    }
+
+    public void SetDefaultMode()
+    {
+        _uiActives.ForEach(ui => ui.SetDefaultMode());
+        _startText.SetActive(true);
+        _mainCamera.gameObject.SetActive(true);
+    }
+
+    public void SetShopMode()
+    {
+        _uiActives.ForEach(ui => ui.SetShopMode());
+        _startText.SetActive(false);
+        _mainCamera.gameObject.SetActive(false);
+    }
+    #endregion
 }

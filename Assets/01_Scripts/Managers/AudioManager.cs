@@ -1,4 +1,4 @@
-using GameName.Data;
+ï»¿using GameName.Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,8 +6,8 @@ using UnityEngine;
 namespace GameName.Managers
 {
     /// <summary>
-    /// °ÔÀÓÀÇ ¸ğµç »ç¿îµå¸¦ °ü¸®ÇÏ´Â ½Ì±ÛÅæ ¸Å´ÏÀú
-    /// BGM°ú SFX¸¦ Àç»ıÇÏ°í º¼·ıÀ» Á¶ÀıÇÕ´Ï´Ù.
+    /// ê²Œì„ì˜ ëª¨ë“  ì‚¬ìš´ë“œë¥¼ ê´€ë¦¬í•˜ëŠ” ì‹±ê¸€í†¤ ë§¤ë‹ˆì €
+    /// BGMê³¼ SFXë¥¼ ì¬ìƒí•˜ê³  ë³¼ë¥¨ì„ ì¡°ì ˆí•©ë‹ˆë‹¤.
     /// </summary>
     public class AudioManager : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace GameName.Managers
 
         private void Awake()
         {
-            // ½Ì±ÛÅæ ÆĞÅÏ ±¸Çö
+            // ì‹±ê¸€í†¤ íŒ¨í„´ êµ¬í˜„
             if (Instance == null)
             {
                 Instance = this;
@@ -35,10 +35,10 @@ namespace GameName.Managers
         #region Audio Sources
 
         [Header("=== Audio Sources ===")]
-        [Tooltip("BGM Àç»ı¿ë AudioSource")]
+        [Tooltip("BGM ì¬ìƒìš© AudioSource")]
         [SerializeField] private AudioSource bgmSource;
 
-        [Tooltip("SFX Àç»ı¿ë AudioSource")]
+        [Tooltip("SFX ì¬ìƒìš© AudioSource")]
         [SerializeField] private AudioSource sfxSource;
 
         #endregion
@@ -46,10 +46,10 @@ namespace GameName.Managers
         #region Sound Data
 
         [Header("=== Sound Data ===")]
-        [Tooltip("°ÔÀÓ¿¡¼­ »ç¿ëÇÒ ¸ğµç SoundData ¸ñ·Ï")]
+        [Tooltip("ê²Œì„ì—ì„œ ì‚¬ìš©í•  ëª¨ë“  SoundData ëª©ë¡")]
         [SerializeField] private List<SoundData> soundDataList = new List<SoundData>();
 
-        // ºü¸¥ °Ë»öÀ» À§ÇÑ Dictionary
+        // ë¹ ë¥¸ ê²€ìƒ‰ì„ ìœ„í•œ Dictionary
         private Dictionary<string, SoundData> soundDictionary;
 
         #endregion
@@ -71,24 +71,24 @@ namespace GameName.Managers
         #region Initialization
 
         /// <summary>
-        /// AudioManager ÃÊ±âÈ­
+        /// AudioManager ì´ˆê¸°í™”
         /// </summary>
         private void InitializeAudioManager()
         {
-            // AudioSource°¡ ¾øÀ¸¸é ÀÚµ¿ »ı¼º
+            // AudioSourceê°€ ì—†ìœ¼ë©´ ìë™ ìƒì„±
             CreateAudioSources();
 
-            // SoundData¸¦ Dictionary·Î º¯È¯
+            // SoundDataë¥¼ Dictionaryë¡œ ë³€í™˜
             InitializeSoundDictionary();
 
-            // ÀúÀåµÈ º¼·ı ¼³Á¤ ·Îµå
+            // ì €ì¥ëœ ë³¼ë¥¨ ì„¤ì • ë¡œë“œ
             LoadVolumeSettings();
 
-            Debug.Log("[AudioManager] ÃÊ±âÈ­ ¿Ï·á!");
+            Debug.Log("[AudioManager] ì´ˆê¸°í™” ì™„ë£Œ!");
         }
 
         /// <summary>
-        /// AudioSource ÄÄÆ÷³ÍÆ® »ı¼º
+        /// AudioSource ì»´í¬ë„ŒíŠ¸ ìƒì„±
         /// </summary>
         private void CreateAudioSources()
         {
@@ -99,7 +99,7 @@ namespace GameName.Managers
                 bgmObject.transform.SetParent(transform);
                 bgmSource = bgmObject.AddComponent<AudioSource>();
                 bgmSource.playOnAwake = false;
-                bgmSource.loop = true; // BGMÀº ±âº»ÀûÀ¸·Î ·çÇÁ
+                bgmSource.loop = true; // BGMì€ ê¸°ë³¸ì ìœ¼ë¡œ ë£¨í”„
             }
 
             // SFX AudioSource
@@ -114,7 +114,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// SoundData ¸®½ºÆ®¸¦ Dictionary·Î º¯È¯
+        /// SoundData ë¦¬ìŠ¤íŠ¸ë¥¼ Dictionaryë¡œ ë³€í™˜
         /// </summary>
         private void InitializeSoundDictionary()
         {
@@ -124,26 +124,26 @@ namespace GameName.Managers
             {
                 if (data == null)
                 {
-                    Debug.LogWarning("[AudioManager] SoundData ¸®½ºÆ®¿¡ null °ªÀÌ ÀÖ½À´Ï´Ù!");
+                    Debug.LogWarning("[AudioManager] SoundData ë¦¬ìŠ¤íŠ¸ì— null ê°’ì´ ìˆìŠµë‹ˆë‹¤!");
                     continue;
                 }
 
                 if (string.IsNullOrEmpty(data.soundName))
                 {
-                    Debug.LogWarning($"[AudioManager] SoundData¿¡ ÀÌ¸§ÀÌ ¾ø½À´Ï´Ù: {data.name}");
+                    Debug.LogWarning($"[AudioManager] SoundDataì— ì´ë¦„ì´ ì—†ìŠµë‹ˆë‹¤: {data.name}");
                     continue;
                 }
 
                 if (soundDictionary.ContainsKey(data.soundName))
                 {
-                    Debug.LogWarning($"[AudioManager] Áßº¹µÈ »ç¿îµå ÀÌ¸§: {data.soundName}");
+                    Debug.LogWarning($"[AudioManager] ì¤‘ë³µëœ ì‚¬ìš´ë“œ ì´ë¦„: {data.soundName}");
                     continue;
                 }
 
                 soundDictionary.Add(data.soundName, data);
             }
 
-            Debug.Log($"[AudioManager] {soundDictionary.Count}°³ÀÇ »ç¿îµå ·Îµå ¿Ï·á!");
+            Debug.Log($"[AudioManager] {soundDictionary.Count}ê°œì˜ ì‚¬ìš´ë“œ ë¡œë“œ ì™„ë£Œ!");
         }
 
         #endregion
@@ -151,22 +151,22 @@ namespace GameName.Managers
         #region BGM Control
 
         /// <summary>
-        /// BGM Àç»ı
+        /// BGM ì¬ìƒ
         /// </summary>
-        /// <param name="soundName">Àç»ıÇÒ »ç¿îµå ÀÌ¸§</param>
+        /// <param name="soundName">ì¬ìƒí•  ì‚¬ìš´ë“œ ì´ë¦„</param>
         public void PlayBGM(string soundName)
         {
             if (soundDictionary.TryGetValue(soundName, out SoundData data))
             {
                 if (data.soundType != SoundType.BGM)
                 {
-                    Debug.LogWarning($"[AudioManager] {soundName}Àº BGMÀÌ ¾Æ´Õ´Ï´Ù!");
+                    Debug.LogWarning($"[AudioManager] {soundName}ì€ BGMì´ ì•„ë‹™ë‹ˆë‹¤!");
                     return;
                 }
 
                 if (data.audioClip == null)
                 {
-                    Debug.LogWarning($"[AudioManager] {soundName}ÀÇ AudioClipÀÌ ¾ø½À´Ï´Ù!");
+                    Debug.LogWarning($"[AudioManager] {soundName}ì˜ AudioClipì´ ì—†ìŠµë‹ˆë‹¤!");
                     return;
                 }
 
@@ -176,25 +176,25 @@ namespace GameName.Managers
                 bgmSource.loop = data.loop;
                 bgmSource.Play();
 
-                Debug.Log($"[AudioManager] BGM Àç»ı: {soundName}");
+                Debug.Log($"[AudioManager] BGM ì¬ìƒ: {soundName}");
             }
             else
             {
-                Debug.LogWarning($"[AudioManager] »ç¿îµå¸¦ Ã£À» ¼ö ¾øÀ½: {soundName}");
+                Debug.LogWarning($"[AudioManager] ì‚¬ìš´ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ: {soundName}");
             }
         }
 
         /// <summary>
-        /// BGM Á¤Áö
+        /// BGM ì •ì§€
         /// </summary>
         public void StopBGM()
         {
             bgmSource.Stop();
-            Debug.Log("[AudioManager] BGM Á¤Áö");
+            Debug.Log("[AudioManager] BGM ì •ì§€");
         }
 
         /// <summary>
-        /// BGM ÀÏ½ÃÁ¤Áö
+        /// BGM ì¼ì‹œì •ì§€
         /// </summary>
         public void PauseBGM()
         {
@@ -202,7 +202,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// BGM Àç°³
+        /// BGM ì¬ê°œ
         /// </summary>
         public void ResumeBGM()
         {
@@ -214,34 +214,34 @@ namespace GameName.Managers
         #region SFX Control
 
         /// <summary>
-        /// SFX Àç»ı (ÇÑ ¹ø¸¸ Àç»ı)
+        /// SFX ì¬ìƒ (í•œ ë²ˆë§Œ ì¬ìƒ)
         /// </summary>
-        /// <param name="soundName">Àç»ıÇÒ »ç¿îµå ÀÌ¸§</param>
+        /// <param name="soundName">ì¬ìƒí•  ì‚¬ìš´ë“œ ì´ë¦„</param>
         public void PlaySFX(string soundName)
         {
             if (soundDictionary.TryGetValue(soundName, out SoundData data))
             {
                 if (data.soundType != SoundType.SFX)
                 {
-                    Debug.LogWarning($"[AudioManager] {soundName}Àº SFX°¡ ¾Æ´Õ´Ï´Ù!");
+                    Debug.LogWarning($"[AudioManager] {soundName}ì€ SFXê°€ ì•„ë‹™ë‹ˆë‹¤!");
                     return;
                 }
 
                 if (data.audioClip == null)
                 {
-                    Debug.LogWarning($"[AudioManager] {soundName}ÀÇ AudioClipÀÌ ¾ø½À´Ï´Ù!");
+                    Debug.LogWarning($"[AudioManager] {soundName}ì˜ AudioClipì´ ì—†ìŠµë‹ˆë‹¤!");
                     return;
                 }
 
-                // PlayOneShot: µ¿½Ã¿¡ ¿©·¯ SFX Àç»ı °¡´É
+                // PlayOneShot: ë™ì‹œì— ì—¬ëŸ¬ SFX ì¬ìƒ ê°€ëŠ¥
                 sfxSource.pitch = data.pitch;
                 sfxSource.PlayOneShot(data.audioClip, data.volume * sfxVolume * masterVolume);
 
-                Debug.Log($"[AudioManager] SFX Àç»ı: {soundName}");
+                Debug.Log($"[AudioManager] SFX ì¬ìƒ: {soundName}");
             }
             else
             {
-                Debug.LogWarning($"[AudioManager] »ç¿îµå¸¦ Ã£À» ¼ö ¾øÀ½: {soundName}");
+                Debug.LogWarning($"[AudioManager] ì‚¬ìš´ë“œë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ: {soundName}");
             }
         }
 
@@ -250,7 +250,7 @@ namespace GameName.Managers
         #region Volume Control
 
         /// <summary>
-        /// ¸¶½ºÅÍ º¼·ı ¼³Á¤
+        /// ë§ˆìŠ¤í„° ë³¼ë¥¨ ì„¤ì •
         /// </summary>
         public void SetMasterVolume(float volume)
         {
@@ -258,11 +258,11 @@ namespace GameName.Managers
             UpdateAllVolumes();
             SaveVolumeSettings();
 
-            Debug.Log($"[AudioManager] ¸¶½ºÅÍ º¼·ı: {masterVolume}");
+            Debug.Log($"[AudioManager] ë§ˆìŠ¤í„° ë³¼ë¥¨: {masterVolume}");
         }
 
         /// <summary>
-        /// BGM º¼·ı ¼³Á¤
+        /// BGM ë³¼ë¥¨ ì„¤ì •
         /// </summary>
         public void SetBGMVolume(float volume)
         {
@@ -270,37 +270,37 @@ namespace GameName.Managers
             UpdateBGMVolume();
             SaveVolumeSettings();
 
-            Debug.Log($"[AudioManager] BGM º¼·ı: {bgmVolume}");
+            Debug.Log($"[AudioManager] BGM ë³¼ë¥¨: {bgmVolume}");
         }
 
         /// <summary>
-        /// SFX º¼·ı ¼³Á¤
+        /// SFX ë³¼ë¥¨ ì„¤ì •
         /// </summary>
         public void SetSFXVolume(float volume)
         {
             sfxVolume = Mathf.Clamp01(volume);
             SaveVolumeSettings();
 
-            Debug.Log($"[AudioManager] SFX º¼·ı: {sfxVolume}");
+            Debug.Log($"[AudioManager] SFX ë³¼ë¥¨: {sfxVolume}");
         }
 
         /// <summary>
-        /// ¸ğµç º¼·ı ¾÷µ¥ÀÌÆ®
+        /// ëª¨ë“  ë³¼ë¥¨ ì—…ë°ì´íŠ¸
         /// </summary>
         private void UpdateAllVolumes()
         {
             UpdateBGMVolume();
-            // SFX´Â PlayOneShotÀ¸·Î Àç»ıµÇ¹Ç·Î ´ÙÀ½ Àç»ı ½Ã Àû¿ëµÊ
+            // SFXëŠ” PlayOneShotìœ¼ë¡œ ì¬ìƒë˜ë¯€ë¡œ ë‹¤ìŒ ì¬ìƒ ì‹œ ì ìš©ë¨
         }
 
         /// <summary>
-        /// BGM º¼·ı¸¸ ¾÷µ¥ÀÌÆ® (ÇöÀç Àç»ı ÁßÀÎ BGM¿¡ Áï½Ã Àû¿ë)
+        /// BGM ë³¼ë¥¨ë§Œ ì—…ë°ì´íŠ¸ (í˜„ì¬ ì¬ìƒ ì¤‘ì¸ BGMì— ì¦‰ì‹œ ì ìš©)
         /// </summary>
         private void UpdateBGMVolume()
         {
             if (bgmSource.clip != null)
             {
-                // ÇöÀç Àç»ı ÁßÀÎ BGMÀÇ SoundData¸¦ Ã£¾Æ¼­ º¼·ı Àû¿ë
+                // í˜„ì¬ ì¬ìƒ ì¤‘ì¸ BGMì˜ SoundDataë¥¼ ì°¾ì•„ì„œ ë³¼ë¥¨ ì ìš©
                 foreach (var soundData in soundDataList)
                 {
                     if (soundData.audioClip == bgmSource.clip)
@@ -317,7 +317,7 @@ namespace GameName.Managers
         #region Save/Load Settings
 
         /// <summary>
-        /// º¼·ı ¼³Á¤ ÀúÀå
+        /// ë³¼ë¥¨ ì„¤ì • ì €ì¥
         /// </summary>
         private void SaveVolumeSettings()
         {
@@ -328,7 +328,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// º¼·ı ¼³Á¤ ·Îµå
+        /// ë³¼ë¥¨ ì„¤ì • ë¡œë“œ
         /// </summary>
         private void LoadVolumeSettings()
         {
@@ -344,7 +344,7 @@ namespace GameName.Managers
         #region Utility
 
         /// <summary>
-        /// BGMÀÌ Àç»ı ÁßÀÎÁö È®ÀÎ
+        /// BGMì´ ì¬ìƒ ì¤‘ì¸ì§€ í™•ì¸
         /// </summary>
         public bool IsBGMPlaying()
         {
@@ -352,7 +352,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// ÇöÀç º¼·ı °ª °¡Á®¿À±â
+        /// í˜„ì¬ ë³¼ë¥¨ ê°’ ê°€ì ¸ì˜¤ê¸°
         /// </summary>
         public float GetMasterVolume() => masterVolume;
         public float GetBGMVolume() => bgmVolume;
