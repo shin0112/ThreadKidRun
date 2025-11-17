@@ -1,3 +1,4 @@
+using GameName.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,7 +31,10 @@ public class SettingUI : MonoBehaviour
     /// <param name="volume"></param>
     private void SetSoundEffecVolume(float volume)
     {
-        // todo: 오디오 믹서와 연결
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetSFXVolume(volume);
+        }
         Logger.Log($"효과음 크기: {volume}");
     }
 
@@ -40,7 +44,10 @@ public class SettingUI : MonoBehaviour
     /// <param name="volume"></param>
     private void SetBgSoundVolume(float volume)
     {
-        // todo: 오디오 믹서와 연결
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.SetBGMVolume(volume);
+        }
         Logger.Log($"배경음악 크기: {volume}");
     }
 
