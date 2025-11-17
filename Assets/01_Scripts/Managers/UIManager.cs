@@ -35,18 +35,25 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         // event
-        GameManager.Instance.OnScoreChanged += _totalCoinUI.UpdateCoinText;
+        GameManager.Instance.OnScoreChanged += ScoreEvents;
+
+        SetDefaultMode();
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnScoreChanged -= _totalCoinUI.UpdateCoinText;
+        GameManager.Instance.OnScoreChanged -= ScoreEvents;
     }
 
     private void Init()
     {
         _uiActives.Clear();
         _uiActives = GetComponentsInChildren<IUIActive>().ToList();
+    }
+
+    private void ScoreEvents(int value)
+    {
+        _scoreUI.UpdataeCurrentScore(value);
     }
 
     #region Window On/Off
