@@ -11,15 +11,18 @@ public class ButtonUI : MonoBehaviour, IUIActive
 
     private void Start()
     {
-        _settingButton.onClick.AddListener(UIManager.Instance.ToggleSettingUI);
+        UIManager instance = UIManager.Instance;
+
+        _settingButton.onClick.AddListener(instance.ToggleSettingUI);
+        _pauseButton.onClick.AddListener(instance.TogglePauseUI);
         // todo: store button - ui 만들고 연결
-        // todo: pause button - 게임 멈춤 로직 연결
     }
 
     private void OnDestroy()
     {
         _settingButton.onClick.RemoveAllListeners();
         _storeButton.onClick.RemoveAllListeners();
+        _pauseButton.onClick.RemoveAllListeners();
     }
 
     public void SetGameMode()

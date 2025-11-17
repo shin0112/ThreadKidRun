@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private SettingUI _settingUI;
+    [SerializeField] private PauseUI _pauseUI;
     [SerializeField] private CoinUI _totalCoinUI;
     [SerializeField] private ScoreUI _scoreUI;
     private List<IUIActive> _uiActives = new();
@@ -48,10 +49,23 @@ public class UIManager : MonoBehaviour
         _uiActives = GetComponentsInChildren<IUIActive>().ToList();
     }
 
+    #region Window On/Off
+    /// <summary>
+    /// 설정창 여닫기
+    /// </summary>
     public void ToggleSettingUI()
     {
         _settingUI.gameObject.Toggle();
     }
+
+    /// <summary>
+    /// 일시정지창 여닫기
+    /// </summary>
+    public void TogglePauseUI()
+    {
+        _pauseUI.gameObject.Toggle();
+    }
+    #endregion  
 
     #region 게임 오브젝트 On/Off
     public void SetGameMode()
