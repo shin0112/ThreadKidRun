@@ -75,6 +75,12 @@ public class UIManager : MonoBehaviour
     public void TogglePauseUI()
     {
         _pauseUI.gameObject.Toggle();
+
+        // 켜질 경우 점수 업데이트
+        if (_pauseUI.gameObject.activeSelf)
+        {
+            _pauseUI.UpdateCurrentScoreText(_scoreUI.CurScore);
+        }
     }
     #endregion  
 

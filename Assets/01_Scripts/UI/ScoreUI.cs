@@ -11,7 +11,8 @@ public class ScoreUI : MonoBehaviour, IUIActive
     [SerializeField] private GameObject _curScoreContainer;
 
     private int _bestScore = 0;
-    private int _curScore = 0;
+    [SerializeField] private int _curScore = 0;
+    public int CurScore => _curScore;
 
     public void UpdataeCurrentScore(int value)
     {
