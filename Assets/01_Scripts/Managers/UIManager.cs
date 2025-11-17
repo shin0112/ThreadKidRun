@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,10 @@ public class UIManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject _settingUI;
+    [SerializeField] private CoinUI _coinUI;
+
+    // 이벤트
+    public Action<int> OnCoinChanged;
 
     private void Awake()
     {
@@ -31,13 +36,23 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
+        // button
         _settingButton.onClick.AddListener(ToggleSettingUI);
+        // todo: store button - ui 만들고 연결
+        // todo: pause button - 게임 멈춤 로직 연결
+
+        // event
+        OnCoinChanged += _coinUI.UpdateCoinText;
     }
 
     private void OnDisable()
     {
+        // button
         _settingButton.onClick.RemoveAllListeners();
         _storeButton.onClick.RemoveAllListeners();
+
+        // event
+        OnCoinChanged -= _coinUI.UpdateCoinText;
     }
 
     private void ToggleSettingUI()
