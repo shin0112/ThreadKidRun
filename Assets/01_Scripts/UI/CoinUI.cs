@@ -4,10 +4,10 @@ using UnityEngine;
 public class CoinUI : MonoBehaviour
 {
     [Header("코인")]
-    [SerializeField] private TextMeshProUGUI _coin;
+    [SerializeField] private TextMeshProUGUI _totalCoin;
 
     public void UpdateCoinText(int value)
     {
-        _coin.text = value.ToString();
+        _totalCoin.text = value.ToString();
     }
 }
