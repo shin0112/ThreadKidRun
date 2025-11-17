@@ -7,13 +7,14 @@ public class ShopController : MonoBehaviour
     [Header("캐릭터")]
     [SerializeField] private Transform _characterContainer;
     [SerializeField] private List<GameObject> _characters;
+    // todo: 캐릭터 가격 연동하기
 
     [SerializeField] private Camera _shopCamera;
     public Camera ShopCamera => _shopCamera;
 
     [Header("회전")]
-    [SerializeField] private float _rotateDuration = 1f;
-    IEnumerator _rotateCoroutine;
+    [SerializeField] private float _rotateDuration = 0.5f;
+    private IEnumerator _rotateCoroutine;
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
@@ -26,35 +27,56 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 우측으로 60도 회전
+    /// </summary>
     public void RotateRight()
     {
-        StartRotate(60f);
-
         _curSelectIndex = (_curSelectIndex + 1) % Define.CharacterCount;
         Logger.Log($"현재 캐릭터 번호: {_curSelectIndex}");
+
+        StartRotate();
     }
 
+    /// <summary>
+    /// 좌측으로 60도 회전
+    /// </summary>
     public void RotateLeft()
     {
-        StartRotate(-60f);
-
         _curSelectIndex = (_curSelectIndex + Define.CharacterCount - 1) % Define.CharacterCount;
         Logger.Log($"현재 캐릭터 번호: {_curSelectIndex}");
+
+        StartRotate();
     }
 
-    private void StartRotate(float value)
+    private void StartRotate()
     {
-        Vector3 rotation = _characterContainer.localEulerAngles + new Vector3(0, value, 0);
-        _characterContainer.localEulerAngles = rotation;
+        // 진행 중인 코루틴이 있을 경우 정지
+        if (_rotateCoroutine != null)
+        {
+            StopCoroutine(_rotateCoroutine);
+        }
+
+        float targetAngle = _curSelectIndex * 60f;
+        _rotateCoroutine = RotateCoroutine(targetAngle);
+        StartCoroutine(_rotateCoroutine);
     }
 
     private IEnumerator RotateCoroutine(float value)
     {
-        float elapseed = 0f;
+        float elapsed = 0f;
 
-        float startY = _characterContainer.localEulerAngles.y;
-        float endY = startY + value;
+        Quaternion start = _characterContainer.transform.localRotation;
+        Quaternion end = Quaternion.Euler(0, value, 0);
 
-        yield return null;
+        while (elapsed < _rotateDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / _rotateDuration;
+            _characterContainer.localRotation = Quaternion.Slerp(start, end, t);
+            yield return null;
+        }
+
+        _characterContainer.localRotation = end;
     }
 }
