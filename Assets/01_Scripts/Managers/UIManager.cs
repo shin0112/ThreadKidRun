@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _settingButton;
     [SerializeField] private Button _storeButton;
     [SerializeField] private Button _pauseButton;
+    [SerializeField] private Button _homeButton;
 
     [Header("UI")]
     [SerializeField] private SettingUI _settingUI;

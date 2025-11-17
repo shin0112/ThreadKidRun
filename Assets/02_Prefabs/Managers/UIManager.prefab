@@ -323,6 +323,7 @@ MonoBehaviour:
   _settingButton: {fileID: 6636301574748888124}
   _storeButton: {fileID: 829238018179967573}
   _pauseButton: {fileID: 2001698550252755560}
+  _homeButton: {fileID: 5327602378341389769}
   _settingUI: {fileID: 1535336652802633677}
   _coinUI: {fileID: 608478666186104118}
 --- !u!1001 &371104046663832159
@@ -565,6 +566,17 @@ MonoBehaviour:
 --- !u!114 &2001698550252755560 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4239330199769108962, guid: c0ecbdf5cdce3e54087b994987ea4848, type: 3}
+  m_PrefabInstance: {fileID: 2383062135126625162}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5327602378341389769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7565242807027801667, guid: c0ecbdf5cdce3e54087b994987ea4848, type: 3}
   m_PrefabInstance: {fileID: 2383062135126625162}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
