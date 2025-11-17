@@ -30,7 +30,8 @@ public class ShopUI : MonoBehaviour, IUIActive
     #region 인터페이스 구현
     public void SetDefaultMode()
     {
-        gameObject.SetActive(false);
+        _leftArrow.gameObject.SetActive(false);
+        _rightArrow.gameObject.SetActive(false);
         _controller.ShopCamera.gameObject.SetActive(false);
     }
 
@@ -41,7 +42,8 @@ public class ShopUI : MonoBehaviour, IUIActive
 
     public void SetShopMode()
     {
-        gameObject.SetActive(true);
+        _leftArrow.gameObject.SetActive(true);
+        _rightArrow.gameObject.SetActive(true);
         _controller.ShopCamera.gameObject.SetActive(true);
     }
     #endregion
