@@ -6,22 +6,32 @@ public class MapMove : MonoBehaviour
 {
     [SerializeField] private Transform moveMap;//움직임 관여
     [SerializeField] private Transform deathZone;//부딪쳤을 때 게임삭제
-    [SerializeField] private List<MapList> mapLists;//맵리스트
+    [SerializeField] private List<GameObject> mapLists;//맵리스트
     [SerializeField] private List<GameObject> mapListPrefab;//맵생성
-    [SerializeField] private Transform LastPivot;//재생성 위치
+    [SerializeField] private Transform lastPivot;//재생성 위치
+    [SerializeField] private Transform spawnPivot;//맵을 스폰하는 위치
+
 
     [Header("Option")]
     [SerializeField] private float speed;//맵스피드
-    
+
     void Start()
     {
-        
+
+        Spawn();
+        Spawn();
+        Spawn();
+        Spawn();
+        Spawn();
+
     }
 
-    
+
     void Update()
     {
         Move();
+        //SpawnPivot();
+        DestroyMap();
     }
 
     public void Move()
@@ -32,13 +42,40 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
-        
+
+        GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
+
+
+        GameObject piece = Instantiate(prefabs, lastPivot.position, Quaternion.identity);
+        lastPivot.transform.position += new Vector3(0, 0, 10);
+
+        piece.transform.SetParent(moveMap);
+        if (mapLists.Count > 1)
+        {
+            GameObject Piece = mapLists[mapLists.Count - 1];
+
+        }
+
+        mapLists.Add(piece);
     }
 
     public void DestroyMap()
     {
+        for (int i = 0; i < mapLists.Count; i++)
+        {
+            GameObject piece = mapLists[i];
+            if (piece.transform.position.z <= deathZone.position.z)
+            {
+                mapLists.Remove(piece);
+                Destroy(piece.gameObject);
+            }
+
+        }
+
 
     }
+
+
 }
 //오브젝트 움직임
 //맵을움직이는 오브젝트를 움직임
