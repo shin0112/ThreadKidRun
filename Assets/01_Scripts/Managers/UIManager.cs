@@ -51,6 +51,10 @@ public class UIManager : MonoBehaviour
         _uiActives = GetComponentsInChildren<IUIActive>().ToList();
     }
 
+    /// <summary>
+    /// 점수 관련 이벤트
+    /// </summary>
+    /// <param name="value"></param>
     private void ScoreEvents(int value)
     {
         _scoreUI.UpdataeCurrentScore(value);
