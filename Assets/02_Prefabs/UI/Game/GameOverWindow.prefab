@@ -942,6 +942,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScoreContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 5086538606211010769, guid: 16e17445b9832f3489875cb580650c5b, type: 3}
+      propertyPath: m_Name
+      value: Text (TMP)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5852041757100588951, guid: 16e17445b9832f3489875cb580650c5b, type: 3}
+      propertyPath: m_Name
+      value: Text (TMP)
+      objectReference: {fileID: 0}
     - target: {fileID: 5946568358380378134, guid: 16e17445b9832f3489875cb580650c5b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
