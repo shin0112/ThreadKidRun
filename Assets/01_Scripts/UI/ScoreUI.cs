@@ -14,7 +14,7 @@ public class ScoreUI : MonoBehaviour, IUIActive
     [SerializeField] private int _curScore = 0;
     public int CurScore => _curScore;
 
-    public void UpdataeCurrentScore(int value)
+    public void UpdateCurrentScore(int value)
     {
         _curScore = value;
         _curScoreText.text = _curScore.ToString();

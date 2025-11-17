@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
     /// <param name="value"></param>
     private void ScoreEvents(int value)
     {
-        _scoreUI.UpdataeCurrentScore(value);
+        _scoreUI.UpdateCurrentScore(value);
     }
 
     #region Window On/Off
