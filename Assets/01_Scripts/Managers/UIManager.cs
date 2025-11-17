@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +14,13 @@ public class UIManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private SettingUI _settingUI;
-    [SerializeField] private CoinUI _coinUI;
+    [SerializeField] private CoinUI _totalCoinUI;
 
     // 이벤트
     public Action<int> OnCoinChanged;
+    [Header("텍스트")]
+    [SerializeField] private GameObject _startText;
+    [SerializeField] private GameObject _currentScore;
 
     private void Awake()
     {
@@ -33,6 +35,14 @@ public class UIManager : MonoBehaviour
 
         _settingUI.gameObject.SetActive(false);
         SetMainMode();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SetGameMode();
+        }
     }
 
     private void OnEnable()
@@ -61,17 +71,33 @@ public class UIManager : MonoBehaviour
         _settingUI.gameObject.Toggle();
     }
 
-    #region 아이콘 On/Off
+    #region 게임 오브젝트 On/Off
     public void SetGameMode()
     {
+        // 버튼
         _storeButton.gameObject.SetActive(false);
         _pauseButton.gameObject.SetActive(true);
+
+        // 아이콘
+        _totalCoinUI.gameObject.SetActive(false);
+
+        // 텍스트
+        _startText.SetActive(false);
+        _currentScore.SetActive(true);
     }
 
     public void SetMainMode()
     {
+        // 버튼
         _storeButton.gameObject.SetActive(true);
         _pauseButton.gameObject.SetActive(false);
+
+        // 아이콘
+        _totalCoinUI.gameObject.SetActive(true);
+
+        // 텍스트
+        _startText.SetActive(true);
+        _currentScore.SetActive(false);
     }
     #endregion
 }
