@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SettingUI _settingUI;
     [SerializeField] private CoinUI _totalCoinUI;
     [SerializeField] private GameOverUI _gameOverUI;
+    [SerializeField] private PauseUI _pauseUI;
 
     // 이벤트
     public Action<int> OnCoinChanged;
