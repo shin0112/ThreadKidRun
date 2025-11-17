@@ -47,7 +47,7 @@ public class MapMove : MonoBehaviour
 
 
         GameObject piece = Instantiate(prefabs, lastPivot.position, Quaternion.identity);
-        lastPivot.transform.position += new Vector3(0, 0, 10);
+        lastPivot.transform.position += new Vector3(0, 0, 24);
 
         piece.transform.SetParent(moveMap);
         if (mapLists.Count > 1)
