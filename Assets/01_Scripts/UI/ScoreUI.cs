@@ -1,18 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class ScoreUI : MonoBehaviour
+public class ScoreUI : MonoBehaviour, IUIActive
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("텍스트")]
+    [SerializeField] private TextMeshProUGUI _bestScoreText;
+    [SerializeField] private TextMeshProUGUI _curScoreText;
+
+    [Header("텍스트 컨테이너")]
+    [SerializeField] private GameObject _curScoreContainer;
+
+    private int _bestScore = 0;
+    private int _curScore = 0;
+
+    public void UpdataeCurrentScore(int value)
     {
-        
+        _curScore = value;
+        _curScoreText.text = _curScore.ToString();
+
+        if (_curScore > _bestScore) UpdateBestScore(_curScore);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateBestScore(int value)
     {
-        
+        _bestScore = value;
+        _bestScoreText.text = _bestScore.ToString();
     }
+
+    #region 인터페이스 구현
+    public void SetDefaultMode()
+    {
+        _curScoreContainer.SetActive(false);
+    }
+
+    public void SetGameMode()
+    {
+        _curScoreContainer.SetActive(true);
+    }
+    #endregion
 }
