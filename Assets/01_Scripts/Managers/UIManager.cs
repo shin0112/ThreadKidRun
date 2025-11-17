@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button _pauseButton;
 
     [Header("UI")]
-    [SerializeField] private GameObject _settingUI;
+    [SerializeField] private SettingUI _settingUI;
     [SerializeField] private CoinUI _coinUI;
 
     // 이벤트
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        _settingUI.SetActive(false);
+        _settingUI.gameObject.SetActive(false);
         SetMainMode();
     }
 
@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
 
     private void ToggleSettingUI()
     {
-        _settingUI.Toggle();
+        _settingUI.gameObject.Toggle();
     }
 
     #region 아이콘 On/Off
