@@ -137,5 +137,26 @@ namespace GameName.PowerUps
         }
 
         #endregion
+
+        #region Public Getters
+
+        /// <summary>
+        /// 파워업 지속 시간 반환
+        /// </summary>
+        public float GetDuration()
+        {
+            return powerUpData != null ? powerUpData.duration : 0f;
+        }
+
+        /// <summary>
+        /// 파워업 타입 반환
+        /// </summary>
+        public PowerUpType GetPowerUpType()
+        {
+            return powerUpData != null ? powerUpData.powerUpType : PowerUpType.Invincibility;
+        }
+
+        #endregion
+
     }
 }
