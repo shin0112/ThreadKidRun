@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+
 
 public class weather : MonoBehaviour
 {
@@ -8,13 +10,10 @@ public class weather : MonoBehaviour
     public Coin coin;
     private bool isScore = false;
     public Camera camera;
+    
     void Start()
     {
-
         camera = Camera.main;
-
-
-
     }
 
 

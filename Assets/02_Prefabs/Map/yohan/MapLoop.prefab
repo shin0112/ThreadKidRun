@@ -389,13 +389,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapTile_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2765403917004415846, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3736431004458995327, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4918015094385780250, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_TagString
-      value: Obstacle
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5091036537081856512, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -451,23 +455,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695817709605878944, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.69730717
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5695817709605878944, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.117314786
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 5695817709605878944, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.69730717
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5695817709605878944, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.117314786
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5695817709605878944, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -19.1
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 5847583368023215627, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       propertyPath: m_TagString
@@ -494,18 +498,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5380936539477607509, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
+    - {fileID: 1044853242124467011, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3099584692084082292, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3962717042458897663}
-    - targetCorrespondingSourceObject: {fileID: 6548538560374395544, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2664270406805263382}
-    - targetCorrespondingSourceObject: {fileID: 2219685385709399438, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5673967274756190103}
     - targetCorrespondingSourceObject: {fileID: 5814027212883041305, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5188348309177961598}
@@ -546,38 +546,6 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!1 &4099638039870966292 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2219685385709399438, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
-  m_PrefabInstance: {fileID: 2749798361856321434}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &5673967274756190103
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099638039870966292}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -631,38 +599,6 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8641537018009295917}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!1 &8991483018127734018 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6548538560374395544, guid: 62bbdeb0c4ad47e4bb49ed5a22c577e8, type: 3}
-  m_PrefabInstance: {fileID: 2749798361856321434}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &2664270406805263382
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8991483018127734018}
   serializedVersion: 4
   m_Mass: 1
   m_Drag: 0
