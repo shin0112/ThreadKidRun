@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1601ea8c6afa344494e136540a5a927, type: 3}
-  m_Name: Aachievement_Buy
+  m_Name: Aachievement_Coin 2
   m_EditorClassIdentifier: 
-  id: BuyItem_01
-  achievementName: Buy item Achievement (Lv1)
-  description: Unlocked when you buy 10 items.
-  requiredCount: 10
-  type: 1
+  id: ObtainCoin_03
+  achievementName: Obtain coin (Lv3)
+  description: Unlocked when you obtain 100 coins.
+  requiredCount: 100
+  type: 0
   isUnlocked: 0
   scoreReward: 0
