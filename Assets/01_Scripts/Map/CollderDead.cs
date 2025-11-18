@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollderDead : MonoBehaviour
 {
     public MapMove mapMove;
+    public GameObject Player;
     void Start()
     {
         
@@ -22,5 +23,6 @@ public class CollderDead : MonoBehaviour
             mapMove.DestroyMap();
         }
     }
+
 
 }

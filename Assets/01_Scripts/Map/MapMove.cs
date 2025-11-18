@@ -14,6 +14,7 @@ public class MapMove : MonoBehaviour
 
     [Header("Option")]
     [SerializeField] private float speed;//맵스피드
+    public bool isMove = true;
 
     void Start()
     {
@@ -36,9 +37,13 @@ public class MapMove : MonoBehaviour
 
     public void Move()
     {
-        Vector3 pos = moveMap.transform.position;
-        pos.z -= speed * Time.deltaTime;
-        moveMap.transform.position = pos;
+        if (isMove == true)
+        {
+            Vector3 pos = moveMap.transform.position;
+            pos.z -= speed * Time.deltaTime;
+            moveMap.transform.position = pos;
+        }
+
     }
     public void Spawn()
     {
@@ -74,7 +79,6 @@ public class MapMove : MonoBehaviour
 
 
     }
-
 
 }
 //오브젝트 움직임

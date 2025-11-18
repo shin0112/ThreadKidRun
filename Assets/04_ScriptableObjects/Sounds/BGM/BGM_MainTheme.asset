@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: MainTheme
   soundType: 0
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 3abff86c1ec075a4d96150e26b946970, type: 3}
   volume: 1
   loop: 1
   pitch: 1
