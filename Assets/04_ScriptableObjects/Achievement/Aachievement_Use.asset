@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c1601ea8c6afa344494e136540a5a927, type: 3}
-  m_Name: Aachievement_Default
+  m_Name: Aachievement_Use
   m_EditorClassIdentifier: 
-  id: COIN_5
-  achievementName: Level1
-  description: ' Unlocked when you obtain 10 coins.'
-  requiredCount: 0
-  type: 0
-  isUnlocked: 1
-  scoreReward: 999
+  id: UseItem_01
+  achievementName: Use item Achievement (Lv1)
+  description: Unlocked when you use 10 items.
+  requiredCount: 10
+  type: 2
+  isUnlocked: 0
+  scoreReward: 0

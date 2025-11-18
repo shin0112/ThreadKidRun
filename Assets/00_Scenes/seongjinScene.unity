@@ -1822,6 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92d0b0c3374c0349a1696bb44374318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isReset: 1
   achievementManager: {fileID: 1736180776}
 --- !u!1 &1938887517
 GameObject:
@@ -2249,6 +2250,7 @@ MonoBehaviour:
   _pauseUI: {fileID: 836583164}
   _totalCoinUI: {fileID: 871671369}
   _scoreUI: {fileID: 891282578}
+  _shopUI: {fileID: 0}
   _startText: {fileID: 44696528}
 --- !u!4 &2569739180311358067
 Transform:
