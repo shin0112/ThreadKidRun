@@ -11,7 +11,7 @@ public class AchievementManager : MonoBehaviour
     public List<AchievementData> allAchievements;
 
     // GameManager에서 호출되어 현재 습득한/사용된 개수를 확인
-    public void CheckAchievements(int currentCount)
+    public void CheckAchievements(int currentCount, AchievementType type)
     {
         foreach (var achievement in allAchievements)
         {
@@ -21,13 +21,15 @@ public class AchievementManager : MonoBehaviour
                 continue;
             }
 
-            // 해금 요구량을 충족하면 업적을 해금
-            if (currentCount >= achievement.requiredCount)
+            if (achievement.type == type)
             {
-                achievement.Unlock();
+                if (currentCount >= achievement.requiredCount)
+                {   // 해금 요구량을 충족하면 업적을 해금
+                    achievement.Unlock();
 
-                // UI 업데이트를 위해 이벤트 발생
-                OnAchievementUnlocked?.Invoke(achievement);
+                    // UI 업데이트를 위해 이벤트 발생
+                    OnAchievementUnlocked?.Invoke(achievement);
+                }
             }
         }
     }

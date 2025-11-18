@@ -16,7 +16,7 @@ public class Coin : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.EarnCoin(coinValue);
+                GameManager.Instance.AddScore(coinValue);
             }
             Destroy(gameObject);
         }
