@@ -29,7 +29,7 @@ namespace GameName.Data
         public Sprite icon;
 
         [Tooltip("파워업 활성화 사운드")]
-        public AudioClip activationSound;
+        public SoundData activationSound;
 
         [Tooltip("파워업 이펙트 프리팹")]
         public GameObject particleEffect;
