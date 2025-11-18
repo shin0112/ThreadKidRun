@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameName.Data;
@@ -7,21 +7,21 @@ using GameName.Managers;
 namespace GameName.PowerUps
 {
     /// <summary>
-    /// ¸ğµç ÆÄ¿ö¾÷ÀÇ ±âº» Å¬·¡½º
-    /// °¢ ÆÄ¿ö¾÷Àº ÀÌ Å¬·¡½º¸¦ »ó¼Ó¹Ş¾Æ Activate/Deactivate ±¸Çö
+    /// ëª¨ë“  íŒŒì›Œì—…ì˜ ê¸°ë³¸ í´ë˜ìŠ¤
+    /// ê° íŒŒì›Œì—…ì€ ì´ í´ë˜ìŠ¤ë¥¼ ìƒì†ë°›ì•„ Activate/Deactivate êµ¬í˜„
     /// </summary>
     public abstract class PowerUpBase : MonoBehaviour
     {
         #region Fields
 
         [Header("=== PowerUp Data ===")]
-        [Tooltip("ÀÌ ÆÄ¿ö¾÷ÀÇ µ¥ÀÌÅÍ (ScriptableObject)")]
+        [Tooltip("ì´ íŒŒì›Œì—…ì˜ ë°ì´í„° (ScriptableObject)")]
         [SerializeField] protected PowerUpData powerUpData;
 
-        // ÆÄ¿ö¾÷ È°¼ºÈ­ »óÅÂ
+        // íŒŒì›Œì—… í™œì„±í™” ìƒíƒœ
         protected bool isActive = false;
 
-        // ÇöÀç ÁøÇà ÁßÀÎ ÄÚ·çÆ¾ ÂüÁ¶
+        // í˜„ì¬ ì§„í–‰ ì¤‘ì¸ ì½”ë£¨í‹´ ì°¸ì¡°
         protected Coroutine powerUpCoroutine;
 
         #endregion
@@ -30,10 +30,10 @@ namespace GameName.PowerUps
 
         protected virtual void Awake()
         {
-            // PowerUpData °ËÁõ
+            // PowerUpData ê²€ì¦
             if (powerUpData == null)
             {
-                Debug.LogError($"[PowerUpBase] {gameObject.name}¿¡ PowerUpData°¡ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+                Debug.LogError($"[PowerUpBase] {gameObject.name}ì— PowerUpDataê°€ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             }
         }
 
@@ -42,18 +42,18 @@ namespace GameName.PowerUps
         #region Public Methods
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ ½ÇÇà (¿ÜºÎ¿¡¼­ È£Ãâ)
+        /// íŒŒì›Œì—… ì‹¤í–‰ (ì™¸ë¶€ì—ì„œ í˜¸ì¶œ)
         /// </summary>
         public void ExecutePowerUp()
         {
-            // ÀÌ¹Ì È°¼ºÈ­ ÁßÀÌ¸é Áßº¹ ½ÇÇà ¹æÁö
+            // ì´ë¯¸ í™œì„±í™” ì¤‘ì´ë©´ ì¤‘ë³µ ì‹¤í–‰ ë°©ì§€
             if (isActive)
             {
-                Debug.LogWarning($"[PowerUpBase] {powerUpData.powerUpName}ÀÌ ÀÌ¹Ì È°¼ºÈ­ ÁßÀÔ´Ï´Ù!");
+                Debug.LogWarning($"[PowerUpBase] {powerUpData.powerUpName}ì´ ì´ë¯¸ í™œì„±í™” ì¤‘ì…ë‹ˆë‹¤!");
                 return;
             }
 
-            // ÄÚ·çÆ¾À¸·Î Å¸ÀÌ¸Ó ½ÃÀÛ
+            // ì½”ë£¨í‹´ìœ¼ë¡œ íƒ€ì´ë¨¸ ì‹œì‘
             powerUpCoroutine = StartCoroutine(PowerUpRoutine());
         }
 
@@ -62,39 +62,39 @@ namespace GameName.PowerUps
         #region Coroutine
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ Å¸ÀÌ¸Ó ÄÚ·çÆ¾
+        /// íŒŒì›Œì—… íƒ€ì´ë¨¸ ì½”ë£¨í‹´
         /// </summary>
         private System.Collections.IEnumerator PowerUpRoutine()
         {
-            // È°¼ºÈ­ ½ÃÀÛ
+            // í™œì„±í™” ì‹œì‘
             isActive = true;
 
-            // »ç¿îµå Àç»ı
+            // ì‚¬ìš´ë“œ ì¬ìƒ
             if (powerUpData.activationSound != null && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySFX(powerUpData.activationSound.soundName);
             }
 
-            // ÆÄÆ¼Å¬ È¿°ú »ı¼º (ÀÖÀ¸¸é)
+            // íŒŒí‹°í´ íš¨ê³¼ ìƒì„± (ìˆìœ¼ë©´)
             if (powerUpData.particleEffect != null)
             {
                 Instantiate(powerUpData.particleEffect, transform.position, Quaternion.identity);
             }
 
-            // È¿°ú È°¼ºÈ­ (ÀÚ½Ä Å¬·¡½º ±¸Çö)
+            // íš¨ê³¼ í™œì„±í™” (ìì‹ í´ë˜ìŠ¤ êµ¬í˜„)
             Activate();
 
-            Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} È°¼ºÈ­! (Áö¼Ó½Ã°£: {powerUpData.duration}ÃÊ)");
+            Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} í™œì„±í™”! (ì§€ì†ì‹œê°„: {powerUpData.duration}ì´ˆ)");
 
-            // Áö¼Ó ½Ã°£¸¸Å­ ´ë±â
+            // ì§€ì† ì‹œê°„ë§Œí¼ ëŒ€ê¸°
             yield return new WaitForSeconds(powerUpData.duration);
 
-            // È¿°ú ºñÈ°¼ºÈ­ (ÀÚ½Ä Å¬·¡½º ±¸Çö)
+            // íš¨ê³¼ ë¹„í™œì„±í™” (ìì‹ í´ë˜ìŠ¤ êµ¬í˜„)
             Deactivate();
 
-            Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} ºñÈ°¼ºÈ­!");
+            Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} ë¹„í™œì„±í™”!");
 
-            // È°¼ºÈ­ »óÅÂ ÇØÁ¦
+            // í™œì„±í™” ìƒíƒœ í•´ì œ
             isActive = false;
             powerUpCoroutine = null;
         }
@@ -104,12 +104,12 @@ namespace GameName.PowerUps
         #region Abstract Methods
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ È¿°ú È°¼ºÈ­ (ÀÚ½Ä Å¬·¡½º¿¡¼­ ±¸Çö)
+        /// íŒŒì›Œì—… íš¨ê³¼ í™œì„±í™” (ìì‹ í´ë˜ìŠ¤ì—ì„œ êµ¬í˜„)
         /// </summary>
         protected abstract void Activate();
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ È¿°ú ºñÈ°¼ºÈ­ (ÀÚ½Ä Å¬·¡½º¿¡¼­ ±¸Çö)
+        /// íŒŒì›Œì—… íš¨ê³¼ ë¹„í™œì„±í™” (ìì‹ í´ë˜ìŠ¤ì—ì„œ êµ¬í˜„)
         /// </summary>
         protected abstract void Deactivate();
 
@@ -118,7 +118,7 @@ namespace GameName.PowerUps
         #region Optional Methods
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ °­Á¦ Áß´Ü (¿¹: ÇÃ·¹ÀÌ¾î »ç¸Á ½Ã)
+        /// íŒŒì›Œì—… ê°•ì œ ì¤‘ë‹¨ (ì˜ˆ: í”Œë ˆì´ì–´ ì‚¬ë§ ì‹œ)
         /// </summary>
         public void ForceStop()
         {
@@ -132,7 +132,7 @@ namespace GameName.PowerUps
             {
                 Deactivate();
                 isActive = false;
-                Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} °­Á¦ Áß´Ü!");
+                Debug.Log($"[PowerUpBase] {powerUpData.powerUpName} ê°•ì œ ì¤‘ë‹¨!");
             }
         }
 
