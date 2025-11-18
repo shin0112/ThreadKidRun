@@ -1,28 +1,28 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameName.PowerUps
 {
     /// <summary>
-    /// ½ºÇÇµå ºÎ½ºÆ® ÆÄ¿ö¾÷: ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¼Óµµ Áõ°¡
+    /// ìŠ¤í”¼ë“œ ë¶€ìŠ¤íŠ¸ íŒŒì›Œì—…: í”Œë ˆì´ì–´ ì´ë™ ì†ë„ ì¦ê°€
     /// </summary>
     public class SpeedBoostPowerUp : PowerUpBase
     {
         #region Fields
 
         [Header("=== Speed Boost Settings ===")]
-        [Tooltip("¼Óµµ ºÎ½ºÆ®¸¦ Àû¿ëÇÒ ÇÃ·¹ÀÌ¾î")]
+        [Tooltip("ì†ë„ ë¶€ìŠ¤íŠ¸ë¥¼ ì ìš©í•  í”Œë ˆì´ì–´")]
         [SerializeField] private GameObject player;
 
-        // ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ·¯ ½ºÅ©¸³Æ® ÂüÁ¶ (³ªÁß¿¡ Ãß°¡ ¿¹Á¤)
+        // í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ëŸ¬ ìŠ¤í¬ë¦½íŠ¸ ì°¸ì¡° (ë‚˜ì¤‘ì— ì¶”ê°€ ì˜ˆì •)
         // private PlayerController playerController;
 
-        // ¿ø·¡ ¼Óµµ¸¦ ÀúÀå (º¹±¸¿ë)
+        // ì›ë˜ ì†ë„ë¥¼ ì €ì¥ (ë³µêµ¬ìš©)
         private float originalSpeed;
 
         [Header("=== Optional Effects ===")]
-        [Tooltip("¼Óµµ ºÎ½ºÆ® ½Ã È°¼ºÈ­ÇÒ Æ®·¹ÀÏ È¿°ú")]
+        [Tooltip("ì†ë„ ë¶€ìŠ¤íŠ¸ ì‹œ í™œì„±í™”í•  íŠ¸ë ˆì¼ íš¨ê³¼")]
         [SerializeField] private TrailRenderer trailRenderer;
 
         #endregion
@@ -31,26 +31,26 @@ namespace GameName.PowerUps
 
         protected override void Awake()
         {
-            base.Awake(); // ºÎ¸ğ Å¬·¡½º Awake È£Ãâ
+            base.Awake(); // ë¶€ëª¨ í´ë˜ìŠ¤ Awake í˜¸ì¶œ
 
-            // ÇÃ·¹ÀÌ¾î ÀÚµ¿ Ã£±â (¿¬°á ¾È µÇ¾î ÀÖÀ¸¸é)
+            // í”Œë ˆì´ì–´ ìë™ ì°¾ê¸° (ì—°ê²° ì•ˆ ë˜ì–´ ìˆìœ¼ë©´)
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
 
                 if (player == null)
                 {
-                    Debug.LogError("[SpeedBoostPowerUp] Player ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                    Debug.LogError("[SpeedBoostPowerUp] Player íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                 }
             }
 
-            // ³ªÁß¿¡ PlayerController ½ºÅ©¸³Æ® °¡Á®¿À±â
+            // ë‚˜ì¤‘ì— PlayerController ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
             // if (player != null)
             // {
             //     playerController = player.GetComponent<PlayerController>();
             // }
 
-            // Æ®·¹ÀÏ ÀÚµ¿ Ã£±â
+            // íŠ¸ë ˆì¼ ìë™ ì°¾ê¸°
             if (trailRenderer == null && player != null)
             {
                 trailRenderer = player.GetComponentInChildren<TrailRenderer>();
@@ -62,46 +62,46 @@ namespace GameName.PowerUps
         #region PowerUpBase Implementation
 
         /// <summary>
-        /// ¼Óµµ ºÎ½ºÆ® È¿°ú È°¼ºÈ­
+        /// ì†ë„ ë¶€ìŠ¤íŠ¸ íš¨ê³¼ í™œì„±í™”
         /// </summary>
         protected override void Activate()
         {
             if (player == null)
             {
-                Debug.LogError("[SpeedBoostPowerUp] ÇÃ·¹ÀÌ¾î°¡ ¿¬°áµÇÁö ¾Ê¾Æ ¼Óµµ ºÎ½ºÆ®¸¦ È°¼ºÈ­ÇÒ ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogError("[SpeedBoostPowerUp] í”Œë ˆì´ì–´ê°€ ì—°ê²°ë˜ì§€ ì•Šì•„ ì†ë„ ë¶€ìŠ¤íŠ¸ë¥¼ í™œì„±í™”í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                 return;
             }
 
-            // TODO: ÆÀ¿øÀÌ PlayerController ¿Ï¼ºÇÏ¸é ÁÖ¼® ÇØÁ¦
+            // TODO: íŒ€ì›ì´ PlayerController ì™„ì„±í•˜ë©´ ì£¼ì„ í•´ì œ
             // if (playerController != null)
             // {
             //     originalSpeed = playerController.moveSpeed;
             //     playerController.moveSpeed *= powerUpData.effectValue;
             // }
 
-            Debug.Log($"[SpeedBoostPowerUp] ¼Óµµ ºÎ½ºÆ® È°¼ºÈ­! (¹èÀ²: {powerUpData.effectValue}x)");
+            Debug.Log($"[SpeedBoostPowerUp] ì†ë„ ë¶€ìŠ¤íŠ¸ í™œì„±í™”! (ë°°ìœ¨: {powerUpData.effectValue}x)");
 
-            // ½Ã°¢Àû ÇÇµå¹é
+            // ì‹œê°ì  í”¼ë“œë°±
             ChangePlayerColor(Color.cyan);
             EnableTrailEffect();
         }
 
         /// <summary>
-        /// ¼Óµµ ºÎ½ºÆ® È¿°ú ºñÈ°¼ºÈ­
+        /// ì†ë„ ë¶€ìŠ¤íŠ¸ íš¨ê³¼ ë¹„í™œì„±í™”
         /// </summary>
         protected override void Deactivate()
         {
             if (player == null) return;
 
-            // TODO: ÆÀ¿øÀÌ PlayerController ¿Ï¼ºÇÏ¸é ÁÖ¼® ÇØÁ¦
+            // TODO: íŒ€ì›ì´ PlayerController ì™„ì„±í•˜ë©´ ì£¼ì„ í•´ì œ
             // if (playerController != null)
             // {
             //     playerController.moveSpeed = originalSpeed;
             // }
 
-            Debug.Log("[SpeedBoostPowerUp] ¼Óµµ ºÎ½ºÆ® ÇØÁ¦! ¿ø·¡ ¼Óµµ·Î º¹±¸µË´Ï´Ù.");
+            Debug.Log("[SpeedBoostPowerUp] ì†ë„ ë¶€ìŠ¤íŠ¸ í•´ì œ! ì›ë˜ ì†ë„ë¡œ ë³µêµ¬ë©ë‹ˆë‹¤.");
 
-            // ½Ã°¢Àû ÇÇµå¹é º¹±¸
+            // ì‹œê°ì  í”¼ë“œë°± ë³µêµ¬
             ResetPlayerColor();
             DisableTrailEffect();
         }
@@ -111,7 +111,7 @@ namespace GameName.PowerUps
         #region Visual Feedback
 
         /// <summary>
-        /// ÇÃ·¹ÀÌ¾î »ö»ó º¯°æ (¼Óµµ ºÎ½ºÆ® Ç¥½Ã)
+        /// í”Œë ˆì´ì–´ ìƒ‰ìƒ ë³€ê²½ (ì†ë„ ë¶€ìŠ¤íŠ¸ í‘œì‹œ)
         /// </summary>
         private void ChangePlayerColor(Color color)
         {
@@ -121,7 +121,7 @@ namespace GameName.PowerUps
                 renderer.material.color = color;
             }
 
-            // ÀÚ½Ä ¿ÀºêÁ§Æ®µµ »ö»ó º¯°æ
+            // ìì‹ ì˜¤ë¸Œì íŠ¸ë„ ìƒ‰ìƒ ë³€ê²½
             Renderer[] childRenderers = player.GetComponentsInChildren<Renderer>();
             foreach (Renderer childRenderer in childRenderers)
             {
@@ -130,7 +130,7 @@ namespace GameName.PowerUps
         }
 
         /// <summary>
-        /// ÇÃ·¹ÀÌ¾î »ö»ó ¿ø·¡´ë·Î º¹±¸
+        /// í”Œë ˆì´ì–´ ìƒ‰ìƒ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
         /// </summary>
         private void ResetPlayerColor()
         {
@@ -142,7 +142,7 @@ namespace GameName.PowerUps
         #region Optional Trail Effect
 
         /// <summary>
-        /// Æ®·¹ÀÏ È¿°ú È°¼ºÈ­
+        /// íŠ¸ë ˆì¼ íš¨ê³¼ í™œì„±í™”
         /// </summary>
         private void EnableTrailEffect()
         {
@@ -150,12 +150,12 @@ namespace GameName.PowerUps
             {
                 trailRenderer.enabled = true;
                 trailRenderer.startColor = Color.cyan;
-                trailRenderer.endColor = new Color(0, 1, 1, 0); // Åõ¸íÇÑ cyan
+                trailRenderer.endColor = new Color(0, 1, 1, 0); // íˆ¬ëª…í•œ cyan
             }
         }
 
         /// <summary>
-        /// Æ®·¹ÀÏ È¿°ú ºñÈ°¼ºÈ­
+        /// íŠ¸ë ˆì¼ íš¨ê³¼ ë¹„í™œì„±í™”
         /// </summary>
         private void DisableTrailEffect()
         {
