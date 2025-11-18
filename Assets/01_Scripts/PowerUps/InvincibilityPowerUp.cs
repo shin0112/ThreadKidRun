@@ -1,21 +1,21 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameName.PowerUps
 {
     /// <summary>
-    /// ¹«Àû ÆÄ¿ö¾÷: Àå¾Ö¹°°ú Ãæµ¹ÇØµµ °ÔÀÓ¿À¹öµÇÁö ¾ÊÀ½
+    /// ë¬´ì  íŒŒì›Œì—…: ì¥ì• ë¬¼ê³¼ ì¶©ëŒí•´ë„ ê²Œì„ì˜¤ë²„ë˜ì§€ ì•ŠìŒ
     /// </summary>
     public class InvincibilityPowerUp : PowerUpBase
     {
         #region Fields
 
         [Header("=== Invincibility Settings ===")]
-        [Tooltip("¹«Àû È¿°ú¸¦ Àû¿ëÇÒ ÇÃ·¹ÀÌ¾î")]
+        [Tooltip("ë¬´ì  íš¨ê³¼ë¥¼ ì ìš©í•  í”Œë ˆì´ì–´")]
         [SerializeField] private GameObject player;
 
-        // ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ·¯ ½ºÅ©¸³Æ® ÂüÁ¶ (³ªÁß¿¡ Ãß°¡ ¿¹Á¤)
+        // í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ëŸ¬ ìŠ¤í¬ë¦½íŠ¸ ì°¸ì¡° (ë‚˜ì¤‘ì— ì¶”ê°€ ì˜ˆì •)
         // private PlayerController playerController;
 
         #endregion
@@ -24,20 +24,20 @@ namespace GameName.PowerUps
 
         protected override void Awake()
         {
-            base.Awake(); // ºÎ¸ğ Å¬·¡½º Awake È£Ãâ
+            base.Awake(); // ë¶€ëª¨ í´ë˜ìŠ¤ Awake í˜¸ì¶œ
 
-            // ÇÃ·¹ÀÌ¾î ÀÚµ¿ Ã£±â (¿¬°á ¾È µÇ¾î ÀÖÀ¸¸é)
+            // í”Œë ˆì´ì–´ ìë™ ì°¾ê¸° (ì—°ê²° ì•ˆ ë˜ì–´ ìˆìœ¼ë©´)
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
 
                 if (player == null)
                 {
-                    Debug.LogError("[InvincibilityPowerUp] Player ÅÂ±×¸¦ °¡Áø ¿ÀºêÁ§Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                    Debug.LogError("[InvincibilityPowerUp] Player íƒœê·¸ë¥¼ ê°€ì§„ ì˜¤ë¸Œì íŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                 }
             }
 
-            // ³ªÁß¿¡ PlayerController ½ºÅ©¸³Æ® °¡Á®¿À±â
+            // ë‚˜ì¤‘ì— PlayerController ìŠ¤í¬ë¦½íŠ¸ ê°€ì ¸ì˜¤ê¸°
             // if (player != null)
             // {
             //     playerController = player.GetComponent<PlayerController>();
@@ -49,50 +49,50 @@ namespace GameName.PowerUps
         #region PowerUpBase Implementation
 
         /// <summary>
-        /// ¹«Àû È¿°ú È°¼ºÈ­
+        /// ë¬´ì  íš¨ê³¼ í™œì„±í™”
         /// </summary>
         protected override void Activate()
         {
             if (player == null)
             {
-                Debug.LogError("[InvincibilityPowerUp] ÇÃ·¹ÀÌ¾î°¡ ¿¬°áµÇÁö ¾Ê¾Æ ¹«ÀûÀ» È°¼ºÈ­ÇÒ ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogError("[InvincibilityPowerUp] í”Œë ˆì´ì–´ê°€ ì—°ê²°ë˜ì§€ ì•Šì•„ ë¬´ì ì„ í™œì„±í™”í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                 return;
             }
 
-            // TODO: ÆÀ¿øÀÌ PlayerController ¿Ï¼ºÇÏ¸é ÁÖ¼® ÇØÁ¦
+            // TODO: íŒ€ì›ì´ PlayerController ì™„ì„±í•˜ë©´ ì£¼ì„ í•´ì œ
             // if (playerController != null)
             // {
             //     playerController.SetInvincible(true);
             // }
 
-            // ÀÓ½Ã: ·¹ÀÌ¾î º¯°æÀ¸·Î Ãæµ¹ ¹«½Ã (´ë¾È ¹æ¹ı)
+            // ì„ì‹œ: ë ˆì´ì–´ ë³€ê²½ìœ¼ë¡œ ì¶©ëŒ ë¬´ì‹œ (ëŒ€ì•ˆ ë°©ë²•)
             player.layer = LayerMask.NameToLayer("InvinciblePlayer");
 
-            Debug.Log("[InvincibilityPowerUp] ¹«Àû È°¼ºÈ­! ÇÃ·¹ÀÌ¾î°¡ Àå¾Ö¹°À» ¹«½ÃÇÕ´Ï´Ù.");
+            Debug.Log("[InvincibilityPowerUp] ë¬´ì  í™œì„±í™”! í”Œë ˆì´ì–´ê°€ ì¥ì• ë¬¼ì„ ë¬´ì‹œí•©ë‹ˆë‹¤.");
 
-            // ½Ã°¢Àû ÇÇµå¹é (¿É¼Ç)
+            // ì‹œê°ì  í”¼ë“œë°± (ì˜µì…˜)
             ChangePlayerColor(Color.yellow);
         }
 
         /// <summary>
-        /// ¹«Àû È¿°ú ºñÈ°¼ºÈ­
+        /// ë¬´ì  íš¨ê³¼ ë¹„í™œì„±í™”
         /// </summary>
         protected override void Deactivate()
         {
             if (player == null) return;
 
-            // TODO: ÆÀ¿øÀÌ PlayerController ¿Ï¼ºÇÏ¸é ÁÖ¼® ÇØÁ¦
+            // TODO: íŒ€ì›ì´ PlayerController ì™„ì„±í•˜ë©´ ì£¼ì„ í•´ì œ
             // if (playerController != null)
             // {
             //     playerController.SetInvincible(false);
             // }
 
-            // ÀÓ½Ã: ·¹ÀÌ¾î ¿ø·¡´ë·Î º¹±¸
+            // ì„ì‹œ: ë ˆì´ì–´ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
             player.layer = LayerMask.NameToLayer("Player");
 
-            Debug.Log("[InvincibilityPowerUp] ¹«Àû ÇØÁ¦! Á¤»ó Ãæµ¹·Î º¹±¸µË´Ï´Ù.");
+            Debug.Log("[InvincibilityPowerUp] ë¬´ì  í•´ì œ! ì •ìƒ ì¶©ëŒë¡œ ë³µêµ¬ë©ë‹ˆë‹¤.");
 
-            // ½Ã°¢Àû ÇÇµå¹é º¹±¸
+            // ì‹œê°ì  í”¼ë“œë°± ë³µêµ¬
             ResetPlayerColor();
         }
 
@@ -101,7 +101,7 @@ namespace GameName.PowerUps
         #region Visual Feedback
 
         /// <summary>
-        /// ÇÃ·¹ÀÌ¾î »ö»ó º¯°æ (¹«Àû Ç¥½Ã)
+        /// í”Œë ˆì´ì–´ ìƒ‰ìƒ ë³€ê²½ (ë¬´ì  í‘œì‹œ)
         /// </summary>
         private void ChangePlayerColor(Color color)
         {
@@ -111,7 +111,7 @@ namespace GameName.PowerUps
                 renderer.material.color = color;
             }
 
-            // ÀÚ½Ä ¿ÀºêÁ§Æ®µµ »ö»ó º¯°æ
+            // ìì‹ ì˜¤ë¸Œì íŠ¸ë„ ìƒ‰ìƒ ë³€ê²½
             Renderer[] childRenderers = player.GetComponentsInChildren<Renderer>();
             foreach (Renderer childRenderer in childRenderers)
             {
@@ -120,7 +120,7 @@ namespace GameName.PowerUps
         }
 
         /// <summary>
-        /// ÇÃ·¹ÀÌ¾î »ö»ó ¿ø·¡´ë·Î º¹±¸
+        /// í”Œë ˆì´ì–´ ìƒ‰ìƒ ì›ë˜ëŒ€ë¡œ ë³µêµ¬
         /// </summary>
         private void ResetPlayerColor()
         {
