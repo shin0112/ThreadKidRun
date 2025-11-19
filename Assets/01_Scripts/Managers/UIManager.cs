@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CoinUI _totalCoinUI;
     [SerializeField] private ScoreUI _scoreUI;
     [SerializeField] private ShopUI _shopUI;
+    [SerializeField] private GameOverUI _gameOverUI;
     private List<IUIActive> _uiActives = new();
 
     [Header("텍스트")]
@@ -88,6 +89,11 @@ public class UIManager : MonoBehaviour
         {
             _pauseUI.UpdateCurrentScoreText(_scoreUI.CurScore);
         }
+    }
+
+    public void ShowGameOverWindow()
+    {
+        _gameOverUI.gameObject.SetActive(true);
     }
     #endregion  
 

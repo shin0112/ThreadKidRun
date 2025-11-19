@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class ShopController : MonoBehaviour
 {
     [Header("캐릭터")]
     [SerializeField] private Transform _characterContainer;
-    [SerializeField] private List<GameObject> _characters;
+    [SerializeField] private List<ShopCharacter> _characters;
     // todo: 캐릭터 가격 연동하기
 
     [SerializeField] private Camera _shopCamera;
@@ -15,6 +16,7 @@ public class ShopController : MonoBehaviour
     [Header("회전")]
     [SerializeField] private float _rotateDuration = 0.5f;
     private IEnumerator _rotateCoroutine;
+    public Action<int> OnChangedPriceText;
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
@@ -33,7 +35,7 @@ public class ShopController : MonoBehaviour
     public void RotateRight()
     {
         _curSelectIndex = (_curSelectIndex + 1) % Define.CharacterCount;
-        Logger.Log($"현재 캐릭터 번호: {_curSelectIndex}");
+        Logger.Log($"현재 캐릭터 위치 번호: {_curSelectIndex}");
 
         StartRotate();
     }
@@ -78,5 +80,7 @@ public class ShopController : MonoBehaviour
         }
 
         _characterContainer.localRotation = end;
+
+        OnChangedPriceText?.Invoke(_characters[_curSelectIndex].GetPriceValue());
     }
 }
