@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class AchievementUI : MonoBehaviour
 {
@@ -14,6 +15,18 @@ public class AchievementUI : MonoBehaviour
     [Header("Color Settings")]
     public Color lockedColor = Color.gray; // 잠금 상태일 때의 색상
     public Color unlockedColor = Color.yellow; // 해금 상태일 때의 색상
+
+    [Header("업적 이름")]
+    public TextMeshProUGUI titleText;
+
+    [Header("업적 설명")]
+    public TextMeshProUGUI descriptionText;
+
+    private void Start()
+    {
+        titleText.text = linkedAchievement.achievementName;
+        descriptionText.text = linkedAchievement.description;
+    }
 
     private void OnEnable()
     {

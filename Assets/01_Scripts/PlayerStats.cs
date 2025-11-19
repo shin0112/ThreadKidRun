@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
 
     public void InitPlayerData()
     {
-        hp = 100;
+        hp = 1;
         isGodMode = false;
         Debug.Log("플레이어 데이터 초기화");
     }

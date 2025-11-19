@@ -54,6 +54,7 @@ MonoBehaviour:
   _bestScoreText: {fileID: 8829512968954410809}
   _curScoreText: {fileID: 7899805138294960060}
   _curScoreContainer: {fileID: 4766568481023036799}
+  _curScore: 0
 --- !u!1 &2635665056415270853
 GameObject:
   m_ObjectHideFlags: 0
