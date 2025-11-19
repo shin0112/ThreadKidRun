@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
-  m_Name: SFX_Jump
+  m_Name: SFX_CoinGet
   m_EditorClassIdentifier: 
-  soundName: Jump
+  soundName: CoinGet
   soundType: 1
-  audioClip: {fileID: 8300000, guid: e55a9362b8ab9074f9ca7bd7cf50a8be, type: 3}
+  audioClip: {fileID: 8300000, guid: e6a8837afb090db4897111dd1af0805f, type: 3}
   volume: 1
   loop: 0
   pitch: 1
