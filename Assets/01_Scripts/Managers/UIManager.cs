@@ -22,6 +22,18 @@ public class UIManager : MonoBehaviour
     // 카메라
     private Camera _mainCamera;
 
+    private void Reset()
+    {
+        _settingUI = transform.FindChild<SettingUI>("SettingWindow");
+        _pauseUI = transform.FindChild<PauseUI>("PauseWindow");
+        _gameOverUI = transform.FindChild<GameOverUI>("GameOverWindow");
+        _totalCoinUI = transform.FindChild<CoinUI>("TotalCoin");
+        _scoreUI = transform.FindChild<ScoreUI>("Score");
+        _shopUI = transform.FindChild<ShopUI>("Shop");
+
+        _startText = transform.FindChild<Transform>("StartText").gameObject;
+    }
+
     private void Awake()
     {
         _instance = this;
