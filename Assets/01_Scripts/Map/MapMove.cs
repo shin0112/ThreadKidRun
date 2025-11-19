@@ -10,7 +10,7 @@ public class MapMove : MonoBehaviour
     [SerializeField] private List<GameObject> mapListPrefab;//맵생성
     [SerializeField] private Transform lastPivot;//재생성 위치
     [SerializeField] private Transform spawnPivot;//맵을 스폰하는 위치
-
+    [SerializeField] private Transform FirstPivot;
 
     [Header("Option")]
     [SerializeField] private float speed;//맵스피드
@@ -47,7 +47,15 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
-
+        if(mapListPrefab == null)
+        {
+            GameObject go = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
+            GameObject firstMove = Instantiate(go,FirstPivot.position, Quaternion.identity);
+        }
+        else if(mapListPrefab != null)
+        {
+            
+        }
         GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
 
 

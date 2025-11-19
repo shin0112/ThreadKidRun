@@ -622,7 +622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1084375771
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5487,6 +5487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barbarian
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce2d0ef87af20894ab57a5f1a8fded4f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5630,6 +5634,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapMove: {fileID: 1174932623}
   gameOverUi: {fileID: 0}
+  isCoinCollision: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &1174932622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5638,6 +5646,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2527266848579887723, guid: 5690149baa03b924eb480a585a78d803, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3704316590481051926, guid: 5690149baa03b924eb480a585a78d803, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5681,6 +5693,14 @@ PrefabInstance:
     - target: {fileID: 4371599347889524660, guid: 5690149baa03b924eb480a585a78d803, type: 3}
       propertyPath: m_Name
       value: MapLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371599347889524660, guid: 5690149baa03b924eb480a585a78d803, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6149131986504762503, guid: 5690149baa03b924eb480a585a78d803, type: 3}
+      propertyPath: coinValue
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5783,44 +5803,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187535601}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -16.71}
+  m_LocalRotation: {x: 0.19765733, y: 0, z: 0, w: 0.9802712}
+  m_LocalPosition: {x: 0, y: 6.58, z: -19.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1835225225
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1835225226}
-  m_Layer: 0
-  m_Name: LeftTransparencyWall
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1835225226
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835225225}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.80399454, y: -2.9834971, z: -0.8079109}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.8, y: 0, z: 0}
 --- !u!1001 &2006715839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5886,7 +5875,6 @@ SceneRoots:
   - {fileID: 1084375773}
   - {fileID: 1187535604}
   - {fileID: 1117282148}
-  - {fileID: 1835225226}
   - {fileID: 1174932622}
   - {fileID: 2006715839}
   - {fileID: 869217350}
