@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: de8ab209bcaf7e241a05ac4fdf739c59, type: 3}
-  m_Name: Skin_Default
+  m_Name: Skin_RogueHooded
   m_EditorClassIdentifier: 
-  skinID: 
-  skinName: 
-  skinPrefab: {fileID: 0}
+  skinID: 5
+  skinName: RogueHooded
+  skinPrefab: {fileID: 919132149155446097, guid: 2f66188dfe7e3564087f3381298b72cd, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 0
-  unlockCost: 100
+  unlockCost: 300
   description: 
