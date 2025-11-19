@@ -10,6 +10,23 @@ public class GameManager : MonoBehaviour
 
     // 현재 획득한 총 코인 개수
     private int totalCoinCount = 0;
+    public int TotalCoinCount
+    {
+        get { return totalCoinCount; }
+        private set
+        {
+            if (value < 0)
+            {
+                Logger.Log("코인 개수 부족");
+                return;
+            }
+
+            totalCoinCount = value;
+            Logger.Log($"현재 코인 개수: {totalCoinCount}");
+
+            UIManager.Instance.CoinUI.UpdateCoinText(totalCoinCount);
+        }
+    }
 
     //현재 스코어
     private int currentScore = 0;
@@ -87,15 +104,14 @@ public class GameManager : MonoBehaviour
 
     public bool CheckSpendCoinAndGetSkin(int amount)
     {
-        if (totalCoinCount < amount)
-        {
-            Logger.Log("보유 금액 부족");
-            return false;
-        }
-
         Logger.Log($"코인 {amount}개 사용");
-        totalCoinCount -= amount;
+        TotalCoinCount -= amount;
         return true;
+    }
+
+    public void ResetCoin()
+    {
+        TotalCoinCount = 0;
     }
 }
 
