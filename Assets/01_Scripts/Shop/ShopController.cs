@@ -39,6 +39,7 @@ public class ShopController : MonoBehaviour
         if (_rotateCoroutine != null) StopAllCoroutines();
     }
 
+    #region 상점 회전
     /// <summary>
     /// 우측으로 60도 회전
     /// </summary>
@@ -92,5 +93,17 @@ public class ShopController : MonoBehaviour
         _characterContainer.localRotation = end;
 
         OnChangedPriceText?.Invoke(_characters[_curSelectIndex]);
+    }
+    #endregion
+
+    public void GetSkin()
+    {
+        ShopCharacter selected = _characters[_curSelectIndex];
+
+        if (GameManager.Instance.CheckSpendCoinAndGetSkin(selected.GetPriceValue()))
+        {
+            Logger.Log($"{selected.name} 구매 완료");
+            selected.IsUnlocked();
+        }
     }
 }

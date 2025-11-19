@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
         _leftArrow.onClick.AddListener(_controller.RotateLeft);
         _rightArrow.onClick.AddListener(_controller.RotateRight);
-        // todo: get 버튼 구현
+        _get.onClick.AddListener(_controller.GetSkin);
 
         _controller.OnChangedPriceText += UpdateButtonText;
     }
