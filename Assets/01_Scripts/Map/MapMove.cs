@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class MapMove : MonoBehaviour
 {
-    [SerializeField] private Transform moveMap;//¿òÁ÷ÀÓ °ü¿©
-    [SerializeField] private Transform deathZone;//ºÎµúÃÆÀ» ¶§ °ÔÀÓ»èÁ¦
-    [SerializeField] private List<GameObject> mapLists;//¸Ê¸®½ºÆ®
-    [SerializeField] private List<GameObject> mapListPrefab;//¸Ê»ı¼º
-    [SerializeField] private Transform lastPivot;//Àç»ı¼º À§Ä¡
-    [SerializeField] private Transform spawnPivot;//¸ÊÀ» ½ºÆùÇÏ´Â À§Ä¡
-
+    [SerializeField] private Transform moveMap;//ì›€ì§ì„ ê´€ì—¬
+    [SerializeField] private Transform deathZone;//ë¶€ë”ªì³¤ì„ ë•Œ ê²Œì„ì‚­ì œ
+    [SerializeField] private List<GameObject> mapLists;//ë§µë¦¬ìŠ¤íŠ¸
+    [SerializeField] private List<GameObject> mapListPrefab;//ë§µìƒì„±
+    [SerializeField] private Transform lastPivot;//ì¬ìƒì„± ìœ„ì¹˜
+    [SerializeField] private Transform spawnPivot;//ë§µì„ ìŠ¤í°í•˜ëŠ” ìœ„ì¹˜
+    [SerializeField] private GameObject firstPivot;//ì²«ë²ˆì§¸ ë§µ ë’¤ì— ìŠ¤í°í•  ìœ„ì¹˜
+    [SerializeField] private GameObject firstMap;
 
     [Header("Option")]
-    [SerializeField] private float speed;//¸Ê½ºÇÇµå
+    [SerializeField] private float speed;//ë§µìŠ¤í”¼ë“œ
     public bool isMove = true;
-
+    private bool isFirst = false;
     void Start()
     {
+        GameObject firstBasictMap = firstMap;
+        if (firstMap != null && isFirst)
+        {
+            Vector3 first = firstBasictMap.transform.position + new Vector3(0, 0, 24);
+            Instantiate(mapListPrefab[0], firstBasictMap.transform.position, Quaternion.identity);
+            isFirst = true;
+        }
 
         Spawn();
         Spawn();
@@ -47,7 +55,6 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
-
         GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
 
 
@@ -63,6 +70,7 @@ public class MapMove : MonoBehaviour
 
         mapLists.Add(piece);
     }
+
 
     public void DestroyMap()
     {
@@ -81,9 +89,9 @@ public class MapMove : MonoBehaviour
     }
 
 }
-//¿ÀºêÁ§Æ® ¿òÁ÷ÀÓ
-//¸ÊÀ»¿òÁ÷ÀÌ´Â ¿ÀºêÁ§Æ®¸¦ ¿òÁ÷ÀÓ
-//¿òÁ÷ÀÌ´Â ¿ÀºêÁ§Æ® ¼Óµµ
-//ºÎµúÃÆÀ» ¶§ ¿ÀºêÁ§Æ® »èÁ¦
-//¸Ê ¸®½ºÆ®
-//¸Ê »ı¼º ¸®½ºÆ®
+//ì˜¤ë¸Œì íŠ¸ ì›€ì§ì„
+//ë§µì„ì›€ì§ì´ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ì›€ì§ì„
+//ì›€ì§ì´ëŠ” ì˜¤ë¸Œì íŠ¸ ì†ë„
+//ë¶€ë”ªì³¤ì„ ë•Œ ì˜¤ë¸Œì íŠ¸ ì‚­ì œ
+//ë§µ ë¦¬ìŠ¤íŠ¸
+//ë§µ ìƒì„± ë¦¬ìŠ¤íŠ¸
