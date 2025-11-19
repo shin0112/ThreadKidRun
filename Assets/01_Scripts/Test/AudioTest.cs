@@ -1,62 +1,62 @@
-using GameName.Managers;
+ï»¿using GameName.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// AudioManager Å×½ºÆ®¿ë ½ºÅ©¸³Æ®
-/// Å°º¸µå ÀÔ·ÂÀ¸·Î »ç¿îµå¸¦ Å×½ºÆ®ÇÕ´Ï´Ù.
+/// AudioManager í…ŒìŠ¤íŠ¸ìš© ìŠ¤í¬ë¦½íŠ¸
+/// í‚¤ë³´ë“œ ì…ë ¥ìœ¼ë¡œ ì‚¬ìš´ë“œë¥¼ í…ŒìŠ¤íŠ¸í•©ë‹ˆë‹¤.
 /// </summary>
 public class AudioTest : MonoBehaviour
 {
     private void Update()
     {
-        // 1¹ø Å°: BGM Àç»ı
+        // 1ë²ˆ í‚¤: BGM ì¬ìƒ
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             AudioManager.Instance.PlayBGM("MainTheme");
-            Debug.Log("[Å×½ºÆ®] 1¹ø Å° - BGM Àç»ı");
+            Debug.Log("[í…ŒìŠ¤íŠ¸] 1ë²ˆ í‚¤ - BGM ì¬ìƒ");
         }
 
-        // 2¹ø Å°: BGM Á¤Áö
+        // 2ë²ˆ í‚¤: BGM ì •ì§€
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             AudioManager.Instance.StopBGM();
-            Debug.Log("[Å×½ºÆ®] 2¹ø Å° - BGM Á¤Áö");
+            Debug.Log("[í…ŒìŠ¤íŠ¸] 2ë²ˆ í‚¤ - BGM ì •ì§€");
         }
 
-        // 3¹ø Å°: SFX Àç»ı
+        // 3ë²ˆ í‚¤: SFX ì¬ìƒ
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             AudioManager.Instance.PlaySFX("Jump");
-            Debug.Log("[Å×½ºÆ®] 3¹ø Å° - SFX Àç»ı");
+            Debug.Log("[í…ŒìŠ¤íŠ¸] 3ë²ˆ í‚¤ - SFX ì¬ìƒ");
         }
 
-        // 4¹ø Å°: ¸¶½ºÅÍ º¼·ı 50%
+        // 4ë²ˆ í‚¤: ë§ˆìŠ¤í„° ë³¼ë¥¨ 50%
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             AudioManager.Instance.SetMasterVolume(0.5f);
-            Debug.Log("[Å×½ºÆ®] 4¹ø Å° - ¸¶½ºÅÍ º¼·ı 50%");
+            Debug.Log("[í…ŒìŠ¤íŠ¸] 4ë²ˆ í‚¤ - ë§ˆìŠ¤í„° ë³¼ë¥¨ 50%");
         }
 
-        // 5¹ø Å°: ¸¶½ºÅÍ º¼·ı 100%
+        // 5ë²ˆ í‚¤: ë§ˆìŠ¤í„° ë³¼ë¥¨ 100%
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             AudioManager.Instance.SetMasterVolume(1f);
-            Debug.Log("[Å×½ºÆ®] 5¹ø Å° - ¸¶½ºÅÍ º¼·ı 100%");
+            Debug.Log("[í…ŒìŠ¤íŠ¸] 5ë²ˆ í‚¤ - ë§ˆìŠ¤í„° ë³¼ë¥¨ 100%");
         }
     }
 
-    // È­¸é¿¡ Á¶ÀÛ¹ı Ç¥½Ã
+    // í™”ë©´ì— ì¡°ì‘ë²• í‘œì‹œ
     private void OnGUI()
     {
         GUILayout.BeginArea(new Rect(10, 10, 300, 200));
-        GUILayout.Label("=== AudioManager Å×½ºÆ® ===");
-        GUILayout.Label("1: BGM Àç»ı");
-        GUILayout.Label("2: BGM Á¤Áö");
-        GUILayout.Label("3: SFX Àç»ı");
-        GUILayout.Label("4: ¸¶½ºÅÍ º¼·ı 50%");
-        GUILayout.Label("5: ¸¶½ºÅÍ º¼·ı 100%");
+        GUILayout.Label("=== AudioManager í…ŒìŠ¤íŠ¸ ===");
+        GUILayout.Label("1: BGM ì¬ìƒ");
+        GUILayout.Label("2: BGM ì •ì§€");
+        GUILayout.Label("3: SFX ì¬ìƒ");
+        GUILayout.Label("4: ë§ˆìŠ¤í„° ë³¼ë¥¨ 50%");
+        GUILayout.Label("5: ë§ˆìŠ¤í„° ë³¼ë¥¨ 100%");
         GUILayout.EndArea();
     }
 }
