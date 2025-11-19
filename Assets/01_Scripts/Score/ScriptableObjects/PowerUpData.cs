@@ -4,48 +4,48 @@ using UnityEngine;
 
 namespace GameName.Data
 {
-    /// ÆÄ¿ö¾÷ ¾ÆÀÌÅÛÀÇ ¸ğµç µ¥ÀÌÅÍ¸¦ ´ã´Â ScriptableObject
+    /// íŒŒì›Œì—… ì•„ì´í…œì˜ ëª¨ë“  ë°ì´í„°ë¥¼ ë‹´ëŠ” ScriptableObject
     [CreateAssetMenu(fileName = "NewPowerUp", menuName = "Game/PowerUp Data", order = 1)]
     public class PowerUpData : ScriptableObject
     {
-        [Header("=== ±âº» Á¤º¸ ===")]
-        [Tooltip("ÆÄ¿ö¾÷ ÀÌ¸§")]
+        [Header("=== ê¸°ë³¸ ì •ë³´ ===")]
+        [Tooltip("íŒŒì›Œì—… ì´ë¦„")]
         public string powerUpName;
 
-        [Tooltip("ÆÄ¿ö¾÷ Å¸ÀÔ")]
+        [Tooltip("íŒŒì›Œì—… íƒ€ì…")]
         public PowerUpType powerUpType;
 
-        [Header("=== È¿°ú ¼³Á¤ ===")]
-        [Tooltip("È¿°ú Áö¼Ó ½Ã°£ (ÃÊ)")]
+        [Header("=== íš¨ê³¼ ì„¤ì • ===")]
+        [Tooltip("íš¨ê³¼ ì§€ì† ì‹œê°„ (ì´ˆ)")]
         [Range(1f, 30f)]
         public float duration = 5f;
 
-        [Tooltip("È¿°ú °ª (¼Óµµ ¹èÀ², Á¡ÇÁ ³ôÀÌ µî)")]
+        [Tooltip("íš¨ê³¼ ê°’ (ì†ë„ ë°°ìœ¨, ì í”„ ë†’ì´ ë“±)")]
         [Range(0.1f, 10f)]
         public float effectValue = 1.5f;
 
-        [Header("=== ½Ã°¢/»ç¿îµå ===")]
-        [Tooltip("UI¿¡ Ç¥½ÃµÉ ¾ÆÀÌÄÜ")]
+        [Header("=== ì‹œê°/ì‚¬ìš´ë“œ ===")]
+        [Tooltip("UIì— í‘œì‹œë  ì•„ì´ì½˜")]
         public Sprite icon;
 
-        [Tooltip("ÆÄ¿ö¾÷ È°¼ºÈ­ »ç¿îµå")]
+        [Tooltip("íŒŒì›Œì—… í™œì„±í™” ì‚¬ìš´ë“œ")]
         public SoundData activationSound;
 
-        [Tooltip("ÆÄ¿ö¾÷ ÀÌÆåÆ® ÇÁ¸®ÆÕ")]
+        [Tooltip("íŒŒì›Œì—… ì´í™íŠ¸ í”„ë¦¬íŒ¹")]
         public GameObject particleEffect;
 
-        [Header("=== ¼³¸í ===")]
+        [Header("=== ì„¤ëª… ===")]
         [TextArea(3, 5)]
-        [Tooltip("ÆÄ¿ö¾÷ ¼³¸í (¼±ÅÃ»çÇ×)")]
+        [Tooltip("íŒŒì›Œì—… ì„¤ëª… (ì„ íƒì‚¬í•­)")]
         public string description;
     }
 
-    /// ÆÄ¿ö¾÷ Å¸ÀÔ ¿­°ÅÇü
+    /// íŒŒì›Œì—… íƒ€ì… ì—´ê±°í˜•
     public enum PowerUpType
     {
-        Invincibility,  // ¹«Àû
-        SpeedBoost,     // ¼Óµµ Áõ°¡
-        Magnet,         // ÀÚ¼® (¾ÆÀÌÅÛ ÀÚµ¿ ¼öÁı)
-        HighJump        // ³ôÀº Á¡ÇÁ
+        Invincibility,  // ë¬´ì 
+        SpeedBoost,     // ì†ë„ ì¦ê°€
+        Magnet,         // ìì„ (ì•„ì´í…œ ìë™ ìˆ˜ì§‘)
+        HighJump        // ë†’ì€ ì í”„
     }
 }
