@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameOverUI : MonoBehaviour
+public class GameOverUI : MonoBehaviour, IUIActive
 {
     [Header("텍스트")]
     [SerializeField] private TextMeshProUGUI _score;
@@ -31,6 +31,7 @@ public class GameOverUI : MonoBehaviour
     private void RetryGame()
     {
         // todo: 게임 재시작
+        UIManager.Instance.SetGameMode();
     }
 
     private void ExitGame()
@@ -38,4 +39,20 @@ public class GameOverUI : MonoBehaviour
         // todo: 게임 그만하기
         UIManager.Instance.SetDefaultMode();
     }
+
+    #region 인터페이스 구현
+    public void SetGameMode()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SetDefaultMode()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void SetShopMode()
+    {
+    }
+    #endregion
 }
