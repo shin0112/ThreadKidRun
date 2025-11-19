@@ -7,7 +7,6 @@ public enum SceneType
 {
     LoadScene,
     GameScene,
-    StartScene,
 }
 
 public class SceneLoader : MonoBehaviour
