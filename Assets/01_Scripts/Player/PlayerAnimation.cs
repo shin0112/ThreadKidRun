@@ -61,9 +61,9 @@ public class PlayerAnimation : MonoBehaviour
     }
     void Slide()
     {
-        if (!isMap || isSliding)
+        if (!isMap)
             return;
-        if (Input.GetKeyDown(KeyCode.LeftControl) && !isSliding && isMap)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && !isSliding)
         {
             isSliding = true;
             sliderTimer = slideDuration; 
@@ -71,13 +71,11 @@ public class PlayerAnimation : MonoBehaviour
         }
         if (isSliding)
         {
-            Vector3 forward = transform.forward;
-            transform.Translate(transform.forward * slidespeed * Time.deltaTime, Space.World);
-            
             sliderTimer -= Time.deltaTime;
             if (sliderTimer <= 0f)
             {
                 isSliding = false;
+                anim.ResetTrigger("isSliding");
             }
         }
     }
