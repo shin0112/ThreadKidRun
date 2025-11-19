@@ -15,6 +15,6 @@ public class ShopCharacter : MonoBehaviour
     public bool CheckSold()
     {
         // todo: 구매했는지 아닌지 확인
-        return true;
+        return _isSold;
     }
 }

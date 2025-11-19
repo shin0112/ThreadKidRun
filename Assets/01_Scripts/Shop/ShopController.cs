@@ -16,7 +16,7 @@ public class ShopController : MonoBehaviour
     [Header("회전")]
     [SerializeField] private float _rotateDuration = 0.5f;
     private IEnumerator _rotateCoroutine;
-    public Action<int> OnChangedPriceText;
+    public Action<ShopCharacter> OnChangedPriceText;
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
@@ -31,7 +31,7 @@ public class ShopController : MonoBehaviour
 
     private void OnEnable()
     {
-        OnChangedPriceText?.Invoke(_characters[_curSelectIndex].GetPriceValue());
+        OnChangedPriceText?.Invoke(_characters[_curSelectIndex]);
     }
 
     private void OnDisable()
@@ -91,6 +91,6 @@ public class ShopController : MonoBehaviour
 
         _characterContainer.localRotation = end;
 
-        OnChangedPriceText?.Invoke(_characters[_curSelectIndex].GetPriceValue());
+        OnChangedPriceText?.Invoke(_characters[_curSelectIndex]);
     }
 }

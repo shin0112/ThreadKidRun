@@ -7,6 +7,9 @@ public class ShopUI : MonoBehaviour, IUIActive
     [SerializeField] private Button _leftArrow;
     [SerializeField] private Button _rightArrow;
     [SerializeField] private Button _get;
+
+    [Header("구입 버튼")]
+    [SerializeField] private GameObject _buttonIcon;
     [SerializeField] private TextMeshProUGUI _price;
 
     ShopController _controller;
@@ -24,7 +27,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.onClick.AddListener(_controller.RotateRight);
         // todo: get 버튼 구현
 
-        _controller.OnChangedPriceText += UpdatePriceText;
+        _controller.OnChangedPriceText += UpdateButtonText;
     }
 
     private void OnDestroy()
@@ -33,11 +36,23 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.onClick.RemoveAllListeners();
         _get.onClick.RemoveAllListeners();
 
-        _controller.OnChangedPriceText -= UpdatePriceText;
+        _controller.OnChangedPriceText -= UpdateButtonText;
     }
 
-    private void UpdatePriceText(int price)
+    private void UpdateButtonText(ShopCharacter shopCharacter)
     {
+        int price = shopCharacter.GetPriceValue();
+
+        if (price == 0 || shopCharacter.CheckSold())
+        {
+            _buttonIcon.SetActive(false);
+            _price.rectTransform.sizeDelta = new Vector2(Define.SoldTextWidth, Define.SoldTextHeight);
+            _price.text = "선택 가능";
+            return;
+        }
+
+        _price.rectTransform.sizeDelta = new Vector2(Define.GoldTextWidth, Define.GoldTextHeight);
+        _buttonIcon.SetActive(true);
         _price.text = price.ToString();
     }
 
