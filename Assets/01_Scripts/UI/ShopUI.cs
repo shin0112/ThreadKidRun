@@ -48,6 +48,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.gameObject.SetActive(false);
         _get.gameObject.SetActive(false);
         _controller.ShopCamera.gameObject.SetActive(false);
+        _controller.gameObject.SetActive(false);
     }
 
     public void SetGameMode()
@@ -60,6 +61,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.gameObject.SetActive(true);
         _get.gameObject.SetActive(true);
         _controller.ShopCamera.gameObject.SetActive(true);
+        _controller.gameObject.SetActive(true);
     }
     #endregion
 }

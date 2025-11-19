@@ -29,6 +29,16 @@ public class ShopController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        OnChangedPriceText?.Invoke(_characters[_curSelectIndex].GetPriceValue());
+    }
+
+    private void OnDisable()
+    {
+        if (_rotateCoroutine != null) StopAllCoroutines();
+    }
+
     /// <summary>
     /// 우측으로 60도 회전
     /// </summary>
