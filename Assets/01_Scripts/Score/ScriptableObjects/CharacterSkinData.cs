@@ -5,34 +5,34 @@ using UnityEngine;
 namespace GameName.Data
 {
     /// <summary>
-    /// Ä³¸¯ÅÍ ½ºÅ² µ¥ÀÌÅÍ¸¦ ´ã´Â ScriptableObject
+    /// ìºë¦­í„° ìŠ¤í‚¨ ë°ì´í„°ë¥¼ ë‹´ëŠ” ScriptableObject
     /// </summary>
     [CreateAssetMenu(fileName = "NewCharacterSkin", menuName = "Game/Character Skin Data", order = 2)]
     public class CharacterSkinData : ScriptableObject
     {
-        [Header("=== ±âº» Á¤º¸ ===")]
-        [Tooltip("½ºÅ² °íÀ¯ ID (Áßº¹ ºÒ°¡)")]
-        public string skinID;
+        [Header("=== ê¸°ë³¸ ì •ë³´ ===")]
+        [Tooltip("ìŠ¤í‚¨ ê³ ìœ  ID (ì¤‘ë³µ ë¶ˆê°€)")]
+        public int skinID;
 
-        [Tooltip("½ºÅ² Ç¥½Ã ÀÌ¸§")]
+        [Tooltip("ìŠ¤í‚¨ í‘œì‹œ ì´ë¦„")]
         public string skinName;
 
-        [Header("=== ¸ğµ¨ ===")]
-        [Tooltip("Ä³¸¯ÅÍ ½ºÅ² ÇÁ¸®ÆÕ")]
+        [Header("=== ëª¨ë¸ ===")]
+        [Tooltip("ìºë¦­í„° ìŠ¤í‚¨ í”„ë¦¬íŒ¹")]
         public GameObject skinPrefab;
 
-        [Tooltip("UI ÇÁ¸®ºä¿ë ÀÌ¹ÌÁö")]
+        [Tooltip("UI í”„ë¦¬ë·°ìš© ì´ë¯¸ì§€")]
         public Sprite previewSprite;
 
-        [Header("=== Àá±İ ¼³Á¤ ===")]
-        [Tooltip("±âº» ½ºÅ² ¿©ºÎ (±âº» ½ºÅ²Àº Ã³À½ºÎÅÍ ÇØ±İ)")]
+        [Header("=== ì ê¸ˆ ì„¤ì • ===")]
+        [Tooltip("ê¸°ë³¸ ìŠ¤í‚¨ ì—¬ë¶€ (ê¸°ë³¸ ìŠ¤í‚¨ì€ ì²˜ìŒë¶€í„° í•´ê¸ˆ)")]
         public bool isDefaultSkin = false;
 
-        [Tooltip("ÇØ±İ¿¡ ÇÊ¿äÇÑ ÄÚÀÎ")]
+        [Tooltip("í•´ê¸ˆì— í•„ìš”í•œ ì½”ì¸")]
         [Range(0, 10000)]
         public int unlockCost = 100;
 
-        [Header("=== ¼³¸í ===")]
+        [Header("=== ì„¤ëª… ===")]
         [TextArea(2, 4)]
         public string description;
     }

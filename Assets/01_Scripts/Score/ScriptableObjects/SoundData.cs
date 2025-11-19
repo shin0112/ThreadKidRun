@@ -4,38 +4,38 @@ using UnityEngine;
 
 namespace GameName.Data
 {
-    /// °ÔÀÓÀÇ ¸ğµç »ç¿îµå µ¥ÀÌÅÍ¸¦ ´ã´Â ScriptableObject
-    /// BGM°ú SFX¸¦ ±¸ºĞÇÏ¿© °ü¸®ÇÕ´Ï´Ù.
+    /// ê²Œì„ì˜ ëª¨ë“  ì‚¬ìš´ë“œ ë°ì´í„°ë¥¼ ë‹´ëŠ” ScriptableObject
+    /// BGMê³¼ SFXë¥¼ êµ¬ë¶„í•˜ì—¬ ê´€ë¦¬í•©ë‹ˆë‹¤.
     [CreateAssetMenu(fileName = "NewSoundData", menuName = "Game/Sound Data", order = 0)]
     public class SoundData : ScriptableObject
     {
-        [Header("=== ±âº» Á¤º¸ ===")]
-        [Tooltip("»ç¿îµå¸¦ ½Äº°ÇÒ °íÀ¯ÇÑ ÀÌ¸§")]
+        [Header("=== ê¸°ë³¸ ì •ë³´ ===")]
+        [Tooltip("ì‚¬ìš´ë“œë¥¼ ì‹ë³„í•  ê³ ìœ í•œ ì´ë¦„")]
         public string soundName;
 
-        [Tooltip("BGM(¹è°æÀ½¾Ç) ¶Ç´Â SFX(È¿°úÀ½) ¼±ÅÃ")]
+        [Tooltip("BGM(ë°°ê²½ìŒì•…) ë˜ëŠ” SFX(íš¨ê³¼ìŒ) ì„ íƒ")]
         public SoundType soundType;
 
-        [Header("=== ¿Àµğ¿À ¼³Á¤ ===")]
-        [Tooltip("Àç»ıÇÒ ¿Àµğ¿À Å¬¸³")]
+        [Header("=== ì˜¤ë””ì˜¤ ì„¤ì • ===")]
+        [Tooltip("ì¬ìƒí•  ì˜¤ë””ì˜¤ í´ë¦½")]
         public AudioClip audioClip;
 
-        [Tooltip("Àç»ı º¼·ı (0 ~ 1)")]
+        [Tooltip("ì¬ìƒ ë³¼ë¥¨ (0 ~ 1)")]
         [Range(0f, 1f)]
         public float volume = 1f;
 
-        [Tooltip("¹İº¹ Àç»ı ¿©ºÎ")]
+        [Tooltip("ë°˜ë³µ ì¬ìƒ ì—¬ë¶€")]
         public bool loop = false;
 
-        [Tooltip("Àç»ı ¼Óµµ (0.5 ~ 2)")]
+        [Tooltip("ì¬ìƒ ì†ë„ (0.5 ~ 2)")]
         [Range(0.5f, 2f)]
         public float pitch = 1f;
     }
 
-    /// »ç¿îµå Å¸ÀÔ ¿­°ÅÇü
+    /// ì‚¬ìš´ë“œ íƒ€ì… ì—´ê±°í˜•
     public enum SoundType
     {
-        BGM,    // ¹è°æÀ½¾Ç
-        SFX     // È¿°úÀ½
+        BGM,    // ë°°ê²½ìŒì•…
+        SFX     // íš¨ê³¼ìŒ
     }
 }
