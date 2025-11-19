@@ -96,14 +96,17 @@ public class ShopController : MonoBehaviour
     }
     #endregion
 
-    public void GetSkin()
+    public ShopCharacter GetSkin()
     {
         ShopCharacter selected = _characters[_curSelectIndex];
 
-        if (GameManager.Instance.CheckSpendCoinAndGetSkin(selected.GetPriceValue()))
+        if (!selected.CheckUnlocked() &&
+            GameManager.Instance.CheckSpendCoinAndGetSkin(selected.GetPriceValue()))
         {
             Logger.Log($"{selected.name} 구매 완료");
             selected.IsUnlocked();
         }
+
+        return selected;
     }
 }

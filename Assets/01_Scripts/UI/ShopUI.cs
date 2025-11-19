@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
         _leftArrow.onClick.AddListener(_controller.RotateLeft);
         _rightArrow.onClick.AddListener(_controller.RotateRight);
-        _get.onClick.AddListener(_controller.GetSkin);
+        _get.onClick.AddListener(GetSkin);
 
         _controller.OnChangedPriceText += UpdateButtonText;
     }
@@ -54,6 +54,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _price.rectTransform.sizeDelta = new Vector2(Define.GoldTextWidth, Define.GoldTextHeight);
         _buttonIcon.SetActive(true);
         _price.text = price.ToString();
+    }
+
+    private void GetSkin()
+    {
+        ShopCharacter selected = _controller.GetSkin();
+        UpdateButtonText(selected);
     }
 
     #region 인터페이스 구현

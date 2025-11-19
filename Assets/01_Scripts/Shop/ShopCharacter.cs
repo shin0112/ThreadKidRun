@@ -23,10 +23,15 @@ public class ShopCharacter : MonoBehaviour
 
     public void IsUnlocked()
     {
+        _data.isUnlocked = true;
+    }
+
+    public bool CheckUnlocked()
+    {
         if (_data.isUnlocked)
         {
             Logger.Log("이미 구매한 스킨");
         }
-        _data.isUnlocked = true;
+        return _data.isUnlocked;
     }
 }
