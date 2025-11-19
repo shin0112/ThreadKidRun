@@ -36,7 +36,7 @@ public class SceneLoader : MonoBehaviour
 
     private void Start()
     {
-        LoadScene(SceneType.StartScene);
+        LoadScene(SceneType.GameScene);
     }
 
     public void LoadScene(SceneType type)
