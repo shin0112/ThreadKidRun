@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameOverUI _gameOverUI;
     private List<IUIActive> _uiActives = new();
 
+    public CoinUI CoinUI => _totalCoinUI;
+
     [Header("텍스트")]
     [SerializeField] private GameObject _startText;
 
