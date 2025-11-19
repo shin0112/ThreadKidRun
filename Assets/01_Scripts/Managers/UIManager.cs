@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ScoreUI _scoreUI;
     [SerializeField] private ShopUI _shopUI;
     [SerializeField] private GameOverUI _gameOverUI;
+    [SerializeField] private GameObject _archievementUI;
     private List<IUIActive> _uiActives = new();
 
     public CoinUI CoinUI => _totalCoinUI;
@@ -103,6 +104,11 @@ public class UIManager : MonoBehaviour
         {
             _pauseUI.UpdateCurrentScoreText(_scoreUI.CurScore);
         }
+    }
+
+    public void ToggleArchievementUI()
+    {
+        _archievementUI.gameObject.Toggle();
     }
 
     public void ShowGameOverWindow()
