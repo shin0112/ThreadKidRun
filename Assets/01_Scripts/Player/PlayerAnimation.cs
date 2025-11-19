@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameName.Managers;
+
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator anim;
@@ -58,9 +60,16 @@ public class PlayerAnimation : MonoBehaviour
         }
         IEnumerator ResetJumpBool()
         {
-            yield return new WaitForSeconds(0.1f); // ÇÑ ÇÁ·¹ÀÓ ÈÄ
+            yield return new WaitForSeconds(0.1f); // í•œ í”„ë ˆì„ í›„
             anim.SetBool("isJump", false);
         }
+        //ì í”„ ì‹œ SFX ì¬ìƒ
+        // ============================================
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlaySFX("SFX_Jump");
+        }
+        // ============================================
     }
     void Slide()
     {
