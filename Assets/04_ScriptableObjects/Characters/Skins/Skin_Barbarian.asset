@@ -18,4 +18,5 @@ MonoBehaviour:
   previewSprite: {fileID: 0}
   isDefaultSkin: 1
   unlockCost: 0
+  isUnlocked: 1
   description: 
