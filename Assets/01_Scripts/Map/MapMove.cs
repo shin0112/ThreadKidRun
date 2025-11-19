@@ -19,13 +19,13 @@ public class MapMove : MonoBehaviour
     private bool isFirst = false;
     void Start()
     {
-        GameObject firstBasictMap = firstMap;
-        if (firstMap != null && isFirst)
-        {
-            Vector3 first = firstBasictMap.transform.position + new Vector3(0, 0, 24);
-            Instantiate(mapListPrefab[0], firstBasictMap.transform.position, Quaternion.identity);
-            isFirst = true;
-        }
+        //GameObject firstBasictMap = firstMap;
+        //if (firstMap != null && isFirst)
+        //{
+        //    Vector3 first = firstBasictMap.transform.position + new Vector3(0, 0, 24);
+        //    Instantiate(mapListPrefab[0], firstBasictMap.transform.position, Quaternion.identity);
+        //    isFirst = true;
+        //}
 
         Spawn();
         Spawn();
@@ -40,7 +40,7 @@ public class MapMove : MonoBehaviour
     {
         Move();
         //SpawnPivot();
-        DestroyMap();
+        //DestroyMap();
     }
 
     public void Move()
@@ -55,6 +55,7 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
+
         GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
 
 
@@ -74,14 +75,19 @@ public class MapMove : MonoBehaviour
 
     public void DestroyMap()
     {
-        for (int i = 0; i < mapLists.Count; i++)
+        for (int i = 0; i < mapListPrefab.Count; i++)
         {
-            GameObject piece = mapLists[i];
-            if (piece.transform.position.z <= deathZone.position.z)
+            if(mapListPrefab.Count >= deathZone.position.z)
             {
-                mapLists.Remove(piece);
-                Destroy(piece.gameObject);
+                GameObject piece = mapLists[i];
+                if (piece != null && piece.transform.position.z <= deathZone.position.z)
+                {
+                    mapLists.Remove(piece);
+                    Destroy(piece);
+                    //Spawn();
+                }
             }
+            
 
         }
 

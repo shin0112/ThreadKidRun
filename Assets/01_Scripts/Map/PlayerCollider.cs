@@ -47,9 +47,9 @@ public class PlayerCollider : MonoBehaviour
     IEnumerator CollderGameOver()
     {
         yield return new WaitForSeconds(1f);
-        
+        UIManager.Instance.ShowGameOverWindow();
         Time.timeScale = 0f;
     }
 }
-//ÇÃ·¹ÀÌ¾î°¡ ÅÂ±× obstacle°ú ºÎµúÃÆÀ» ¶§
-//ÄÚ·çÆ¾À» ÀÌ¿ëÇØ¼­ ÀÏ½ÃÁ¤Áö
+//í”Œë ˆì´ì–´ê°€ íƒœê·¸ obstacleê³¼ ë¶€ë”ªì³¤ì„ ë•Œ
+//ì½”ë£¨í‹´ì„ ì´ìš©í•´ì„œ ì¼ì‹œì •ì§€
