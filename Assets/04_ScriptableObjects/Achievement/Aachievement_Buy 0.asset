@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1601ea8c6afa344494e136540a5a927, type: 3}
   m_Name: Aachievement_Buy 0
   m_EditorClassIdentifier: 
-  id: BuyItem_01
-  achievementName: Buy item (Lv1)
+  id: BuyCharacter_01
+  achievementName: Buy Character (Lv1)
   description: Unlocked when you buy 1 items.
   requiredCount: 1
   type: 1

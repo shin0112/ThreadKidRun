@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1601ea8c6afa344494e136540a5a927, type: 3}
   m_Name: Aachievement_Buy 2
   m_EditorClassIdentifier: 
-  id: BuyItem_03
-  achievementName: Buy item (Lv3)
+  id: BuyCharacter_03
+  achievementName: Buy Character (Lv3)
   description: Unlocked when you buy 3 items.
   requiredCount: 3
   type: 1

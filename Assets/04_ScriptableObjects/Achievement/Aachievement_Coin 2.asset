@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Aachievement_Coin 2
   m_EditorClassIdentifier: 
   id: ObtainCoin_03
-  achievementName: Obtain coin (Lv3)
+  achievementName: Obtain Coin (Lv3)
   description: Unlocked when you obtain 100 coins.
   requiredCount: 100
   type: 0
