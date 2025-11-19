@@ -915,7 +915,8 @@ MonoBehaviour:
   _storeButton: {fileID: 6433799900796812927}
   _pauseButton: {fileID: 5263598833417883202}
   _homeButton: {fileID: 1955700625411064291}
-  _testButton: {fileID: 2820144593570739241}
+  _getCoinButton: {fileID: 2820144593570739241}
+  _resetCoinButton: {fileID: 964250708161472196}
 --- !u!1 &8116352605160444662
 GameObject:
   m_ObjectHideFlags: 0
