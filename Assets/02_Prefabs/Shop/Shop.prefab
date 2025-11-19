@@ -349,7 +349,7 @@ MonoBehaviour:
   - {fileID: 7867848055082166776}
   - {fileID: 9028136371592079772}
   _shopCamera: {fileID: 8848383677574457546}
-  _rotateDuration: 1
+  _rotateDuration: 0.5
 --- !u!1 &8036826692466958656
 GameObject:
   m_ObjectHideFlags: 0
