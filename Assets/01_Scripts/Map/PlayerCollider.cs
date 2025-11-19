@@ -9,6 +9,7 @@ public class PlayerCollider : MonoBehaviour
     public GameObject gameOverUi;
     public bool isCoinCollision = false;
     public LayerMask layerMask;
+    public Animator Animator;
     //public Ray ray;
     //public Coin coin;
     void Start()
@@ -29,19 +30,12 @@ public class PlayerCollider : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             mapMove.isMove = false;
-            //gameOverUi.SetActive(true);
+            Animator.Play("Death_A");
             StartCoroutine(nameof(CollderGameOver));
         }
     }
     
-    //public void CoinCollision()
-    //{
-    //    RaycastHit hit;
-    //    if(Physics.Raycast(transform.position,transform.forward,out hit,layerMask))
-    //    {
-    //        coin.
-    //    }
-    //}
+
 
 
     IEnumerator CollderGameOver()
