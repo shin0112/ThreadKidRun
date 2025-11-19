@@ -12,7 +12,7 @@ namespace GameName.Data
     {
         [Header("=== 기본 정보 ===")]
         [Tooltip("스킨 고유 ID (중복 불가)")]
-        public string skinID;
+        public int skinID;
 
         [Tooltip("스킨 표시 이름")]
         public string skinName;
