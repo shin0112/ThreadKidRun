@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AchievementManager achievementManager;
 
+    private CoinUI coinUI;
+
     //// 이벤트 통신
     public event Action<int> OnScoreChanged; // 점수가 변경될 때 외부에 알림
     //public event Action<string> OnAchievementUnlocked; // 업적이 잠금 해제될 때 외부에 알림
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
         if (amount <= 0) return;
         totalCoinCount += amount;
         UnityEngine.Debug.Log($"코인 획득! 현재 총 코인: {totalCoinCount}");
+        coinUI.UpdateCoinText(totalCoinCount); //코인 UI에 반영
 
         // 코인 개수가 변경될 때마다 업적 해금 조건을 검사
         if (achievementManager != null)
