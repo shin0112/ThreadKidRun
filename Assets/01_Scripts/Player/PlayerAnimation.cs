@@ -14,6 +14,7 @@ public class PlayerAnimation : MonoBehaviour
     private bool isMap = true;
     private bool isSliding = false;
     private float sliderTimer = 0f;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -32,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         Vector3 dir = Vector3.zero;
         if (Input.GetKey(KeyCode.A)) dir += Vector3.left;
         if (Input.GetKey(KeyCode.D)) dir += Vector3.right;
-        
+
         if (dir != Vector3.zero)
         {
             transform.Translate(dir.normalized * moveSpeed * Time.deltaTime, Space.World);
@@ -42,6 +43,8 @@ public class PlayerAnimation : MonoBehaviour
         {
             anim.SetBool("isRun", false);
         }
+        float clampedX = Mathf.Clamp(transform.position.x, -5f, 5.6f);
+        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
     void Jump()
     {
@@ -66,7 +69,7 @@ public class PlayerAnimation : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftControl) && !isSliding)
         {
             isSliding = true;
-            sliderTimer = slideDuration; 
+            sliderTimer = slideDuration;
             anim.SetTrigger("isSliding");
         }
         if (isSliding)
