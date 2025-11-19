@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4592b44e64fccb4a84a93e8904badd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 0
+  _time: 0.3
   _fullDayLength: 120
   _startTime: 0.4
   _noon: {x: 90, y: 0, z: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
     serializedVersion: 2
     key0: {r: 0.08627451, g: 0, b: 0.6, a: 1}
     key1: {r: 0.08627451, g: 0, b: 0.6, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
+    key2: {r: 0.054633003, g: 0.019159809, b: 0.2603773, a: 0}
     key3: {r: 0.08470601, g: 0, b: 0.5999999, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
@@ -314,7 +314,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8791876, g: 0.8792453, b: 0.8211819, a: 1}
+  m_Color: {r: 0.11882735, g: 0.07102164, b: 0.5018867, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30

@@ -38,7 +38,7 @@ public class DayNightCycle : MonoBehaviour
 
         RenderSettings.ambientIntensity = _lightingIntensityMultiplier.Evaluate(_time);
         RenderSettings.reflectionIntensity = _reflectionIntensityMultiplier.Evaluate(_time);
-        DynamicGI.UpdateEnvironment();
+        //DynamicGI.UpdateEnvironment();
     }
 
     private void UpdateLighting(Light light, Gradient gradient, AnimationCurve intensityCurve)
