@@ -5929,11 +5929,11 @@ PrefabInstance:
     - target: {fileID: 7883129127237210236, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
       propertyPath: soundDataList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 2cab12e31d56c064d8483d2a169e5b5a, type: 2}
+      objectReference: {fileID: 11400000, guid: 785ed31cf1b1b2f428cb95cc19e58465, type: 2}
     - target: {fileID: 7883129127237210236, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
       propertyPath: soundDataList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: 50a32c1077f7e2a40aab074649473da1, type: 2}
+      objectReference: {fileID: 11400000, guid: 2cab12e31d56c064d8483d2a169e5b5a, type: 2}
     - target: {fileID: 7883129127237210236, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
       propertyPath: soundDataList.Array.data[6]
       value: 

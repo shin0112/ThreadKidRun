@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
   m_Name: SFX_Death
   m_EditorClassIdentifier: 
-  soundName: Death
+  soundName: SFX_Death
   soundType: 1
   audioClip: {fileID: 8300000, guid: 9a527eaab5e89cf4d827804c71a5c133, type: 3}
   volume: 1
