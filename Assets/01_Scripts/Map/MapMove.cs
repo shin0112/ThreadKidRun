@@ -10,8 +10,7 @@ public class MapMove : MonoBehaviour
     [SerializeField] private List<GameObject> mapListPrefab;//맵생성
     [SerializeField] private Transform lastPivot;//재생성 위치
     [SerializeField] private Transform spawnPivot;//맵을 스폰하는 위치
-    [SerializeField] private GameObject firstPivot;//첫번째 맵 뒤에 스폰할 위치
-    [SerializeField] private GameObject firstMap;
+   
 
     [Header("Option")]
     public float speed;//맵스피드
@@ -44,10 +43,10 @@ public class MapMove : MonoBehaviour
     public void Move()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isMove = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    isMove = true;
+        //}
         if (isMove == true)
         {
             Vector3 pos = moveMap.transform.position;
@@ -64,7 +63,12 @@ public class MapMove : MonoBehaviour
 
 
         GameObject piece = Instantiate(prefabs, lastPivot.position, Quaternion.identity);
-        lastPivot.transform.position += new Vector3(0, 0, 24);
+        //lastPivot.transform.position += new Vector3(0, 0, 24);
+        Transform newtransfrom = piece.transform.Find("LastPivot");
+        if(newtransfrom != null)
+        {
+            lastPivot = newtransfrom;
+        }
 
         piece.transform.SetParent(moveMap);
         if (mapLists.Count > 1)
