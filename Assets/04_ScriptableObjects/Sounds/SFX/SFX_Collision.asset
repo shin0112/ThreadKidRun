@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
   m_Name: SFX_Collision
   m_EditorClassIdentifier: 
-  soundName: Collision
+  soundName: SFX_Collision
   soundType: 1
   audioClip: {fileID: 8300000, guid: 274bf08fec77e654b9e11c5268613052, type: 3}
   volume: 1

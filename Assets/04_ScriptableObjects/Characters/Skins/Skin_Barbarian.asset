@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 0
   skinName: Barbarian
-  skinPrefab: {fileID: 1406025780694009445, guid: fc03fe9b08f8d9a46972464f24e25463, type: 3}
+  skinPrefab: {fileID: 2156139509404813569, guid: ad4f7240f0d465a46a2faee3b43edbf2, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 1
   unlockCost: 0

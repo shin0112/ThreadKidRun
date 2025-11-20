@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 2
   skinName: Mage
-  skinPrefab: {fileID: 919132149155446097, guid: e23c338a249efd946bb8abd4ab86304d, type: 3}
+  skinPrefab: {fileID: 7185624148699430827, guid: cca89411af485244b8fd60c477d893db, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 0
   unlockCost: 100
+  isUnlocked: 0
   description: 

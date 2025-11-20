@@ -57,19 +57,21 @@ public class PlayerAnimation : MonoBehaviour
             isMap = false;
 
             StartCoroutine(ResetJumpBool());
+
+            //점프 시 SFX 재생
+            // ============================================
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX("SFX_Jump");
+            }
+            // ============================================
+
         }
         IEnumerator ResetJumpBool()
         {
             yield return new WaitForSeconds(0.1f); // 한 프레임 후
             anim.SetBool("isJump", false);
         }
-        //점프 시 SFX 재생
-        // ============================================
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlaySFX("SFX_Jump");
-        }
-        // ============================================
     }
     void Slide()
     {
