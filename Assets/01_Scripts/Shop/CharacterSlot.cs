@@ -22,7 +22,7 @@ public class CharacterSlot : MonoBehaviour
     {
         if (_data.isUnlocked)
         {
-            Logger.Log("이미 구매한 스킨");
+            Logger.Log("구매 완료 스킨");
         }
 
         return _data.isUnlocked;
