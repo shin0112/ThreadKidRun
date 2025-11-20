@@ -12,6 +12,14 @@ public class PlayerCollider : MonoBehaviour
     public Animator Animator;
     //public Ray ray;
     //public Coin coin;
+
+    // ============================================
+    // 무적 상태 플래그 추가
+    // InvincibilityPowerUp에서 이 값을 true/false로 설정
+    // ============================================
+    [HideInInspector]
+    public bool isInvincible = false;
+
     void Start()
     {
         //Ray ray = new Ray(transform.position, Vector3.forward * 0.5f);
@@ -24,26 +32,32 @@ public class PlayerCollider : MonoBehaviour
         Animator = _customizingController.GetAnimator();
     }
 
-
     void Update()
     {
-        
-       
+
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("collision");
+
+        // ============================================
+        // 무적 상태일 때는 장애물 충돌 무시
+        // ============================================
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            if (isInvincible)
+            {
+                Debug.Log("[PlayerCollider] 무적 상태! 장애물 충돌 무시");
+                return; // 무적 상태면 게임오버 처리 하지 않음
+            }
+
+            // 무적이 아닐 때만 게임오버 처리
             mapMove.isMove = false;
             Animator.Play("Death_A");
             StartCoroutine(nameof(CollderGameOver));
         }
     }
-    
-
-
 
     IEnumerator CollderGameOver()
     {

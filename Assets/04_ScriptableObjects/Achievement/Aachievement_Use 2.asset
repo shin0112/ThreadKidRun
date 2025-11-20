@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: UseItem_03
   achievementName: Use Item (Lv3)
-  description: Unlocked when you use 100 items.
-  requiredCount: 100
+  description: Unlocked when you use 10 items.
+  requiredCount: 10
   type: 2
   isUnlocked: 0
   scoreReward: 0
