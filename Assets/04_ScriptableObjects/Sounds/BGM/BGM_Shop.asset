@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
   m_Name: BGM_Shop
   m_EditorClassIdentifier: 
-  soundName: Shop
+  soundName: BGM_Shop
   soundType: 0
   audioClip: {fileID: 8300000, guid: 3563144e5d2c8584fbb7c78e390859cb, type: 3}
   volume: 1

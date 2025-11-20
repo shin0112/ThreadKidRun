@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e381e706ae7294a97f6a85be07bd94, type: 3}
   m_Name: BGM_MainTheme
   m_EditorClassIdentifier: 
-  soundName: MainTheme
+  soundName: BGM_MainTheme
   soundType: 0
   audioClip: {fileID: 8300000, guid: 3abff86c1ec075a4d96150e26b946970, type: 3}
   volume: 1
