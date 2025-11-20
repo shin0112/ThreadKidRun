@@ -10,17 +10,19 @@ public class UIManager : MonoBehaviour
     private static UIManager _instance;
     public static UIManager Instance => _instance;
 
-    [Header("UI")]
-    [SerializeField] private SettingUI _settingUI;
-    [SerializeField] private PauseUI _pauseUI;
+    [Header("공통")]
     [SerializeField] private CoinUI _totalCoinUI;
     [SerializeField] private ScoreUI _scoreUI;
     [SerializeField] private ShopUI _shopUI;
-    [SerializeField] private GameOverUI _gameOverUI;
-    [SerializeField] private GameObject _archievementUI;
-
+    [SerializeField] private TutorialUI _tutorialUI;
     public CoinUI CoinUI => _totalCoinUI;
     public ShopUI ShopUI => _shopUI;
+
+    [Header("팝업창")]
+    [SerializeField] private SettingUI _settingUI;
+    [SerializeField] private PauseUI _pauseUI;
+    [SerializeField] private GameOverUI _gameOverUI;
+    [SerializeField] private GameObject _archievementUI;
 
     [Header("텍스트")]
     [SerializeField] private GameObject _startText;
@@ -49,6 +51,8 @@ public class UIManager : MonoBehaviour
         _totalCoinUI = transform.FindChild<CoinUI>("TotalCoin");
         _scoreUI = transform.FindChild<ScoreUI>("Score");
         _shopUI = transform.FindChild<ShopUI>("Shop");
+        _tutorialUI = transform.FindChild<TutorialUI>("Tutorial");
+        _archievementUI = transform.FindChild<Transform>("AchievementCanvas").gameObject;
 
         _startText = transform.FindChild<Transform>("StartText").gameObject;
     }

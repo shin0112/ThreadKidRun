@@ -31,6 +31,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8413080469523295599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5432970955967616578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1552176792076962959}
+  - component: {fileID: 1552814756156478397}
+  - component: {fileID: 6514625580429910343}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1552176792076962959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432970955967616578}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8413080469523295599}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552814756156478397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432970955967616578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f306c778ec8a748b76c6bb15cd3092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6514625580429910343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5432970955967616578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f306c778ec8a748b76c6bb15cd3092, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5478293353875828124
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,6 +153,7 @@ RectTransform:
   m_Children:
   - {fileID: 1951174669552908499}
   - {fileID: 3927826942894228740}
+  - {fileID: 1552176792076962959}
   - {fileID: 2569739179693706272}
   - {fileID: 6350807335105517955}
   - {fileID: 4891795988067975036}
@@ -187,11 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae90e2710cbe079409be290f76ab548d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingUI: {fileID: 1535336652802633677}
-  _pauseUI: {fileID: 7714272001278617251}
   _totalCoinUI: {fileID: 608478666186104118}
   _scoreUI: {fileID: 1997195929349362793}
   _shopUI: {fileID: 507509731360958505}
+  _tutorialUI: {fileID: 1552814756156478397}
+  _settingUI: {fileID: 1535336652802633677}
+  _pauseUI: {fileID: 7714272001278617251}
   _gameOverUI: {fileID: 8086675504807464947}
   _archievementUI: {fileID: 1256279006254052204}
   _startText: {fileID: 2314872585203035651}
