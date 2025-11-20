@@ -31,13 +31,13 @@ public class GameOverUI : MonoBehaviour, IUIActive
     private void RetryGame()
     {
         gameObject.SetActive(false);
-        UIManager.Instance.GameReload();
+        GameManager.Instance.GameReload();
     }
 
     private void ExitGame()
     {
         gameObject.SetActive(false);
-        UIManager.Instance.GameReload();
+        GameManager.Instance.GameReload();
     }
 
     #region 인터페이스 구현

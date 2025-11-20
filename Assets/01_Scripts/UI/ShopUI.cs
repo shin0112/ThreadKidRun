@@ -69,7 +69,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
     private void InitShopController()
     {
-        Logger.LogWarning("shop controller is null");
+        Logger.Log("shop controller 초기화");
         _controller = FindObjectOfType<ShopController>(true);
 
         _leftArrow.onClick.RemoveAllListeners();
