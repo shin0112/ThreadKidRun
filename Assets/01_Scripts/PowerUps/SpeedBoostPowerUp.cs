@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,8 +15,10 @@ namespace GameName.PowerUps
         [Tooltip("속도 부스트를 적용할 플레이어")]
         [SerializeField] private GameObject player;
 
-        // 플레이어 컨트롤러 스크립트 참조 (나중에 추가 예정)
-        // private PlayerController playerController;
+        // ============================================
+        // PlayerAnimation 스크립트 참조 추가
+        // ============================================
+        private PlayerAnimation playerAnimation;
 
         // 원래 속도를 저장 (복구용)
         private float originalSpeed;
@@ -44,11 +46,23 @@ namespace GameName.PowerUps
                 }
             }
 
-            // 나중에 PlayerController 스크립트 가져오기
-            // if (player != null)
-            // {
-            //     playerController = player.GetComponent<PlayerController>();
-            // }
+            // ============================================
+            // PlayerAnimation 스크립트 찾기
+            // GetComponentInChildren 사용으로 자식에서도 찾기
+            // ============================================
+            if (player != null)
+            {
+                playerAnimation = player.GetComponentInChildren<PlayerAnimation>();
+
+                if (playerAnimation == null)
+                {
+                    Debug.LogError("[SpeedBoostPowerUp] PlayerAnimation 스크립트를 찾을 수 없습니다!");
+                }
+                else
+                {
+                    Debug.Log("[SpeedBoostPowerUp] PlayerAnimation 스크립트 연결 완료!");
+                }
+            }
 
             // 트레일 자동 찾기
             if (trailRenderer == null && player != null)
@@ -72,14 +86,20 @@ namespace GameName.PowerUps
                 return;
             }
 
-            // TODO: 팀원이 PlayerController 완성하면 주석 해제
-            // if (playerController != null)
-            // {
-            //     originalSpeed = playerController.moveSpeed;
-            //     playerController.moveSpeed *= powerUpData.effectValue;
-            // }
+            // ============================================
+            // PlayerAnimation의 moveSpeed 증가
+            // ============================================
+            if (playerAnimation != null)
+            {
+                originalSpeed = playerAnimation.moveSpeed;
+                playerAnimation.moveSpeed *= powerUpData.effectValue;
 
-            Debug.Log($"[SpeedBoostPowerUp] 속도 부스트 활성화! (배율: {powerUpData.effectValue}x)");
+                Debug.Log($"[SpeedBoostPowerUp] 속도 부스트 활성화! 원래 속도: {originalSpeed} → 새 속도: {playerAnimation.moveSpeed} (배율: {powerUpData.effectValue}x)");
+            }
+            else
+            {
+                Debug.LogWarning("[SpeedBoostPowerUp] PlayerAnimation이 없어 속도 변경을 건너뜁니다.");
+            }
 
             // 시각적 피드백
             ChangePlayerColor(Color.cyan);
@@ -93,13 +113,14 @@ namespace GameName.PowerUps
         {
             if (player == null) return;
 
-            // TODO: 팀원이 PlayerController 완성하면 주석 해제
-            // if (playerController != null)
-            // {
-            //     playerController.moveSpeed = originalSpeed;
-            // }
-
-            Debug.Log("[SpeedBoostPowerUp] 속도 부스트 해제! 원래 속도로 복구됩니다.");
+            // ============================================
+            // PlayerAnimation의 moveSpeed 복구
+            // ============================================
+            if (playerAnimation != null)
+            {
+                playerAnimation.moveSpeed = originalSpeed;
+                Debug.Log($"[SpeedBoostPowerUp] 속도 부스트 해제! 원래 속도로 복구: {originalSpeed}");
+            }
 
             // 시각적 피드백 복구
             ResetPlayerColor();
