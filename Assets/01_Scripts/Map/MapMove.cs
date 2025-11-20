@@ -38,6 +38,11 @@ public class MapMove : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isMove = true;
+        }
+
         Move();
         //SpawnPivot();
         //DestroyMap();
