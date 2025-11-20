@@ -4,11 +4,11 @@ using UnityEngine;
 public class PlayerCollider : MonoBehaviour
 {
     public MapMove mapMove;
-    public GameObject gameOverUi;
     public bool isCoinCollision = false;
     public LayerMask layerMask;
     public Animator Animator;
     private PlayerAnimation _playerAnimation;
+
     //public Ray ray;
     //public Coin coin;
 
@@ -33,6 +33,11 @@ public class PlayerCollider : MonoBehaviour
         }
 
         Animator = _customizingController.GetAnimator();
+
+        if (mapMove == null)
+        {
+            mapMove = FindObjectOfType<MapMove>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -62,6 +67,7 @@ public class PlayerCollider : MonoBehaviour
             mapMove.GameOver();
             _playerAnimation.IsGameOver = true;
 
+            Animator.Play("Death_A");
             _playerAnimation.Death();
             StartCoroutine(nameof(CollderGameOver));
         }
