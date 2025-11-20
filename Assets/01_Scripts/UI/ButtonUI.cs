@@ -1,3 +1,4 @@
+using GameName.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,13 +18,11 @@ public class ButtonUI : MonoBehaviour, IUIActive
 
     private void Start()
     {
-        UIManager instance = UIManager.Instance;
-
-        _settingButton.onClick.AddListener(instance.ToggleSettingUI);
-        _archievementButton.onClick.AddListener(instance.ToggleArchievementUI);
-        _storeButton.onClick.AddListener(instance.SetShopMode);
-        _pauseButton.onClick.AddListener(instance.TogglePauseUI);
-        _homeButton.onClick.AddListener(instance.SetDefaultMode);
+        _settingButton.onClick.AddListener(OnClickSettingButton);
+        _archievementButton.onClick.AddListener(OnClickArchievementButton);
+        _storeButton.onClick.AddListener(OnClickStoreButton);
+        _pauseButton.onClick.AddListener(OnClickPauseButton);
+        _homeButton.onClick.AddListener(OnClickHomeButton);
 
         // 코인 테스트용
         _getCoinButton.onClick.AddListener(() => GameManager.Instance.EarnCoin(10000));
@@ -42,6 +41,38 @@ public class ButtonUI : MonoBehaviour, IUIActive
         _getCoinButton.onClick.RemoveAllListeners();
         _resetCoinButton.onClick.RemoveAllListeners();
     }
+
+    #region 버튼 클릭 이벤트
+    private void OnClickSettingButton()
+    {
+        UIManager.Instance.ToggleSettingUI();
+        AudioManager.Instance.PlaySFX("SFX_ButtonClick");
+    }
+
+    private void OnClickArchievementButton()
+    {
+        UIManager.Instance.ToggleArchievementUI();
+        AudioManager.Instance.PlaySFX("SFX_ButtonClick");
+    }
+
+    private void OnClickStoreButton()
+    {
+        UIManager.Instance.SetShopMode();
+        AudioManager.Instance.PlaySFX("SFX_ButtonClick");
+    }
+
+    private void OnClickPauseButton()
+    {
+        UIManager.Instance.TogglePauseUI();
+        AudioManager.Instance.PlaySFX("SFX_ButtonClick");
+    }
+
+    private void OnClickHomeButton()
+    {
+        UIManager.Instance.SetDefaultMode();
+        AudioManager.Instance.PlaySFX("SFX_ButtonClick");
+    }
+    #endregion
 
     #region 인터페이스 구현
     public void SetGameMode()
