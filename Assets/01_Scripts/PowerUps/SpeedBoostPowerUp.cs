@@ -68,6 +68,7 @@ namespace GameName.PowerUps
         public void Init(GameObject playerGo)
         {
             player = playerGo;
+            mapMove = FindObjectOfType<MapMove>();
         }
 
         #endregion
