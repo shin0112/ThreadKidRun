@@ -12,4 +12,12 @@ public class TutorialController : MonoBehaviour
         _colliders.Add(transform.FindChild<TutorialCollider>("Jump"));
         _colliders.Add(transform.FindChild<TutorialCollider>("Slide"));
     }
+
+    private void Start()
+    {
+        if (GameManager.Instance.FinishedTutorial)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }
