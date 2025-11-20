@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,11 +32,14 @@ namespace GameName.PowerUps
         protected override void Awake()
         {
             base.Awake(); // 부모 클래스 Awake 호출
+        }
 
+        public void Init(GameObject playerGo)
+        {
             // 플레이어 자동 찾기 (연결 안 되어 있으면)
             if (player == null)
             {
-                player = GameObject.FindGameObjectWithTag("Player");
+                player = playerGo;
 
                 if (player == null)
                 {
@@ -51,7 +53,7 @@ namespace GameName.PowerUps
             // ============================================
             if (player != null)
             {
-                playerCollider = player.GetComponentInChildren<PlayerCollider>();
+                playerCollider = player.GetComponent<PlayerCollider>();
 
                 if (playerCollider == null)
                 {

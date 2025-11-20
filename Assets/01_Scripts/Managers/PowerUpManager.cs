@@ -106,6 +106,12 @@ namespace GameName.Managers
             Debug.Log($"[PowerUpManager] {powerUpDictionary.Count}개의 파워업 초기화 완료!");
         }
 
+        public void Init(GameObject playerGo)
+        {
+            player = playerGo;
+            invincibilityPowerUp.Init(playerGo);
+            speedBoostPowerUp.Init(playerGo);
+        }
         #endregion
 
         #region Public Methods
