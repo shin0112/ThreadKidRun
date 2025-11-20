@@ -140,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -199,6 +203,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -283,6 +303,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -342,6 +366,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -550,6 +590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -609,6 +653,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -879,6 +939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -938,6 +1002,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -1084,6 +1164,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -1143,6 +1227,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}

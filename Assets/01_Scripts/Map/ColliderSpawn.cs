@@ -19,10 +19,12 @@ public class ColliderSpawn : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("충돌");
-        if(other.CompareTag("Map"))
+        if (other.CompareTag("Map"))
         {
             mapMove.Spawn();
-            
+
         }
     }
+
+  
 }

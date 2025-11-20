@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 8829631731950926126}
   - component: {fileID: 6366204291082018369}
   - component: {fileID: 757278918276618142}
+  - component: {fileID: 149855178114598799}
   m_Layer: 0
   m_Name: building_A_withoutBase
   m_TagString: Obstacle
@@ -114,6 +115,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &149855178114598799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820627258892448506}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.0120673925, y: 0.014499998, z: 0.015500693}
+  m_Center: {x: 0, y: -0.00074999913, z: 0.008749649}
 --- !u!1 &3826235417259495678
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,6 +307,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -344,6 +370,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -464,6 +506,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -523,6 +569,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -855,6 +917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -914,6 +980,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
@@ -998,6 +1080,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car_hatchback (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1178137679359037612, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -1057,6 +1143,22 @@ PrefabInstance:
     - target: {fileID: 1950697827093088790, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5759759090421641161, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6744849015334288920, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116055091118037979, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8669141666678084127, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1644142688213188051, guid: 36051e0cf1fae5a4ab4d75abd4a3bc8c, type: 3}

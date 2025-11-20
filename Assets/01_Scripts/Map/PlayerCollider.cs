@@ -20,21 +20,34 @@ public class PlayerCollider : MonoBehaviour
 
     void Update()
     {
-        
-       
+        CollisionRay();
+
+
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    Debug.Log("collision");
+    //    if (collision.gameObject.CompareTag("Obstacle"))
+    //    {
+    //        mapMove.isMove = false;
+    //        Animator.Play("Death_A");
+    //        StartCoroutine(nameof(CollderGameOver));
+    //    }
+    //}
+    public void CollisionRay()
     {
-        Debug.Log("collision");
-        if (collision.gameObject.CompareTag("Obstacle"))
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2f, layerMask))
         {
+
             mapMove.isMove = false;
             Animator.Play("Death_A");
             StartCoroutine(nameof(CollderGameOver));
+
         }
     }
-    
 
 
 
@@ -44,6 +57,6 @@ public class PlayerCollider : MonoBehaviour
         UIManager.Instance.ShowGameOverWindow();
         Time.timeScale = 0f;
     }
+
+    
 }
-//플레이어가 태그 obstacle과 부딪쳤을 때
-//코루틴을 이용해서 일시정지
