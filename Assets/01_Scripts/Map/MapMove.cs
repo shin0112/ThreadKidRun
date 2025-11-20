@@ -15,17 +15,10 @@ public class MapMove : MonoBehaviour
 
     [Header("Option")]
     [SerializeField] private float speed;//맵스피드
-    public bool isMove = true;
+    public bool isMove = false;
     private bool isFirst = false;
     void Start()
     {
-        //GameObject firstBasictMap = firstMap;
-        //if (firstMap != null && isFirst)
-        //{
-        //    Vector3 first = firstBasictMap.transform.position + new Vector3(0, 0, 24);
-        //    Instantiate(mapListPrefab[0], firstBasictMap.transform.position, Quaternion.identity);
-        //    isFirst = true;
-        //}
 
         Spawn();
         Spawn();
@@ -45,11 +38,16 @@ public class MapMove : MonoBehaviour
 
         Move();
         //SpawnPivot();
-        //DestroyMap();
+        DestroyMap();
     }
 
     public void Move()
     {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isMove = true;
+        }
         if (isMove == true)
         {
             Vector3 pos = moveMap.transform.position;
@@ -60,6 +58,7 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
+        
 
         GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
 
@@ -89,16 +88,16 @@ public class MapMove : MonoBehaviour
 
     public void DestroyMap()
     {
-        for (int i = 0; i < mapListPrefab.Count; i++)
+        for (int i = 0; i < mapLists.Count; i++)
         {
-            if(mapListPrefab.Count >= deathZone.position.z)
+            if(mapLists.Count >= deathZone.position.z)
             {
                 GameObject piece = mapLists[i];
                 if (piece != null && piece.transform.position.z <= deathZone.position.z)
                 {
                     mapLists.Remove(piece);
                     Destroy(piece);
-                    //Spawn();
+                   
                 }
             }
             

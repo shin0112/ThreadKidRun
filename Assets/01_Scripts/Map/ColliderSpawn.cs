@@ -22,7 +22,7 @@ public class ColliderSpawn : MonoBehaviour
         if(other.CompareTag("Map"))
         {
             mapMove.Spawn();
-            mapMove.DestroyMap();
+            
         }
     }
 }
