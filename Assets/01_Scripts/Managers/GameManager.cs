@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //현재 스코어
-    private int currentScore = 0;
+    private int currentScore = 0; //현재 스코어
+    private int getItemCount = 0; //획득한 아이템 수
 
     [SerializeField]
     private AchievementManager achievementManager;
@@ -80,6 +80,17 @@ public class GameManager : MonoBehaviour
         } // <- 업적 해금 방법. 다른 업적(아이템 사용, 아이템 구매하는) 함수에 위의 코드를 가져다 쓰면 됨
     }
 
+    public void EarnItem(int amount)
+    {
+        if (amount < 0) return;
+        getItemCount += amount;
+        UnityEngine.Debug.Log($"아이템 사용! 현재 사용한 아이템 수: {getItemCount}");
+        if (achievementManager != null)
+        {
+            achievementManager.CheckAchievements(getItemCount, AchievementType.UseItem);
+        }
+    }
+
     private void LoadData()
     {
         if (isReset)
@@ -88,12 +99,15 @@ public class GameManager : MonoBehaviour
             return;
         }
         totalCoinCount = PlayerPrefs.GetInt("CurrentCoin", 0);
+        getItemCount = PlayerPrefs.GetInt("CurrentUseItem", 0);
         EarnCoin(0);
+        EarnItem(0);
     }
 
     public void SaveData()
     {
         PlayerPrefs.SetInt("CurrentCoin", totalCoinCount);
+        PlayerPrefs.SetInt("CurrentUseItem", getItemCount);
         PlayerPrefs.Save();
     }
 
