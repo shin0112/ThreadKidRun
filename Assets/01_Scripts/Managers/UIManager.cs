@@ -1,8 +1,9 @@
+// ============================================
+using GameName.Managers;  //오디오연결
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-// ============================================
-using GameName.Managers;  //오디오연결
+using UnityEngine.SceneManagement;
 // ============================================
 
 public class UIManager : MonoBehaviour
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
     private List<IUIActive> _uiActives = new();
 
     public CoinUI CoinUI => _totalCoinUI;
+    public ShopUI ShopUI => _shopUI;
 
     [Header("텍스트")]
     [SerializeField] private GameObject _startText;
@@ -42,9 +44,19 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        _instance = this;
+        if (_instance != null && _instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
+        _instance = this;
         Init();
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
@@ -78,10 +90,24 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.OnScoreChanged -= ScoreEvents;
     }
 
+    /// <summary>
+    /// 씬 초기화
+    /// </summary>
     private void Init()
     {
         _uiActives.Clear();
         _uiActives = GetComponentsInChildren<IUIActive>().ToList();
+    }
+
+    public void GameReload()
+    {
+        SceneManager.LoadScene(SceneType.GameScene.ToString());
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SetDefaultMode();
     }
 
     /// <summary>
