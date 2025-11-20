@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerCollider : MonoBehaviour
 {
@@ -10,6 +8,7 @@ public class PlayerCollider : MonoBehaviour
     public bool isCoinCollision = false;
     public LayerMask layerMask;
     public Animator Animator;
+    private PlayerAnimation _playerAnimation;
     //public Ray ray;
     //public Coin coin;
 
@@ -27,6 +26,10 @@ public class PlayerCollider : MonoBehaviour
         if (!TryGetComponent<CustomizingController>(out var _customizingController))
         {
             Logger.LogWarning("커스터마이징 컨트롤러 초기화 실패");
+        }
+        if (!TryGetComponent(out _playerAnimation))
+        {
+            Logger.LogWarning("플레이어 애니메이션 초기화 실패");
         }
 
         Animator = _customizingController.GetAnimator();
@@ -53,7 +56,9 @@ public class PlayerCollider : MonoBehaviour
             }
 
             // 무적이 아닐 때만 게임오버 처리
-            mapMove.isMove = false;
+            mapMove.GameOver();
+            _playerAnimation.IsGameOver = true;
+
             Animator.Play("Death_A");
             StartCoroutine(nameof(CollderGameOver));
         }

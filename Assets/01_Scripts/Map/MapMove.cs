@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,12 +9,20 @@ public class MapMove : MonoBehaviour
     [SerializeField] private List<GameObject> mapListPrefab;//맵생성
     [SerializeField] private Transform lastPivot;//재생성 위치
     [SerializeField] private Transform spawnPivot;//맵을 스폰하는 위치
-   
+
 
     [Header("Option")]
     public float speed;//맵스피드
     public bool isMove = false;
     private bool isFirst = false;
+    private bool isGameOver = false;
+
+    public void GameOver()
+    {
+        isMove = false;
+        isGameOver = true;
+    }
+
     void Start()
     {
 
@@ -30,7 +37,7 @@ public class MapMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!isGameOver && Input.GetKeyDown(KeyCode.Space))
         {
             isMove = true;
         }
@@ -57,7 +64,7 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
-        
+
 
         GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
 
@@ -65,7 +72,7 @@ public class MapMove : MonoBehaviour
         GameObject piece = Instantiate(prefabs, lastPivot.position, Quaternion.identity);
         //lastPivot.transform.position += new Vector3(0, 0, 24);
         Transform newtransfrom = piece.transform.Find("LastPivot");
-        if(newtransfrom != null)
+        if (newtransfrom != null)
         {
             lastPivot = newtransfrom;
         }
@@ -94,17 +101,17 @@ public class MapMove : MonoBehaviour
     {
         for (int i = 0; i < mapLists.Count; i++)
         {
-            if(mapLists.Count >= deathZone.position.z)
+            if (mapLists.Count >= deathZone.position.z)
             {
                 GameObject piece = mapLists[i];
                 if (piece != null && piece.transform.position.z <= deathZone.position.z)
                 {
                     mapLists.Remove(piece);
                     Destroy(piece);
-                   
+
                 }
             }
-            
+
 
         }
 

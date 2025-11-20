@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GameName.Managers;
+using System.Collections;
+using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -16,6 +15,13 @@ public class PlayerAnimation : MonoBehaviour
     private bool isMap = true;
     private bool isSliding = false;
     private float sliderTimer = 0f;
+
+    private bool _isGameOver;
+    public bool IsGameOver
+    {
+        get { return _isGameOver; }
+        set { _isGameOver = value; }
+    }
 
     void Start()
     {
@@ -55,7 +61,7 @@ public class PlayerAnimation : MonoBehaviour
     }
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isMap)
+        if (Input.GetKeyDown(KeyCode.Space) && isMap && !_isGameOver)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             anim.SetBool("isJump", true);
