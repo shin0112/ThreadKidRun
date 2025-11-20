@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: BuyCharacter_02
   achievementName: Buy Character (Lv2)
-  description: Unlocked when you buy 2 items.
+  description: Unlocked when you buy 2 Character.
   requiredCount: 2
   type: 1
   isUnlocked: 0

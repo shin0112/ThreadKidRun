@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: UseItem_02
   achievementName: Use Item (Lv2)
-  description: Unlocked when you use 50 items.
-  requiredCount: 50
+  description: Unlocked when you use 5 items.
+  requiredCount: 5
   type: 2
   isUnlocked: 0
   scoreReward: 0

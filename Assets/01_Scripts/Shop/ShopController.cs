@@ -110,8 +110,8 @@ public class ShopController : MonoBehaviour
         {
             Logger.Log($"{selected.name} 구매 완료");
             selected.GetSkin();
+            GameManager.Instance.EarnCharacter(1);
         }
-
         return selected;
     }
 }
