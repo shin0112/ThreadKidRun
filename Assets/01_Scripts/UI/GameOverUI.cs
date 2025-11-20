@@ -32,7 +32,7 @@ public class GameOverUI : MonoBehaviour, IUIActive
     {
         GameManager.Instance.ScoreReset(); //현재 점수 초기화
         gameObject.SetActive(false);
-        UIManager.Instance.CurLoadMode = UISceneLoadMode.Default;
+        UIManager.Instance.CurLoadMode = UIMode.Default;
 
         GameManager.Instance.GameReload();
         GameManager.Instance.SaveData();
@@ -42,7 +42,7 @@ public class GameOverUI : MonoBehaviour, IUIActive
     {
         GameManager.Instance.ScoreReset(); //현재 점수 초기화
         gameObject.SetActive(false);
-        UIManager.Instance.CurLoadMode = UISceneLoadMode.Shop;
+        UIManager.Instance.CurLoadMode = UIMode.Shop;
 
         GameManager.Instance.GameReload();
         GameManager.Instance.SaveData();

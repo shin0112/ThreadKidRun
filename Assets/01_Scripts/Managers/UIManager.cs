@@ -5,12 +5,6 @@ using System.Linq;
 using UnityEngine;
 // ============================================
 
-public enum UISceneLoadMode
-{
-    Default,
-    Shop
-}
-
 public class UIManager : MonoBehaviour
 {
     private static UIManager _instance;
@@ -32,8 +26,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _startText;
 
     // 씬 로드 모드
-    private UISceneLoadMode _curLoadMode = UISceneLoadMode.Default;
-    public UISceneLoadMode CurLoadMode
+    private UIMode _curLoadMode = UIMode.Default;
+    public UIMode CurLoadMode
     {
         get { return _curLoadMode; }
         set { _curLoadMode = value; }
@@ -125,10 +119,10 @@ public class UIManager : MonoBehaviour
     {
         switch (_curLoadMode)
         {
-            case UISceneLoadMode.Default:
+            case UIMode.Default:
                 SetDefaultMode();
                 break;
-            case UISceneLoadMode.Shop:
+            case UIMode.Shop:
                 SetShopMode();
                 break;
         }
