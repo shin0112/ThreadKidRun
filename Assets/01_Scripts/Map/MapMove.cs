@@ -14,7 +14,7 @@ public class MapMove : MonoBehaviour
     [SerializeField] private GameObject firstMap;
 
     [Header("Option")]
-    [SerializeField] private float speed;//맵스피드
+    public float speed;//맵스피드
     public bool isMove = false;
     private bool isFirst = false;
     void Start()
