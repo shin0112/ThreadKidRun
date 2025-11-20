@@ -22,7 +22,7 @@ namespace GameName.Data
 
         [Tooltip("효과 값 (속도 배율, 점프 높이 등)")]
         [Range(0.1f, 10f)]
-        public float effectValue = 1.5f;
+        public float effectValue = 1.1f;
 
         [Header("=== 시각/사운드 ===")]
         [Tooltip("UI에 표시될 아이콘")]
