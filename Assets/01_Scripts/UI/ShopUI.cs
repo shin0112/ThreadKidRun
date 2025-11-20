@@ -12,7 +12,9 @@ public class ShopUI : MonoBehaviour, IUIActive
     [SerializeField] private GameObject _buttonIcon;
     [SerializeField] private TextMeshProUGUI _price;
 
-    ShopController _controller;
+    private int _curSelectIndex;
+
+    private ShopController _controller;
 
     private void Start()
     {
@@ -28,6 +30,8 @@ public class ShopUI : MonoBehaviour, IUIActive
         _get.onClick.AddListener(GetSkin);
 
         _controller.OnChangedPriceText += UpdateButtonText;
+
+        _curSelectIndex = GameManager.Instance.CurSkinIndex;
     }
 
     private void OnDestroy()
@@ -42,12 +46,13 @@ public class ShopUI : MonoBehaviour, IUIActive
     private void UpdateButtonText(CharacterSlot shopCharacter)
     {
         int price = shopCharacter.GetPriceValue();
+        bool selected = _curSelectIndex == _controller.CurSelectIndex;
 
-        if (price == 0 || shopCharacter.CheckSold())
+        if (price == 0 || shopCharacter.CheckSold() || selected)
         {
             _buttonIcon.SetActive(false);
             _price.rectTransform.sizeDelta = new Vector2(Define.SoldTextWidth, Define.SoldTextHeight);
-            _price.text = "선택 가능";
+            _price.text = selected ? "선택 중" : "선택 가능";
             return;
         }
 
@@ -59,7 +64,17 @@ public class ShopUI : MonoBehaviour, IUIActive
     private void GetSkin()
     {
         CharacterSlot selected = _controller.GetSkin();
+
+        // 스킨 인덱스 변경
+        GameManager.Instance.CurSkinIndex = selected.Index;
+        _curSelectIndex = selected.Index;
+
         UpdateButtonText(selected);
+    }
+
+    private void SelectSkin(int index)
+    {
+
     }
 
     #region 인터페이스 구현

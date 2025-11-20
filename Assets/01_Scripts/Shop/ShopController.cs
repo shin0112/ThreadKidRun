@@ -20,6 +20,7 @@ public class ShopController : MonoBehaviour
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
+    public int CurSelectIndex => _curSelectIndex;
 
     private void Awake()
     {
