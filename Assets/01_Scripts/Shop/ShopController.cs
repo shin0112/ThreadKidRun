@@ -34,6 +34,11 @@ public class ShopController : MonoBehaviour
         OnChangedPriceText?.Invoke(_characterSlots[_curSelectIndex]);
     }
 
+    private void Start()
+    {
+        _characterSlots.ForEach((slot) => slot.Init());
+    }
+
     private void OnDisable()
     {
         if (_rotateCoroutine != null) StopAllCoroutines();

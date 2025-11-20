@@ -6,6 +6,12 @@ public class CharacterSlot : MonoBehaviour
     [SerializeField] private int _index;
     [SerializeField] private CharacterSkinData _data;
 
+    public void Init()
+    {
+        _index = _data.skinID;
+        Instantiate(_data.skinPrefab, this.transform);
+    }
+
     public int GetPriceValue()
     {
         Logger.Log($"가격: {_data.unlockCost}");
