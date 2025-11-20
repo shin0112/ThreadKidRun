@@ -35,11 +35,6 @@ public class PlayerCollider : MonoBehaviour
         Animator = _customizingController.GetAnimator();
     }
 
-    void Update()
-    {
-
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("collision");
@@ -49,6 +44,14 @@ public class PlayerCollider : MonoBehaviour
         // ============================================
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            // 튜토리얼 중일 경우
+            if (!GameManager.Instance.FinishedTutorial)
+            {
+                StartCoroutine("TutorialCollisonAnimation");
+                mapMove.BackForTutorial();
+                return;
+            }
+
             if (isInvincible)
             {
                 Debug.Log("[PlayerCollider] 무적 상태! 장애물 충돌 무시");
@@ -59,7 +62,7 @@ public class PlayerCollider : MonoBehaviour
             mapMove.GameOver();
             _playerAnimation.IsGameOver = true;
 
-            Animator.Play("Death_A");
+            _playerAnimation.Death();
             StartCoroutine(nameof(CollderGameOver));
         }
     }
@@ -69,6 +72,17 @@ public class PlayerCollider : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UIManager.Instance.ShowGameOverWindow();
         //Time.timeScale = 0f;
+    }
+
+    /// <summary>
+    /// 튜토리얼 중에 충돌할 경우에 실행될 애니메이션
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator TutorialCollisonAnimation()
+    {
+        _playerAnimation.Death();
+        yield return new WaitForSeconds(1.5f);
+        Animator.SetBool("isDie", false);
     }
 }
 //플레이어가 태그 obstacle과 부딪쳤을 때

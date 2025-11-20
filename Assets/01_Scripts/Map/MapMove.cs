@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -131,6 +132,32 @@ public class MapMove : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 튜토리얼 용 맵 뒤로가게 하기
+    /// </summary>
+    public void BackForTutorial()
+    {
+        StartCoroutine("BackMoveCoroutine");
+    }
+
+    private IEnumerator BackMoveCoroutine()
+    {
+        float duration = 1.5f;
+        float time = 0f;
+
+        Vector3 start = transform.position;
+        Vector3 end = start + Vector3.forward * 10f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            transform.position = Vector3.Lerp(start, end, time / duration);
+
+            yield return null;
+        }
+
+        transform.position = end;
+    }
 }
 //오브젝트 움직임
 //맵을움직이는 오브젝트를 움직임

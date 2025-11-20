@@ -92,7 +92,7 @@ public class PlayerAnimation : MonoBehaviour
         {
             isSliding = true;
             sliderTimer = slideDuration;
-            anim.SetTrigger("isSliding");
+            anim.SetBool("isSliding", true);
         }
         if (isSliding)
         {
@@ -100,10 +100,17 @@ public class PlayerAnimation : MonoBehaviour
             if (sliderTimer <= 0f)
             {
                 isSliding = false;
-                anim.ResetTrigger("isSliding");
+                anim.SetBool("isSliding", false);
             }
         }
     }
+
+    public void Death()
+    {
+        anim.SetBool("isDie", true);
+        anim.SetBool("isSliding", false);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Map"))
