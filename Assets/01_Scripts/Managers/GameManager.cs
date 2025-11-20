@@ -113,6 +113,12 @@ public class GameManager : MonoBehaviour
         UnityEngine.Debug.Log($"코인 획득! 현재 스코어: {currentScore}");
     }
 
+    public void ScoreReset()
+    {
+        currentScore = 0;
+        OnScoreChanged?.Invoke(currentScore);
+    }
+
     #region 코인 관리
     // 코인을 획득할 때 호출되는 메서드
     public void EarnCoin(int amount)

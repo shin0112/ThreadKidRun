@@ -30,8 +30,11 @@ public class GameOverUI : MonoBehaviour, IUIActive
 
     private void RetryGame()
     {
+        GameManager.Instance.ScoreReset(); //현재 점수 초기화
+
         gameObject.SetActive(false);
         GameManager.Instance.GameReload();
+        GameManager.Instance.SaveData();
     }
 
     private void ExitGame()
