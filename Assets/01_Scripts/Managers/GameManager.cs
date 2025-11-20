@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
         UnityEngine.Debug.Log($"캐릭터 구매! 구매된 캐릭터 수: {buyCharacterCount}");
         if (achievementManager != null)
         {
-            achievementManager.CheckAchievements(getItemCount, AchievementType.BuySomething);
+            achievementManager.CheckAchievements(buyCharacterCount, AchievementType.BuySomething);
         }
     }
     #endregion
