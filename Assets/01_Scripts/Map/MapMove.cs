@@ -14,8 +14,11 @@ public class MapMove : MonoBehaviour
     [Header("Option")]
     public float speed;//맵스피드
     public bool isMove = false;
-    private bool isFirst = false;
+    private bool isFirst = true;
     private bool isGameOver = false;
+
+    // 튜토리얼
+    private bool isTutoriating = false;
 
     public void GameOver()
     {
@@ -25,6 +28,7 @@ public class MapMove : MonoBehaviour
 
     void Start()
     {
+        isTutoriating = !GameManager.Instance.FinishedTutorial;
 
         Spawn();
         Spawn();
@@ -64,10 +68,18 @@ public class MapMove : MonoBehaviour
     }
     public void Spawn()
     {
+        GameObject prefabs;
 
-
-        GameObject prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count)];
-
+        // 튜토리얼일 경우 특정 프리팹 생성
+        if (isFirst && isTutoriating)
+        {
+            prefabs = mapListPrefab[mapListPrefab.Count - 1];   // 마지막 프리팹이 튜토리얼
+            isFirst = false;
+        }
+        else
+        {
+            prefabs = mapListPrefab[Random.Range(0, mapListPrefab.Count - 1)];
+        }
 
         GameObject piece = Instantiate(prefabs, lastPivot.position, Quaternion.identity);
         //lastPivot.transform.position += new Vector3(0, 0, 24);
