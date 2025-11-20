@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TutorialUI _tutorialUI;
     public CoinUI CoinUI => _totalCoinUI;
     public ShopUI ShopUI => _shopUI;
+    public TutorialUI TutorialUI => _tutorialUI;
 
     [Header("팝업창")]
     [SerializeField] private SettingUI _settingUI;

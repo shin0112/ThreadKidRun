@@ -217,13 +217,25 @@ public class GameManager : MonoBehaviour
         UIManager ui = UIManager.Instance;
         ui.Camera = Camera.main;
         ui.SetSceneLoadMode();
+        ui.TutorialUI.Init();
 
         InitPlayer();
     }
     #endregion
 
     #region 튜토리얼
+    private bool _finishedTutorial = false;
+    public bool FinishedTutorial => _finishedTutorial;
 
+    public void EndTutorial()
+    {
+        _finishedTutorial = true;
+    }
+
+    public void ResetTutorial()
+    {
+        _finishedTutorial = false;
+    }
     #endregion
 }
 
