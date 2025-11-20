@@ -64,6 +64,7 @@ public class PlayerCollider : MonoBehaviour
         yield return new WaitForSeconds(1f);
         UIManager.Instance.ShowGameOverWindow();
         Time.timeScale = 0f;
+    
     }
 }
 //플레이어가 태그 obstacle과 부딪쳤을 때
