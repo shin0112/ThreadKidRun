@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 1
   skinName: Knight
-  skinPrefab: {fileID: 919132149155446097, guid: 1b3eef04a8f4806488ab948413b38a52, type: 3}
+  skinPrefab: {fileID: 5518479042733766453, guid: 84c62477eb221f843afd9f5425c5fb33, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 1
   unlockCost: 100
+  isUnlocked: 0
   description: 

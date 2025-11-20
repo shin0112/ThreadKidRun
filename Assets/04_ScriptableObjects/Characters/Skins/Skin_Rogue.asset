@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 4
   skinName: Rogue
-  skinPrefab: {fileID: 919132149155446097, guid: 44beab5c61ed214458dd47eeece147c9, type: 3}
+  skinPrefab: {fileID: 1439193456526560996, guid: db51d9aba47a4184589e2a9cfe76c4b3, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 0
   unlockCost: 100
+  isUnlocked: 0
   description: 

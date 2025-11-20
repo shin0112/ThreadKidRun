@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 3
   skinName: Ranger
-  skinPrefab: {fileID: 919132149155446097, guid: cc4e85db07483324680bd3b16ee3bff3, type: 3}
+  skinPrefab: {fileID: 4891632437179949668, guid: f75f4215384817e42a240fd19528ebd0, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 0
   unlockCost: 100
+  isUnlocked: 0
   description: 

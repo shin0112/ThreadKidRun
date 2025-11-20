@@ -1,9 +1,16 @@
 using GameName.Data;
 using UnityEngine;
 
-public class ShopCharacter : MonoBehaviour
+public class CharacterSlot : MonoBehaviour
 {
+    [SerializeField] private int _index;
     [SerializeField] private CharacterSkinData _data;
+
+    public void Init()
+    {
+        _index = _data.skinID;
+        Instantiate(_data.skinPrefab, this.transform);
+    }
 
     public int GetPriceValue()
     {
@@ -13,6 +20,11 @@ public class ShopCharacter : MonoBehaviour
 
     public bool CheckSold()
     {
+        if (_data.isUnlocked)
+        {
+            Logger.Log("이미 구매한 스킨");
+        }
+
         return _data.isUnlocked;
     }
 
@@ -21,17 +33,8 @@ public class ShopCharacter : MonoBehaviour
         return _data.name;
     }
 
-    public void IsUnlocked()
+    public void GetSkin()
     {
         _data.isUnlocked = true;
-    }
-
-    public bool CheckUnlocked()
-    {
-        if (_data.isUnlocked)
-        {
-            Logger.Log("이미 구매한 스킨");
-        }
-        return _data.isUnlocked;
     }
 }
