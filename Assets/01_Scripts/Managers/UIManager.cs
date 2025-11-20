@@ -5,6 +5,12 @@ using System.Linq;
 using UnityEngine;
 // ============================================
 
+public enum UISceneLoadMode
+{
+    Default,
+    Shop
+}
+
 public class UIManager : MonoBehaviour
 {
     private static UIManager _instance;
@@ -25,6 +31,14 @@ public class UIManager : MonoBehaviour
 
     [Header("텍스트")]
     [SerializeField] private GameObject _startText;
+
+    // 씬 로드 모드
+    private UISceneLoadMode _curLoadMode = UISceneLoadMode.Default;
+    public UISceneLoadMode CurLoadMode
+    {
+        get { return _curLoadMode; }
+        set { _curLoadMode = value; }
+    }
 
     // 카메라
     private Camera _mainCamera;
@@ -105,6 +119,19 @@ public class UIManager : MonoBehaviour
     private void ScoreEvents(int value)
     {
         _scoreUI.UpdateCurrentScore(value);
+    }
+
+    public void SetSceneLoadMode()
+    {
+        switch (_curLoadMode)
+        {
+            case UISceneLoadMode.Default:
+                SetDefaultMode();
+                break;
+            case UISceneLoadMode.Shop:
+                SetShopMode();
+                break;
+        }
     }
 
     #region Window On/Off

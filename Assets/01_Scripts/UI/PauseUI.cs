@@ -32,13 +32,14 @@ public class PauseUI : MonoBehaviour
 
     private void ContinueGame()
     {
-        // todo: 게임 재시작
+        // todo: 게임 계속
         gameObject.SetActive(false);
     }
 
     private void ExitGame()
     {
         gameObject.SetActive(false);
+        UIManager.Instance.CurLoadMode = UISceneLoadMode.Default;
         GameManager.Instance.GameReload();
     }
 }

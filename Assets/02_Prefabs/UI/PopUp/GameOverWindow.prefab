@@ -633,7 +633,7 @@ GameObject:
   - component: {fileID: 5182558615505113441}
   - component: {fileID: 7716810962928469412}
   m_Layer: 5
-  m_Name: Button - Exit
+  m_Name: Button - Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB9CC\uD558\uAE30"
+  m_text: "\uC0C1\uC810\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f242d7fd96873ea4d8f1e9f121b6360e, type: 2}
   m_sharedMaterial: {fileID: 1822261694997379809, guid: f242d7fd96873ea4d8f1e9f121b6360e, type: 2}

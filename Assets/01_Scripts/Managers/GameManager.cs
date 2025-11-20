@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
         // ui 로딩
         UIManager ui = UIManager.Instance;
         ui.Camera = Camera.main;
-        ui.SetDefaultMode();
+        ui.SetSceneLoadMode();
 
         InitPlayer();
     }
