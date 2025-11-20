@@ -6,6 +6,7 @@ public class ScoreUI : MonoBehaviour, IUIActive
     [Header("텍스트")]
     [SerializeField] private TextMeshProUGUI _bestScoreText;
     [SerializeField] private TextMeshProUGUI _curScoreText;
+    [SerializeField] private TextMeshProUGUI _gameOverCurScoreText;
 
     [Header("텍스트 컨테이너")]
     [SerializeField] private GameObject _curScoreContainer;
@@ -18,6 +19,7 @@ public class ScoreUI : MonoBehaviour, IUIActive
     {
         _curScore = value;
         _curScoreText.text = _curScore.ToString();
+        _gameOverCurScoreText.text = _curScore.ToString();
 
         if (_curScore > _bestScore) UpdateBestScore(_curScore);
     }
