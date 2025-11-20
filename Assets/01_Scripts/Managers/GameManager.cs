@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     //public event Action<string> OnAchievementUnlocked; // 업적이 잠금 해제될 때 외부에 알림
 
     // 스킨 정보
+    [Header("스킨 정보")]
     [SerializeField] private int _curSkinIndex;
     public int CurSkinIndex
     {
