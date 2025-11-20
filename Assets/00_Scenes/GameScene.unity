@@ -169,7 +169,7 @@ MonoBehaviour:
   powerUpPrefabs:
   - {fileID: 8371430212413745861, guid: 6531bc1e1b387c74b9403ab5c1959ffa, type: 3}
   - {fileID: 3409543289322488388, guid: 46710141ee0ae8947bc7d6772616573b, type: 3}
-  spawnChance: 30
+  spawnChance: 100
   spawnMinX: -3
   spawnMaxX: 3
   spawnHeight: 1
