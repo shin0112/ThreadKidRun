@@ -181,6 +181,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3704316590481051926, guid: 5690149baa03b924eb480a585a78d803, type: 3}
   m_PrefabInstance: {fileID: 1845180369}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &223434750 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7696928799531143818, guid: 474cda391b1ef2d46b390711f1b7053c, type: 3}
+  m_PrefabInstance: {fileID: 2598242535535303387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &790597627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5796,6 +5801,10 @@ PrefabInstance:
       propertyPath: mapMove
       value: 
       objectReference: {fileID: 1828800284}
+    - target: {fileID: 2499216779565591109, guid: 474cda391b1ef2d46b390711f1b7053c, type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 223434750}
     - target: {fileID: 2935275598282508795, guid: 474cda391b1ef2d46b390711f1b7053c, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
