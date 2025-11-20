@@ -39,7 +39,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         _controller.OnChangedPriceText -= UpdateButtonText;
     }
 
-    private void UpdateButtonText(ShopCharacter shopCharacter)
+    private void UpdateButtonText(CharacterSlot shopCharacter)
     {
         int price = shopCharacter.GetPriceValue();
 
@@ -58,7 +58,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
     private void GetSkin()
     {
-        ShopCharacter selected = _controller.GetSkin();
+        CharacterSlot selected = _controller.GetSkin();
         UpdateButtonText(selected);
     }
 

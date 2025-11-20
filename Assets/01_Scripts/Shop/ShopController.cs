@@ -6,8 +6,8 @@ using UnityEngine;
 public class ShopController : MonoBehaviour
 {
     [Header("캐릭터")]
-    [SerializeField] private Transform _characterContainer;
-    [SerializeField] private List<ShopCharacter> _characters;
+    [SerializeField] private Transform _charactersContainer;
+    [SerializeField] private List<CharacterSlot> _characterSlots;
     // todo: 캐릭터 가격 연동하기
 
     [SerializeField] private Camera _shopCamera;
@@ -16,14 +16,14 @@ public class ShopController : MonoBehaviour
     [Header("회전")]
     [SerializeField] private float _rotateDuration = 0.5f;
     private IEnumerator _rotateCoroutine;
-    public Action<ShopCharacter> OnChangedPriceText;
+    public Action<CharacterSlot> OnChangedPriceText;
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
 
     private void Awake()
     {
-        if (_characters.Count != Define.CharacterCount)
+        if (_characterSlots.Count != Define.CharacterCount)
         {
             Logger.Log("캐릭터 개수 불일치");
         }
@@ -31,7 +31,7 @@ public class ShopController : MonoBehaviour
 
     private void OnEnable()
     {
-        OnChangedPriceText?.Invoke(_characters[_curSelectIndex]);
+        OnChangedPriceText?.Invoke(_characterSlots[_curSelectIndex]);
     }
 
     private void OnDisable()
@@ -79,26 +79,26 @@ public class ShopController : MonoBehaviour
     {
         float elapsed = 0f;
 
-        Quaternion start = _characterContainer.transform.localRotation;
+        Quaternion start = _charactersContainer.transform.localRotation;
         Quaternion end = Quaternion.Euler(0, value, 0);
 
         while (elapsed < _rotateDuration)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / _rotateDuration;
-            _characterContainer.localRotation = Quaternion.Slerp(start, end, t);
+            _charactersContainer.localRotation = Quaternion.Slerp(start, end, t);
             yield return null;
         }
 
-        _characterContainer.localRotation = end;
+        _charactersContainer.localRotation = end;
 
-        OnChangedPriceText?.Invoke(_characters[_curSelectIndex]);
+        OnChangedPriceText?.Invoke(_characterSlots[_curSelectIndex]);
     }
     #endregion
 
-    public ShopCharacter GetSkin()
+    public CharacterSlot GetSkin()
     {
-        ShopCharacter selected = _characters[_curSelectIndex];
+        CharacterSlot selected = _characterSlots[_curSelectIndex];
 
         if (!selected.CheckUnlocked() &&
             GameManager.Instance.CheckSpendCoinAndGetSkin(selected.GetPriceValue()))

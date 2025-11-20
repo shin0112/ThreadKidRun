@@ -1,8 +1,9 @@
 using GameName.Data;
 using UnityEngine;
 
-public class ShopCharacter : MonoBehaviour
+public class CharacterSlot : MonoBehaviour
 {
+    [SerializeField] private int _index;
     [SerializeField] private CharacterSkinData _data;
 
     public int GetPriceValue()
