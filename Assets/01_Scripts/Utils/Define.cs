@@ -12,4 +12,6 @@ public static class Define
     public static float SoldTextWidth = 380f;
     public static float SoldTextHeight = 100f;
     #endregion
+
+    public static int TutorialCount = 3;
 }

@@ -24,8 +24,10 @@ public class TutorialUI : MonoBehaviour, IUIActive
 
         for (int i = 0; i < colliders.Count; i++)
         {
-            colliders[i].OnEnterTrigger += _tutorialObjects[i].HandleEnterTrigger;
-            colliders[i].OnExitTrigger += _tutorialObjects[i].HandleExitTrigger;
+            var collider = colliders[i];
+            collider.Index = i;
+            collider.OnEnterTrigger += _tutorialObjects[i].HandleEnterTrigger;
+            collider.OnExitTrigger += _tutorialObjects[i].HandleExitTrigger;
         }
     }
 
