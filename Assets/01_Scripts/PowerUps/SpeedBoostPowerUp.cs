@@ -5,23 +5,23 @@ using UnityEngine;
 namespace GameName.PowerUps
 {
     /// <summary>
-    /// 스피드 부스트 파워업: 플레이어 이동 속도 증가
+    /// 스피드 부스트 파워업: 맵 이동 속도 증가 (게임 진행 속도 증가)
     /// </summary>
     public class SpeedBoostPowerUp : PowerUpBase
     {
         #region Fields
 
         [Header("=== Speed Boost Settings ===")]
-        [Tooltip("속도 부스트를 적용할 플레이어")]
+        [Tooltip("속도 부스트를 적용할 플레이어 (시각 효과용)")]
         [SerializeField] private GameObject player;
 
         // ============================================
-        // PlayerAnimation 스크립트 참조 추가
+        // MapMove 스크립트 참조 - 맵 이동 속도 제어
         // ============================================
-        private PlayerAnimation playerAnimation;
+        private MapMove mapMove;
 
-        // 원래 속도를 저장 (복구용)
-        private float originalSpeed;
+        // 원래 맵 속도를 저장 (복구용)
+        private float originalMapSpeed;
 
         [Header("=== Optional Effects ===")]
         [Tooltip("속도 부스트 시 활성화할 트레일 효과")]
@@ -35,33 +35,29 @@ namespace GameName.PowerUps
         {
             base.Awake(); // 부모 클래스 Awake 호출
 
-            // 플레이어 자동 찾기 (연결 안 되어 있으면)
+            // 플레이어 자동 찾기 (시각 효과용)
             if (player == null)
             {
                 player = GameObject.FindGameObjectWithTag("Player");
 
                 if (player == null)
                 {
-                    Debug.LogError("[SpeedBoostPowerUp] Player 태그를 가진 오브젝트를 찾을 수 없습니다!");
+                    Debug.LogWarning("[SpeedBoostPowerUp] Player 태그를 가진 오브젝트를 찾을 수 없습니다!");
                 }
             }
 
             // ============================================
-            // PlayerAnimation 스크립트 찾기
-            // GetComponentInChildren 사용으로 자식에서도 찾기
+            // MapMove 스크립트 찾기 - 맵 이동 속도 제어를 위해
             // ============================================
-            if (player != null)
-            {
-                playerAnimation = player.GetComponentInChildren<PlayerAnimation>();
+            mapMove = FindObjectOfType<MapMove>();
 
-                if (playerAnimation == null)
-                {
-                    Debug.LogError("[SpeedBoostPowerUp] PlayerAnimation 스크립트를 찾을 수 없습니다!");
-                }
-                else
-                {
-                    Debug.Log("[SpeedBoostPowerUp] PlayerAnimation 스크립트 연결 완료!");
-                }
+            if (mapMove == null)
+            {
+                Debug.LogError("[SpeedBoostPowerUp] MapMove 스크립트를 찾을 수 없습니다! 스피드 부스트가 작동하지 않습니다!");
+            }
+            else
+            {
+                Debug.Log("[SpeedBoostPowerUp] MapMove 스크립트 연결 완료!");
             }
 
             // 트레일 자동 찾기
@@ -76,55 +72,54 @@ namespace GameName.PowerUps
         #region PowerUpBase Implementation
 
         /// <summary>
-        /// 속도 부스트 효과 활성화
+        /// 속도 부스트 효과 활성화 - 맵 이동 속도 증가
         /// </summary>
         protected override void Activate()
         {
-            if (player == null)
-            {
-                Debug.LogError("[SpeedBoostPowerUp] 플레이어가 연결되지 않아 속도 부스트를 활성화할 수 없습니다!");
-                return;
-            }
-
             // ============================================
-            // PlayerAnimation의 moveSpeed 증가
+            // MapMove의 speed 증가 (맵이 다가오는 속도 증가)
             // ============================================
-            if (playerAnimation != null)
+            if (mapMove != null)
             {
-                originalSpeed = playerAnimation.moveSpeed;
-                playerAnimation.moveSpeed *= powerUpData.effectValue;
+                originalMapSpeed = mapMove.speed;
+                mapMove.speed *= powerUpData.effectValue;
 
-                Debug.Log($"[SpeedBoostPowerUp] 속도 부스트 활성화! 원래 속도: {originalSpeed} → 새 속도: {playerAnimation.moveSpeed} (배율: {powerUpData.effectValue}x)");
+                Debug.Log($"[SpeedBoostPowerUp] 맵 속도 증가! 원래 속도: {originalMapSpeed} → 새 속도: {mapMove.speed} (배율: {powerUpData.effectValue}x)");
             }
             else
             {
-                Debug.LogWarning("[SpeedBoostPowerUp] PlayerAnimation이 없어 속도 변경을 건너뜁니다.");
+                Debug.LogError("[SpeedBoostPowerUp] MapMove가 없어 속도 부스트를 적용할 수 없습니다!");
+                return;
             }
 
             // 시각적 피드백
-            ChangePlayerColor(Color.cyan);
-            EnableTrailEffect();
+            if (player != null)
+            {
+                ChangePlayerColor(Color.cyan);
+                EnableTrailEffect();
+            }
         }
 
         /// <summary>
-        /// 속도 부스트 효과 비활성화
+        /// 속도 부스트 효과 비활성화 - 원래 맵 속도로 복구
         /// </summary>
         protected override void Deactivate()
         {
-            if (player == null) return;
-
             // ============================================
-            // PlayerAnimation의 moveSpeed 복구
+            // MapMove의 speed 복구
             // ============================================
-            if (playerAnimation != null)
+            if (mapMove != null)
             {
-                playerAnimation.moveSpeed = originalSpeed;
-                Debug.Log($"[SpeedBoostPowerUp] 속도 부스트 해제! 원래 속도로 복구: {originalSpeed}");
+                mapMove.speed = originalMapSpeed;
+                Debug.Log($"[SpeedBoostPowerUp] 맵 속도 복구! 원래 속도: {originalMapSpeed}");
             }
 
             // 시각적 피드백 복구
-            ResetPlayerColor();
-            DisableTrailEffect();
+            if (player != null)
+            {
+                ResetPlayerColor();
+                DisableTrailEffect();
+            }
         }
 
         #endregion
@@ -136,6 +131,8 @@ namespace GameName.PowerUps
         /// </summary>
         private void ChangePlayerColor(Color color)
         {
+            if (player == null) return;
+
             Renderer renderer = player.GetComponent<Renderer>();
             if (renderer != null)
             {
