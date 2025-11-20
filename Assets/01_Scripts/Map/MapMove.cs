@@ -98,6 +98,8 @@ public class MapMove : MonoBehaviour
 
         mapLists.Add(piece);
 
+        if (isTutoriating) return; // 튜토리얼일 경우 버프 호출 스킵
+
         // ============================================
         // PowerUpSpawner 호출
         // ============================================
@@ -105,7 +107,6 @@ public class MapMove : MonoBehaviour
         {
             PowerUpSpawner.Instance.TrySpawnPowerUpOnMap(piece);
         }
-
     }
 
 
