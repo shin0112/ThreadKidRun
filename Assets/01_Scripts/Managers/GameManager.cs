@@ -221,5 +221,9 @@ public class GameManager : MonoBehaviour
         InitPlayer();
     }
     #endregion
+
+    #region 튜토리얼
+
+    #endregion
 }
 

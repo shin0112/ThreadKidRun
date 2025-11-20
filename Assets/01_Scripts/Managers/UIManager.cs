@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ShopUI _shopUI;
     [SerializeField] private GameOverUI _gameOverUI;
     [SerializeField] private GameObject _archievementUI;
-    private List<IUIActive> _uiActives = new();
 
     public CoinUI CoinUI => _totalCoinUI;
     public ShopUI ShopUI => _shopUI;
@@ -106,6 +105,7 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// 씬 초기화
     /// </summary>
+    private List<IUIActive> _uiActives = new();
     private void Init()
     {
         _uiActives.Clear();
@@ -171,36 +171,24 @@ public class UIManager : MonoBehaviour
     #region 게임 오브젝트 On/Off
     public void SetGameMode()
     {
-        _uiActives.ForEach(ui => ui.SetGameMode());
+        _uiActives.ForEach(ui => ui.SetMode(UIMode.Game));
         _startText.SetActive(false);
     }
 
     public void SetDefaultMode()
     {
-        _uiActives.ForEach(ui => ui.SetDefaultMode());
+        _uiActives.ForEach(ui => ui.SetMode(UIMode.Default));
         _startText.SetActive(true);
         _mainCamera.gameObject.SetActive(true);
-
-        // ============================================
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlayBGM("BGM_MainTheme");
-        }
-        // ============================================
+        AudioManager.Instance?.PlayBGM("BGM_MainTheme");
     }
 
     public void SetShopMode()
     {
-        _uiActives.ForEach(ui => ui.SetShopMode());
+        _uiActives.ForEach(ui => ui.SetMode(UIMode.Shop));
         _startText.SetActive(false);
         _mainCamera.gameObject.SetActive(false);
-
-        // ============================================
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PlayBGM("BGM_Shop");
-        }
-        // ============================================
+        AudioManager.Instance?.PlayBGM("BGM_Shop");
     }
     #endregion
 }

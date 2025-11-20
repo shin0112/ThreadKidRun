@@ -75,14 +75,30 @@ public class ButtonUI : MonoBehaviour, IUIActive
     #endregion
 
     #region 인터페이스 구현
-    public void SetGameMode()
+    public void SetMode(UIMode mode)
+    {
+        switch (mode)
+        {
+            case UIMode.Default:
+                SetDefaultMode();
+                break;
+            case UIMode.Game:
+                SetGameMode();
+                break;
+            case UIMode.Shop:
+                SetShopMode();
+                break;
+        }
+    }
+
+    private void SetGameMode()
     {
         _storeButton.gameObject.SetActive(false);
         _pauseButton.gameObject.SetActive(true);
         _archievementButton.gameObject.SetActive(false);
     }
 
-    public void SetDefaultMode()
+    private void SetDefaultMode()
     {
         _storeButton.gameObject.SetActive(true);
         _pauseButton.gameObject.SetActive(false);
@@ -90,7 +106,7 @@ public class ButtonUI : MonoBehaviour, IUIActive
         _archievementButton.gameObject.SetActive(true);
     }
 
-    public void SetShopMode()
+    private void SetShopMode()
     {
         _storeButton.gameObject.SetActive(false);
         _homeButton.gameObject.SetActive(true);

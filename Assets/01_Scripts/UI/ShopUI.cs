@@ -80,7 +80,20 @@ public class ShopUI : MonoBehaviour, IUIActive
     }
 
     #region 인터페이스 구현
-    public void SetDefaultMode()
+    public void SetMode(UIMode mode)
+    {
+        switch (mode)
+        {
+            case UIMode.Default:
+                SetDefaultMode();
+                break;
+            case UIMode.Shop:
+                SetShopMode();
+                break;
+        }
+    }
+
+    private void SetDefaultMode()
     {
         _leftArrow.gameObject.SetActive(false);
         _rightArrow.gameObject.SetActive(false);
@@ -95,11 +108,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         _controller.gameObject.SetActive(false);
     }
 
-    public void SetGameMode()
-    {
-    }
-
-    public void SetShopMode()
+    private void SetShopMode()
     {
         _leftArrow.gameObject.SetActive(true);
         _rightArrow.gameObject.SetActive(true);

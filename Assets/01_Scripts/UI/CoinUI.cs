@@ -12,17 +12,25 @@ public class CoinUI : MonoBehaviour, IUIActive
     }
 
     #region 인터페이스 구현
-    public void SetGameMode()
+    public void SetMode(UIMode mode)
+    {
+        switch (mode)
+        {
+            case UIMode.Default:
+                SetDefaultMode();
+                break;
+            case UIMode.Game:
+                SetGameMode();
+                break;
+        }
+    }
+
+    private void SetGameMode()
     {
         gameObject.SetActive(false);
     }
 
-    public void SetDefaultMode()
-    {
-        gameObject.SetActive(true);
-    }
-
-    public void SetShopMode()
+    private void SetDefaultMode()
     {
         gameObject.SetActive(true);
     }

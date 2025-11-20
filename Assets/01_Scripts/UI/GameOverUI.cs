@@ -49,18 +49,20 @@ public class GameOverUI : MonoBehaviour, IUIActive
     }
 
     #region 인터페이스 구현
-    public void SetGameMode()
+    public void SetMode(UIMode mode)
     {
-        gameObject.SetActive(false);
+        switch (mode)
+        {
+            case UIMode.Default:
+            case UIMode.Game:
+                SetDefaultMode();
+                break;
+        }
     }
 
-    public void SetDefaultMode()
+    private void SetDefaultMode()
     {
         gameObject.SetActive(false);
-    }
-
-    public void SetShopMode()
-    {
     }
     #endregion
 }
