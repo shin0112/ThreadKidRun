@@ -3,7 +3,6 @@ using GameName.Managers;  //오디오연결
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 // ============================================
 
 public class UIManager : MonoBehaviour
@@ -29,6 +28,11 @@ public class UIManager : MonoBehaviour
 
     // 카메라
     private Camera _mainCamera;
+    public Camera Camera
+    {
+        get { return _mainCamera; }
+        set { _mainCamera = value; }
+    }
 
     private void Reset()
     {
@@ -92,19 +96,6 @@ public class UIManager : MonoBehaviour
     {
         _uiActives.Clear();
         _uiActives = GetComponentsInChildren<IUIActive>().ToList();
-    }
-
-    public void GameReload()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(SceneType.GameScene.ToString());
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        _mainCamera = Camera.main;
-        SetDefaultMode();
     }
 
     /// <summary>

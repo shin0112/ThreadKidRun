@@ -25,8 +25,7 @@ public class ShopUI : MonoBehaviour, IUIActive
             return;
         }
 
-        _leftArrow.onClick.AddListener(_controller.RotateLeft);
-        _rightArrow.onClick.AddListener(_controller.RotateRight);
+        InitShopController();
         _get.onClick.AddListener(GetSkin);
 
         _curSelectIndex = GameManager.Instance.CurSkinIndex;
@@ -68,9 +67,16 @@ public class ShopUI : MonoBehaviour, IUIActive
         UpdateButtonText(selected);
     }
 
-    private void SelectSkin(int index)
+    private void InitShopController()
     {
+        Logger.Log("shop controller 초기화");
+        _controller = FindObjectOfType<ShopController>(true);
 
+        _leftArrow.onClick.RemoveAllListeners();
+        _rightArrow.onClick.RemoveAllListeners();
+
+        _leftArrow.onClick.AddListener(_controller.RotateLeft);
+        _rightArrow.onClick.AddListener(_controller.RotateRight);
     }
 
     #region 인터페이스 구현
@@ -80,11 +86,13 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.gameObject.SetActive(false);
         _get.gameObject.SetActive(false);
 
-        if (_controller != null)
+        if (_controller == null)
         {
-            _controller.ShopCamera.gameObject.SetActive(false);
-            _controller.gameObject.SetActive(false);
+            InitShopController();
         }
+
+        _controller.ShopCamera.gameObject.SetActive(false);
+        _controller.gameObject.SetActive(false);
     }
 
     public void SetGameMode()
@@ -97,11 +105,13 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.gameObject.SetActive(true);
         _get.gameObject.SetActive(true);
 
-        if (_controller != null)
+        if (_controller == null)
         {
-            _controller.ShopCamera.gameObject.SetActive(true);
-            _controller.gameObject.SetActive(true);
+            InitShopController();
         }
+
+        _controller.ShopCamera.gameObject.SetActive(true);
+        _controller.gameObject.SetActive(true);
     }
     #endregion
 }

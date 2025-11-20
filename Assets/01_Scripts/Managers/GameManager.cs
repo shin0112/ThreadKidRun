@@ -1,5 +1,7 @@
+using GameName.Managers;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,6 +9,15 @@ public class GameManager : MonoBehaviour
     public bool isReset; //디버깅용
 
     public static GameManager Instance { get; private set; }
+
+    // Managers
+    public UIManager UI { get; set; }
+    public PowerUpManager PowerUp { get; set; }
+    // todo: 추가
+
+    // 플레이어
+    [SerializeField] private GameObject _player;
+    public GameObject Player { get { return _player; } set { _player = value; } }
 
     // 현재 획득한 총 코인 개수
     private int totalCoinCount = 0;
@@ -28,15 +39,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // 업적
     private int currentScore = 0; //현재 스코어
     private int getItemCount = 0; //획득한 아이템 수
     private int buyCharacterCount = 0; //구매한 캐릭터 수
 
     [SerializeField]
     private AchievementManager achievementManager;
-
-    [SerializeField]
-    private CoinUI coinUI;
 
     //// 이벤트 통신
     public event Action<int> OnScoreChanged; // 점수가 변경될 때 외부에 알림
@@ -75,6 +84,24 @@ public class GameManager : MonoBehaviour
         }
 
         LoadData();
+        Init();
+    }
+
+    private void Start()
+    {
+        InitPlayer();
+    }
+
+    private void Init()
+    {
+        UI = GetComponentInChildren<UIManager>();
+        PowerUp = GetComponentInChildren<PowerUpManager>();
+    }
+
+    private void InitPlayer()
+    {
+        Player = FindObjectOfType<PlayerCollider>().gameObject;
+        PowerUp.Init(Player);
     }
 
     public void AddScore(int amount)
@@ -86,6 +113,13 @@ public class GameManager : MonoBehaviour
         UnityEngine.Debug.Log($"코인 획득! 현재 스코어: {currentScore}");
     }
 
+    public void ScoreReset()
+    {
+        currentScore = 0;
+        OnScoreChanged?.Invoke(currentScore);
+    }
+
+    #region 코인 관리
     // 코인을 획득할 때 호출되는 메서드
     public void EarnCoin(int amount)
     {
@@ -101,6 +135,20 @@ public class GameManager : MonoBehaviour
         } // <- 업적 해금 방법. 다른 업적(아이템 사용, 아이템 구매하는) 함수에 위의 코드를 가져다 쓰면 됨
     }
 
+    public bool CheckSpendCoinAndGetSkin(int amount)
+    {
+        Logger.Log($"코인 {amount}개 사용");
+        TotalCoinCount -= amount;
+        return true;
+    }
+
+    public void ResetCoin()
+    {
+        TotalCoinCount = 0;
+    }
+    #endregion
+
+    #region 업적
     public void EarnItem(int amount)
     {
         if (amount < 0) return;
@@ -122,7 +170,9 @@ public class GameManager : MonoBehaviour
             achievementManager.CheckAchievements(getItemCount, AchievementType.BuySomething);
         }
     }
+    #endregion
 
+    #region 데이터 관리
     private void LoadData()
     {
         if (isReset)
@@ -150,17 +200,26 @@ public class GameManager : MonoBehaviour
     {
         SaveData();
     }
+    #endregion
 
-    public bool CheckSpendCoinAndGetSkin(int amount)
+    #region 씬 관리
+    public void GameReload()
     {
-        Logger.Log($"코인 {amount}개 사용");
-        TotalCoinCount -= amount;
-        return true;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.LoadScene(SceneType.GameScene.ToString());
     }
 
-    public void ResetCoin()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        TotalCoinCount = 0;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // ui 로딩
+        UIManager ui = UIManager.Instance;
+        ui.Camera = Camera.main;
+        ui.SetDefaultMode();
+
+        InitPlayer();
     }
+    #endregion
 }
 

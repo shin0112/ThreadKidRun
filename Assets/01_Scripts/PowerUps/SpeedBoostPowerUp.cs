@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameName.PowerUps
@@ -65,6 +63,12 @@ namespace GameName.PowerUps
             {
                 trailRenderer = player.GetComponentInChildren<TrailRenderer>();
             }
+        }
+
+        public void Init(GameObject playerGo)
+        {
+            player = playerGo;
+            mapMove = FindObjectOfType<MapMove>();
         }
 
         #endregion
@@ -182,7 +186,6 @@ namespace GameName.PowerUps
                 trailRenderer.enabled = false;
             }
         }
-
         #endregion
     }
 }

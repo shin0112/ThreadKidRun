@@ -29,11 +29,15 @@ public class ShopController : MonoBehaviour
             Logger.Log("캐릭터 개수 불일치");
         }
 
-        _shopCamera = GetComponentInChildren<Camera>(true);
     }
 
     private void OnEnable()
     {
+        if (_shopCamera == null)
+        {
+            _shopCamera = GetComponentInChildren<Camera>(true);
+        }
+
         OnChangedPriceText += UIManager.Instance.ShopUI.UpdateButtonText;
         OnChangedPriceText?.Invoke(_characterSlots[_curSelectIndex]);
     }

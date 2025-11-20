@@ -8,8 +8,8 @@ using UnityEngine;
 namespace GameName.Managers
 {
     /// <summary>
-    /// ¸ğµç ÆÄ¿ö¾÷À» °ü¸®ÇÏ´Â ½Ì±ÛÅæ ¸Å´ÏÀú
-    /// ÆÄ¿ö¾÷ È°¼ºÈ­/ºñÈ°¼ºÈ­ ¹× »óÅÂ ÃßÀû
+    /// ëª¨ë“  íŒŒì›Œì—…ì„ ê´€ë¦¬í•˜ëŠ” ì‹±ê¸€í†¤ ë§¤ë‹ˆì €
+    /// íŒŒì›Œì—… í™œì„±í™”/ë¹„í™œì„±í™” ë° ìƒíƒœ ì¶”ì 
     /// </summary>
     public class PowerUpManager : MonoBehaviour
     {
@@ -19,7 +19,7 @@ namespace GameName.Managers
 
         private void Awake()
         {
-            // ½Ì±ÛÅæ ÆĞÅÏ ±¸Çö
+            // ì‹±ê¸€í†¤ íŒ¨í„´ êµ¬í˜„
             if (Instance == null)
             {
                 Instance = this;
@@ -36,19 +36,19 @@ namespace GameName.Managers
         #region Fields
 
         [Header("=== PowerUp Components ===")]
-        [Tooltip("ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ®")]
+        [Tooltip("í”Œë ˆì´ì–´ ì˜¤ë¸Œì íŠ¸")]
         [SerializeField] private GameObject player;
 
-        [Tooltip("¹«Àû ÆÄ¿ö¾÷ ÄÄÆ÷³ÍÆ®")]
+        [Tooltip("ë¬´ì  íŒŒì›Œì—… ì»´í¬ë„ŒíŠ¸")]
         [SerializeField] private InvincibilityPowerUp invincibilityPowerUp;
 
-        [Tooltip("½ºÇÇµå ºÎ½ºÆ® ÆÄ¿ö¾÷ ÄÄÆ÷³ÍÆ®")]
+        [Tooltip("ìŠ¤í”¼ë“œ ë¶€ìŠ¤íŠ¸ íŒŒì›Œì—… ì»´í¬ë„ŒíŠ¸")]
         [SerializeField] private SpeedBoostPowerUp speedBoostPowerUp;
 
-        // ÆÄ¿ö¾÷ Å¸ÀÔº° ¸ÅÇÎ (ºü¸¥ °Ë»ö¿ë)
+        // íŒŒì›Œì—… íƒ€ì…ë³„ ë§¤í•‘ (ë¹ ë¥¸ ê²€ìƒ‰ìš©)
         private Dictionary<PowerUpType, PowerUpBase> powerUpDictionary;
 
-        // ÇöÀç È°¼ºÈ­µÈ ÆÄ¿ö¾÷ ¸ñ·Ï
+        // í˜„ì¬ í™œì„±í™”ëœ íŒŒì›Œì—… ëª©ë¡
         private HashSet<PowerUpType> activePowerUps = new HashSet<PowerUpType>();
 
         #endregion
@@ -56,14 +56,14 @@ namespace GameName.Managers
         #region Events
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ È°¼ºÈ­ ½Ã ¹ß»ıÇÏ´Â ÀÌº¥Æ®
-        /// UI¿¡¼­ ±¸µ¶ÇÏ¿© ¾ÆÀÌÄÜ Ç¥½Ã µî¿¡ »ç¿ë
+        /// íŒŒì›Œì—… í™œì„±í™” ì‹œ ë°œìƒí•˜ëŠ” ì´ë²¤íŠ¸
+        /// UIì—ì„œ êµ¬ë…í•˜ì—¬ ì•„ì´ì½˜ í‘œì‹œ ë“±ì— ì‚¬ìš©
         /// </summary>
         public event Action<PowerUpType, float> OnPowerUpActivated;
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ ºñÈ°¼ºÈ­ ½Ã ¹ß»ıÇÏ´Â ÀÌº¥Æ®
-        /// UI¿¡¼­ ±¸µ¶ÇÏ¿© ¾ÆÀÌÄÜ Á¦°Å µî¿¡ »ç¿ë
+        /// íŒŒì›Œì—… ë¹„í™œì„±í™” ì‹œ ë°œìƒí•˜ëŠ” ì´ë²¤íŠ¸
+        /// UIì—ì„œ êµ¬ë…í•˜ì—¬ ì•„ì´ì½˜ ì œê±° ë“±ì— ì‚¬ìš©
         /// </summary>
         public event Action<PowerUpType> OnPowerUpDeactivated;
 
@@ -77,77 +77,83 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ Dictionary ÃÊ±âÈ­
+        /// íŒŒì›Œì—… Dictionary ì´ˆê¸°í™”
         /// </summary>
         private void InitializePowerUps()
         {
             powerUpDictionary = new Dictionary<PowerUpType, PowerUpBase>();
 
-            // ¹«Àû ÆÄ¿ö¾÷ µî·Ï
+            // ë¬´ì  íŒŒì›Œì—… ë“±ë¡
             if (invincibilityPowerUp != null)
             {
                 powerUpDictionary.Add(PowerUpType.Invincibility, invincibilityPowerUp);
             }
             else
             {
-                Debug.LogWarning("[PowerUpManager] InvincibilityPowerUpÀÌ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+                Debug.LogWarning("[PowerUpManager] InvincibilityPowerUpì´ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             }
 
-            // ½ºÇÇµå ºÎ½ºÆ® µî·Ï
+            // ìŠ¤í”¼ë“œ ë¶€ìŠ¤íŠ¸ ë“±ë¡
             if (speedBoostPowerUp != null)
             {
                 powerUpDictionary.Add(PowerUpType.SpeedBoost, speedBoostPowerUp);
             }
             else
             {
-                Debug.LogWarning("[PowerUpManager] SpeedBoostPowerUpÀÌ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù!");
+                Debug.LogWarning("[PowerUpManager] SpeedBoostPowerUpì´ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤!");
             }
 
-            Debug.Log($"[PowerUpManager] {powerUpDictionary.Count}°³ÀÇ ÆÄ¿ö¾÷ ÃÊ±âÈ­ ¿Ï·á!");
+            Debug.Log($"[PowerUpManager] {powerUpDictionary.Count}ê°œì˜ íŒŒì›Œì—… ì´ˆê¸°í™” ì™„ë£Œ!");
         }
 
+        public void Init(GameObject playerGo)
+        {
+            player = playerGo;
+            invincibilityPowerUp.Init(playerGo);
+            speedBoostPowerUp.Init(playerGo);
+        }
         #endregion
 
         #region Public Methods
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ È°¼ºÈ­ (¿ÜºÎ¿¡¼­ È£Ãâ)
+        /// íŒŒì›Œì—… í™œì„±í™” (ì™¸ë¶€ì—ì„œ í˜¸ì¶œ)
         /// </summary>
-        /// <param name="powerUpType">È°¼ºÈ­ÇÒ ÆÄ¿ö¾÷ Å¸ÀÔ</param>
+        /// <param name="powerUpType">í™œì„±í™”í•  íŒŒì›Œì—… íƒ€ì…</param>
         public void ActivatePowerUp(PowerUpType powerUpType)
         {
-            // Dictionary¿¡¼­ ÆÄ¿ö¾÷ Ã£±â
+            // Dictionaryì—ì„œ íŒŒì›Œì—… ì°¾ê¸°
             if (!powerUpDictionary.TryGetValue(powerUpType, out PowerUpBase powerUp))
             {
-                Debug.LogError($"[PowerUpManager] {powerUpType} ÆÄ¿ö¾÷À» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogError($"[PowerUpManager] {powerUpType} íŒŒì›Œì—…ì„ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤!");
                 return;
             }
 
-            // ÆÄ¿ö¾÷ ½ÇÇà
+            // íŒŒì›Œì—… ì‹¤í–‰
             powerUp.ExecutePowerUp();
 
-            // È°¼ºÈ­ ¸ñ·Ï¿¡ Ãß°¡
+            // í™œì„±í™” ëª©ë¡ì— ì¶”ê°€
             activePowerUps.Add(powerUpType);
 
-            // UI ÀÌº¥Æ® ¹ß»ı
+            // UI ì´ë²¤íŠ¸ ë°œìƒ
             OnPowerUpActivated?.Invoke(powerUpType, powerUp.GetDuration());
 
-            Debug.Log($"[PowerUpManager] {powerUpType} ÆÄ¿ö¾÷ È°¼ºÈ­!");
+            Debug.Log($"[PowerUpManager] {powerUpType} íŒŒì›Œì—… í™œì„±í™”!");
         }
 
         /// <summary>
-        /// ÆÄ¿ö¾÷ ºñÈ°¼ºÈ­ ¾Ë¸² (PowerUpBase¿¡¼­ È£Ãâ)
+        /// íŒŒì›Œì—… ë¹„í™œì„±í™” ì•Œë¦¼ (PowerUpBaseì—ì„œ í˜¸ì¶œ)
         /// </summary>
-        /// <param name="powerUpType">ºñÈ°¼ºÈ­µÈ ÆÄ¿ö¾÷ Å¸ÀÔ</param>
+        /// <param name="powerUpType">ë¹„í™œì„±í™”ëœ íŒŒì›Œì—… íƒ€ì…</param>
         public void NotifyPowerUpDeactivated(PowerUpType powerUpType)
         {
-            // È°¼ºÈ­ ¸ñ·Ï¿¡¼­ Á¦°Å
+            // í™œì„±í™” ëª©ë¡ì—ì„œ ì œê±°
             activePowerUps.Remove(powerUpType);
 
-            // UI ÀÌº¥Æ® ¹ß»ı
+            // UI ì´ë²¤íŠ¸ ë°œìƒ
             OnPowerUpDeactivated?.Invoke(powerUpType);
 
-            Debug.Log($"[PowerUpManager] {powerUpType} ÆÄ¿ö¾÷ ºñÈ°¼ºÈ­!");
+            Debug.Log($"[PowerUpManager] {powerUpType} íŒŒì›Œì—… ë¹„í™œì„±í™”!");
         }
 
         #endregion
@@ -155,7 +161,7 @@ namespace GameName.Managers
         #region Utility Methods
 
         /// <summary>
-        /// Æ¯Á¤ ÆÄ¿ö¾÷ÀÌ È°¼ºÈ­ ÁßÀÎÁö È®ÀÎ
+        /// íŠ¹ì • íŒŒì›Œì—…ì´ í™œì„±í™” ì¤‘ì¸ì§€ í™•ì¸
         /// </summary>
         public bool IsPowerUpActive(PowerUpType powerUpType)
         {
@@ -163,7 +169,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// ÇöÀç È°¼ºÈ­µÈ ¸ğµç ÆÄ¿ö¾÷ °¡Á®¿À±â
+        /// í˜„ì¬ í™œì„±í™”ëœ ëª¨ë“  íŒŒì›Œì—… ê°€ì ¸ì˜¤ê¸°
         /// </summary>
         public HashSet<PowerUpType> GetActivePowerUps()
         {
@@ -171,7 +177,7 @@ namespace GameName.Managers
         }
 
         /// <summary>
-        /// ¸ğµç ÆÄ¿ö¾÷ °­Á¦ Áß´Ü (°ÔÀÓ¿À¹ö ½Ã »ç¿ë)
+        /// ëª¨ë“  íŒŒì›Œì—… ê°•ì œ ì¤‘ë‹¨ (ê²Œì„ì˜¤ë²„ ì‹œ ì‚¬ìš©)
         /// </summary>
         public void StopAllPowerUps()
         {
@@ -182,7 +188,7 @@ namespace GameName.Managers
 
             activePowerUps.Clear();
 
-            Debug.Log("[PowerUpManager] ¸ğµç ÆÄ¿ö¾÷ °­Á¦ Áß´Ü!");
+            Debug.Log("[PowerUpManager] ëª¨ë“  íŒŒì›Œì—… ê°•ì œ ì¤‘ë‹¨!");
         }
 
         #endregion
