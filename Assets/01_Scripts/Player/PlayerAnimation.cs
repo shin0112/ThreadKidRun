@@ -23,11 +23,17 @@ public class PlayerAnimation : MonoBehaviour
         set { _isGameOver = value; }
     }
 
+    private CapsuleCollider _capsuleCollider;
+
     void Start()
     {
         if (!TryGetComponent<CustomizingController>(out var _customizingController))
         {
             Logger.LogWarning("커스터마이징 컨트롤러 초기화 실패");
+        }
+        if (!TryGetComponent(out _capsuleCollider))
+        {
+            Logger.LogWarning("콜라이더 초기화 실패");
         }
 
         anim = _customizingController.GetAnimator();
@@ -93,6 +99,11 @@ public class PlayerAnimation : MonoBehaviour
             isSliding = true;
             sliderTimer = slideDuration;
             anim.SetBool("isSliding", true);
+
+            _capsuleCollider.direction = 2;
+            Vector3 colliderCenter = _capsuleCollider.center;
+            colliderCenter = new Vector3(0, 0.75f, -0.6f);
+            _capsuleCollider.center = colliderCenter;
         }
         if (isSliding)
         {
@@ -101,6 +112,11 @@ public class PlayerAnimation : MonoBehaviour
             {
                 isSliding = false;
                 anim.SetBool("isSliding", false);
+
+                _capsuleCollider.direction = 1;
+                Vector3 colliderCenter = _capsuleCollider.center;
+                colliderCenter = new Vector3(0, 1.25f, 0);
+                _capsuleCollider.center = colliderCenter;
             }
         }
     }
