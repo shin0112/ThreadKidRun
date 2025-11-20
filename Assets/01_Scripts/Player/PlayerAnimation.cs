@@ -19,7 +19,12 @@ public class PlayerAnimation : MonoBehaviour
 
     void Start()
     {
-        anim = GetComponent<Animator>();
+        if (!TryGetComponent<CustomizingController>(out var _customizingController))
+        {
+            Logger.LogWarning("커스터마이징 컨트롤러 초기화 실패");
+        }
+
+        anim = _customizingController.GetAnimator();
         rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -100,5 +105,10 @@ public class PlayerAnimation : MonoBehaviour
             isMap = true;
             anim.SetBool("isJump", false);
         }
+    }
+
+    public void UpdateAnimator(Animator anim)
+    {
+        this.anim = anim;
     }
 }

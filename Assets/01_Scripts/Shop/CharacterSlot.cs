@@ -5,6 +5,7 @@ public class CharacterSlot : MonoBehaviour
 {
     [SerializeField] private int _index;
     [SerializeField] private CharacterSkinData _data;
+    public int Index => _index;
 
     public void Init()
     {
