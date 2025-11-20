@@ -1,4 +1,4 @@
-﻿using GameName.Data;
+using GameName.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -358,11 +358,11 @@ namespace GameName.Managers
         public float GetMasterVolume() => masterVolume;
         public float GetBGMVolume() => bgmVolume;
         public float GetSFXVolume() => sfxVolume;
-
-        internal void PlaySFX(object soundName)
-        {
-            throw new NotImplementedException();
-        }
+        
+        //internal void PlaySFX(object soundName)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         #endregion
     }

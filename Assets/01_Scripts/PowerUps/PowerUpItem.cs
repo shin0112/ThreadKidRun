@@ -95,6 +95,7 @@ namespace GameName.PowerUps
             {
                 // 파워업 획득 처리
                 PickupPowerUp();
+                GameManager.Instance.EarnItem(1); //업적 해금을 위한 획득 정보를 알림
             }
         }
 
