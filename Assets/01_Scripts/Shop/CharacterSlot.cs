@@ -14,6 +14,11 @@ public class CharacterSlot : MonoBehaviour
 
     public bool CheckSold()
     {
+        if (_data.isUnlocked)
+        {
+            Logger.Log("이미 구매한 스킨");
+        }
+
         return _data.isUnlocked;
     }
 
@@ -22,17 +27,8 @@ public class CharacterSlot : MonoBehaviour
         return _data.name;
     }
 
-    public void IsUnlocked()
+    public void GetSkin()
     {
         _data.isUnlocked = true;
-    }
-
-    public bool CheckUnlocked()
-    {
-        if (_data.isUnlocked)
-        {
-            Logger.Log("이미 구매한 스킨");
-        }
-        return _data.isUnlocked;
     }
 }

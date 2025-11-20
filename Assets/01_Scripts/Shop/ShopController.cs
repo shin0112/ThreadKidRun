@@ -100,11 +100,11 @@ public class ShopController : MonoBehaviour
     {
         CharacterSlot selected = _characterSlots[_curSelectIndex];
 
-        if (!selected.CheckUnlocked() &&
+        if (!selected.CheckSold() &&
             GameManager.Instance.CheckSpendCoinAndGetSkin(selected.GetPriceValue()))
         {
             Logger.Log($"{selected.name} 구매 완료");
-            selected.IsUnlocked();
+            selected.GetSkin();
         }
 
         return selected;
