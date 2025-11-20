@@ -11,10 +11,20 @@ public class CustomizingController : MonoBehaviour
         _skinData = GetComponentsInChildren<CharacterSkinContainer>().ToList();
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnSkinIndexChanged += SelectSkin;
+    }
+
     private void Start()
     {
         // todo: select skin 데이터 불러오기
         SelectSkin(0);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnSkinIndexChanged -= SelectSkin;
     }
 
     public void SelectSkin(int selectIndex)

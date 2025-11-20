@@ -41,6 +41,25 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnScoreChanged; // 점수가 변경될 때 외부에 알림
     //public event Action<string> OnAchievementUnlocked; // 업적이 잠금 해제될 때 외부에 알림
 
+    // 스킨 정보
+    [SerializeField] private int _curSkinIndex;
+    public int CurSkinIndex
+    {
+        get { return _curSkinIndex; }
+        set
+        {
+            if (_curSkinIndex == value)
+            {
+                Logger.Log("동일한 스킨 선택");
+                return;
+            }
+
+            _curSkinIndex = value;
+            OnSkinIndexChanged?.Invoke(_curSkinIndex);
+        }
+    }
+    public event Action<int> OnSkinIndexChanged;
+
     private void Awake()
     {
         if (Instance == null)
