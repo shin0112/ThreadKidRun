@@ -15,6 +15,13 @@ public class PlayerCollider : MonoBehaviour
     void Start()
     {
         //Ray ray = new Ray(transform.position, Vector3.forward * 0.5f);
+
+        if (!TryGetComponent<CustomizingController>(out var _customizingController))
+        {
+            Logger.LogWarning("커스터마이징 컨트롤러 초기화 실패");
+        }
+
+        Animator = _customizingController.GetAnimator();
     }
 
 
