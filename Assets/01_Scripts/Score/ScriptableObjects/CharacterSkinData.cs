@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GameName.Data
@@ -31,6 +29,7 @@ namespace GameName.Data
         [Tooltip("해금에 필요한 코인")]
         [Range(0, 10000)]
         public int unlockCost = 100;
+        public bool isUnlocked = false;
 
         [Header("=== 설명 ===")]
         [TextArea(2, 4)]

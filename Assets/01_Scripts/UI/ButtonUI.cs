@@ -10,6 +10,11 @@ public class ButtonUI : MonoBehaviour, IUIActive
     [SerializeField] private Button _pauseButton;
     [SerializeField] private Button _homeButton;
 
+    [Header("코인 테스트용")]
+    [SerializeField] private Button _getCoinButton;
+    [SerializeField] private Button _resetCoinButton;
+
+
     private void Start()
     {
         UIManager instance = UIManager.Instance;
@@ -19,6 +24,10 @@ public class ButtonUI : MonoBehaviour, IUIActive
         _storeButton.onClick.AddListener(instance.SetShopMode);
         _pauseButton.onClick.AddListener(instance.TogglePauseUI);
         _homeButton.onClick.AddListener(instance.SetDefaultMode);
+
+        // 코인 테스트용
+        _getCoinButton.onClick.AddListener(() => GameManager.Instance.EarnCoin(10000));
+        _resetCoinButton.onClick.AddListener(GameManager.Instance.ResetCoin);
     }
 
     private void OnDestroy()
@@ -28,6 +37,10 @@ public class ButtonUI : MonoBehaviour, IUIActive
         _storeButton.onClick.RemoveAllListeners();
         _pauseButton.onClick.RemoveAllListeners();
         _homeButton.onClick.RemoveAllListeners();
+
+        // 코인 테스트용
+        _getCoinButton.onClick.RemoveAllListeners();
+        _resetCoinButton.onClick.RemoveAllListeners();
     }
 
     #region 인터페이스 구현

@@ -4,7 +4,6 @@ using UnityEngine;
 public class ShopCharacter : MonoBehaviour
 {
     [SerializeField] private CharacterSkinData _data;
-    [SerializeField] private bool _isSold;
 
     public int GetPriceValue()
     {
@@ -14,7 +13,25 @@ public class ShopCharacter : MonoBehaviour
 
     public bool CheckSold()
     {
-        // todo: 구매했는지 아닌지 확인
-        return _isSold;
+        return _data.isUnlocked;
+    }
+
+    public string GetName()
+    {
+        return _data.name;
+    }
+
+    public void IsUnlocked()
+    {
+        _data.isUnlocked = true;
+    }
+
+    public bool CheckUnlocked()
+    {
+        if (_data.isUnlocked)
+        {
+            Logger.Log("이미 구매한 스킨");
+        }
+        return _data.isUnlocked;
     }
 }

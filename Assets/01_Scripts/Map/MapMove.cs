@@ -69,6 +69,15 @@ public class MapMove : MonoBehaviour
         }
 
         mapLists.Add(piece);
+
+        // ============================================
+        // PowerUpSpawner 호출
+        // ============================================
+        if (PowerUpSpawner.Instance != null)
+        {
+            PowerUpSpawner.Instance.TrySpawnPowerUpOnMap(piece);
+        }
+
     }
 
 

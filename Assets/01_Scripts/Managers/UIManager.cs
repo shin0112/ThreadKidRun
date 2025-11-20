@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+// ============================================
+using GameName.Managers;  //오디오연결
+// ============================================
 
 public class UIManager : MonoBehaviour
 {
@@ -53,6 +56,13 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.OnScoreChanged += ScoreEvents;
 
         SetDefaultMode();
+
+        // ============================================
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBGM("BGM_MainTheme");
+        }
+        // ============================================
     }
 
     private void Update()
@@ -129,6 +139,12 @@ public class UIManager : MonoBehaviour
         _uiActives.ForEach(ui => ui.SetDefaultMode());
         _startText.SetActive(true);
         _mainCamera.gameObject.SetActive(true);
+        // ============================================
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBGM("BGM_MainTheme");
+        }
+        // ============================================
     }
 
     public void SetShopMode()
@@ -136,6 +152,13 @@ public class UIManager : MonoBehaviour
         _uiActives.ForEach(ui => ui.SetShopMode());
         _startText.SetActive(false);
         _mainCamera.gameObject.SetActive(false);
+
+        // ============================================
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayBGM("BGM_Shop");
+        }
+        // ============================================
     }
     #endregion
 }
