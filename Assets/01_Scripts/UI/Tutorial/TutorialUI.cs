@@ -10,6 +10,7 @@ public class TutorialUI : MonoBehaviour, IUIActive
         _tutorialObjects.Add(transform.FindChild<TutorialContainer>("Move"));
         _tutorialObjects.Add(transform.FindChild<TutorialContainer>("Jump"));
         _tutorialObjects.Add(transform.FindChild<TutorialContainer>("Slide"));
+        _tutorialObjects.Add(transform.FindChild<TutorialContainer>("Item"));
     }
 
     private void Start()

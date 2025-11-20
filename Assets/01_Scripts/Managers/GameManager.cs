@@ -229,6 +229,7 @@ public class GameManager : MonoBehaviour
 
     public void EndTutorial()
     {
+        Logger.Log("튜토리얼 완료");
         _finishedTutorial = true;
     }
 

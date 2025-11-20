@@ -11,6 +11,7 @@ public class TutorialController : MonoBehaviour
         _colliders.Add(transform.FindChild<TutorialCollider>("Move"));
         _colliders.Add(transform.FindChild<TutorialCollider>("Jump"));
         _colliders.Add(transform.FindChild<TutorialCollider>("Slide"));
+        _colliders.Add(transform.FindChild<TutorialCollider>("Item"));
     }
 
     private void Start()

@@ -13,5 +13,5 @@ public static class Define
     public static float SoldTextHeight = 100f;
     #endregion
 
-    public static int TutorialCount = 3;
+    public static int TutorialCount = 4;
 }
