@@ -28,6 +28,8 @@ public class ShopController : MonoBehaviour
         {
             Logger.Log("캐릭터 개수 불일치");
         }
+
+        _shopCamera = GetComponentInChildren<Camera>(true);
     }
 
     private void OnEnable()
@@ -43,7 +45,7 @@ public class ShopController : MonoBehaviour
 
     private void OnDisable()
     {
-        OnChangedPriceText -= UIManager.Instance.ShopUI.UpdateButtonText;
+        OnChangedPriceText += UIManager.Instance.ShopUI.UpdateButtonText;
         if (_rotateCoroutine != null) StopAllCoroutines();
     }
 

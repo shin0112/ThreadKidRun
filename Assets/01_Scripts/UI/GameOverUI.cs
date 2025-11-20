@@ -30,11 +30,13 @@ public class GameOverUI : MonoBehaviour, IUIActive
 
     private void RetryGame()
     {
+        gameObject.SetActive(false);
         UIManager.Instance.GameReload();
     }
 
     private void ExitGame()
     {
+        gameObject.SetActive(false);
         UIManager.Instance.GameReload();
     }
 

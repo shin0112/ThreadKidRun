@@ -52,18 +52,13 @@ public class UIManager : MonoBehaviour
 
         _instance = this;
         Init();
-    }
 
-    private void OnEnable()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        // camera
+        _mainCamera = Camera.main;
     }
 
     private void Start()
     {
-        // camera
-        _mainCamera = Camera.main;
-
         // event
         GameManager.Instance.OnScoreChanged += ScoreEvents;
 
@@ -101,12 +96,14 @@ public class UIManager : MonoBehaviour
 
     public void GameReload()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.LoadScene(SceneType.GameScene.ToString());
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        _mainCamera = Camera.main;
         SetDefaultMode();
     }
 
@@ -165,6 +162,7 @@ public class UIManager : MonoBehaviour
         _uiActives.ForEach(ui => ui.SetDefaultMode());
         _startText.SetActive(true);
         _mainCamera.gameObject.SetActive(true);
+
         // ============================================
         if (AudioManager.Instance != null)
         {

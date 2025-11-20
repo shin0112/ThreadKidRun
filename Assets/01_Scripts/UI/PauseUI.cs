@@ -36,6 +36,7 @@ public class PauseUI : MonoBehaviour
 
     private void ExitGame()
     {
+        gameObject.SetActive(false);
         UIManager.Instance.GameReload();
     }
 }

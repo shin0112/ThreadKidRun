@@ -18,10 +18,10 @@ public class ShopUI : MonoBehaviour, IUIActive
 
     private void Start()
     {
-        _controller = FindAnyObjectByType<ShopController>();
+        _controller = FindObjectOfType<ShopController>(true);
         if (_controller == null)
         {
-            Logger.Log("shop controller is null");
+            Logger.LogWarning("shop controller is null");
             return;
         }
 
@@ -79,8 +79,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.gameObject.SetActive(false);
         _rightArrow.gameObject.SetActive(false);
         _get.gameObject.SetActive(false);
-        _controller.ShopCamera.gameObject.SetActive(false);
-        _controller.gameObject.SetActive(false);
+
+        if (_controller != null)
+        {
+            _controller.ShopCamera.gameObject.SetActive(false);
+            _controller.gameObject.SetActive(false);
+        }
     }
 
     public void SetGameMode()
@@ -92,8 +96,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.gameObject.SetActive(true);
         _rightArrow.gameObject.SetActive(true);
         _get.gameObject.SetActive(true);
-        _controller.ShopCamera.gameObject.SetActive(true);
-        _controller.gameObject.SetActive(true);
+
+        if (_controller != null)
+        {
+            _controller.ShopCamera.gameObject.SetActive(true);
+            _controller.gameObject.SetActive(true);
+        }
     }
     #endregion
 }
