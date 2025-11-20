@@ -25,7 +25,7 @@ public class ShopUI : MonoBehaviour, IUIActive
             return;
         }
 
-        InitShopController();
+        InitShopButtons();
         _get.onClick.AddListener(GetSkin);
 
         _curSelectIndex = GameManager.Instance.CurSkinIndex;
@@ -67,7 +67,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         UpdateButtonText(selected);
     }
 
-    private void InitShopController()
+    private void InitShopButtons()
     {
         Logger.Log("shop controller 초기화");
         _controller = FindObjectOfType<ShopController>(true);
@@ -88,7 +88,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
         if (_controller == null)
         {
-            InitShopController();
+            InitShopButtons();
         }
 
         _controller.ShopCamera.gameObject.SetActive(false);
@@ -107,7 +107,7 @@ public class ShopUI : MonoBehaviour, IUIActive
 
         if (_controller == null)
         {
-            InitShopController();
+            InitShopButtons();
         }
 
         _controller.ShopCamera.gameObject.SetActive(true);
