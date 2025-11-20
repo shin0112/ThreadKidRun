@@ -15,12 +15,14 @@ public class PauseUI : MonoBehaviour
     {
         _continue.onClick.AddListener(ContinueGame);
         _exit.onClick.AddListener(ExitGame);
+        Time.timeScale = 0f;
     }
 
     private void OnDisable()
     {
         _continue.onClick.RemoveAllListeners();
         _exit.onClick.RemoveAllListeners();
+        Time.timeScale = 1f;
     }
 
     public void UpdateCurrentScoreText(int value)
@@ -36,8 +38,7 @@ public class PauseUI : MonoBehaviour
 
     private void ExitGame()
     {
-        // todo: 게임 그만하기
         gameObject.SetActive(false);
-        UIManager.Instance.SetDefaultMode();
+        UIManager.Instance.GameReload();
     }
 }

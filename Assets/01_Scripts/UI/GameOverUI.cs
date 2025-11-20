@@ -30,14 +30,14 @@ public class GameOverUI : MonoBehaviour, IUIActive
 
     private void RetryGame()
     {
-        // todo: 게임 재시작
-        UIManager.Instance.SetGameMode();
+        gameObject.SetActive(false);
+        UIManager.Instance.GameReload();
     }
 
     private void ExitGame()
     {
-        // todo: 게임 그만하기
-        UIManager.Instance.SetDefaultMode();
+        gameObject.SetActive(false);
+        UIManager.Instance.GameReload();
     }
 
     #region 인터페이스 구현

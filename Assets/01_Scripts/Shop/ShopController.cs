@@ -16,7 +16,7 @@ public class ShopController : MonoBehaviour
     [Header("회전")]
     [SerializeField] private float _rotateDuration = 0.5f;
     private IEnumerator _rotateCoroutine;
-    public Action<CharacterSlot> OnChangedPriceText;
+    public event Action<CharacterSlot> OnChangedPriceText;
 
     // 캐릭터 리스트 관리
     private int _curSelectIndex = 0;
@@ -28,10 +28,13 @@ public class ShopController : MonoBehaviour
         {
             Logger.Log("캐릭터 개수 불일치");
         }
+
+        _shopCamera = GetComponentInChildren<Camera>(true);
     }
 
     private void OnEnable()
     {
+        OnChangedPriceText += UIManager.Instance.ShopUI.UpdateButtonText;
         OnChangedPriceText?.Invoke(_characterSlots[_curSelectIndex]);
     }
 
@@ -42,6 +45,7 @@ public class ShopController : MonoBehaviour
 
     private void OnDisable()
     {
+        OnChangedPriceText += UIManager.Instance.ShopUI.UpdateButtonText;
         if (_rotateCoroutine != null) StopAllCoroutines();
     }
 

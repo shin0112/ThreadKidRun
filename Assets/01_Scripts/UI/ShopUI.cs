@@ -18,18 +18,16 @@ public class ShopUI : MonoBehaviour, IUIActive
 
     private void Start()
     {
-        _controller = FindAnyObjectByType<ShopController>();
+        _controller = FindObjectOfType<ShopController>(true);
         if (_controller == null)
         {
-            Logger.Log("shop controller is null");
+            Logger.LogWarning("shop controller is null");
             return;
         }
 
         _leftArrow.onClick.AddListener(_controller.RotateLeft);
         _rightArrow.onClick.AddListener(_controller.RotateRight);
         _get.onClick.AddListener(GetSkin);
-
-        _controller.OnChangedPriceText += UpdateButtonText;
 
         _curSelectIndex = GameManager.Instance.CurSkinIndex;
     }
@@ -39,14 +37,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.onClick.RemoveAllListeners();
         _rightArrow.onClick.RemoveAllListeners();
         _get.onClick.RemoveAllListeners();
-
-        _controller.OnChangedPriceText -= UpdateButtonText;
     }
 
-    private void UpdateButtonText(CharacterSlot shopCharacter)
+    public void UpdateButtonText(CharacterSlot shopCharacter)
     {
         int price = shopCharacter.GetPriceValue();
-        bool selected = _curSelectIndex == _controller.CurSelectIndex;
+        bool selected = _curSelectIndex == shopCharacter.Index;
 
         if (price == 0 || shopCharacter.CheckSold() || selected)
         {
@@ -83,8 +79,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.gameObject.SetActive(false);
         _rightArrow.gameObject.SetActive(false);
         _get.gameObject.SetActive(false);
-        _controller.ShopCamera.gameObject.SetActive(false);
-        _controller.gameObject.SetActive(false);
+
+        if (_controller != null)
+        {
+            _controller.ShopCamera.gameObject.SetActive(false);
+            _controller.gameObject.SetActive(false);
+        }
     }
 
     public void SetGameMode()
@@ -96,8 +96,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.gameObject.SetActive(true);
         _rightArrow.gameObject.SetActive(true);
         _get.gameObject.SetActive(true);
-        _controller.ShopCamera.gameObject.SetActive(true);
-        _controller.gameObject.SetActive(true);
+
+        if (_controller != null)
+        {
+            _controller.ShopCamera.gameObject.SetActive(true);
+            _controller.gameObject.SetActive(true);
+        }
     }
     #endregion
 }
