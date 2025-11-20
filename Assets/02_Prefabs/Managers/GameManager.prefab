@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: _gameOverCurScoreText
       value: 
       objectReference: {fileID: 6314938917212705149}
+    - target: {fileID: 5643819728653630414, guid: f254c816e1925054d9ca1f15864e2f91, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8413080469523295599, guid: f254c816e1925054d9ca1f15864e2f91, type: 3}
       propertyPath: m_Pivot.x
       value: 0
