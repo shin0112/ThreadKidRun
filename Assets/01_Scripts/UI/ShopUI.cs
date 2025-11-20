@@ -29,8 +29,6 @@ public class ShopUI : MonoBehaviour, IUIActive
         _rightArrow.onClick.AddListener(_controller.RotateRight);
         _get.onClick.AddListener(GetSkin);
 
-        _controller.OnChangedPriceText += UpdateButtonText;
-
         _curSelectIndex = GameManager.Instance.CurSkinIndex;
     }
 
@@ -39,14 +37,12 @@ public class ShopUI : MonoBehaviour, IUIActive
         _leftArrow.onClick.RemoveAllListeners();
         _rightArrow.onClick.RemoveAllListeners();
         _get.onClick.RemoveAllListeners();
-
-        _controller.OnChangedPriceText -= UpdateButtonText;
     }
 
-    private void UpdateButtonText(CharacterSlot shopCharacter)
+    public void UpdateButtonText(CharacterSlot shopCharacter)
     {
         int price = shopCharacter.GetPriceValue();
-        bool selected = _curSelectIndex == _controller.CurSelectIndex;
+        bool selected = _curSelectIndex == shopCharacter.Index;
 
         if (price == 0 || shopCharacter.CheckSold() || selected)
         {
