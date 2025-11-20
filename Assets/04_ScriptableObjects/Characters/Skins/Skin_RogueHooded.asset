@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinID: 5
   skinName: RogueHooded
-  skinPrefab: {fileID: 919132149155446097, guid: 2f66188dfe7e3564087f3381298b72cd, type: 3}
+  skinPrefab: {fileID: 5975970646018100557, guid: 979daa4923bb7914ea9de944f8b860d2, type: 3}
   previewSprite: {fileID: 0}
   isDefaultSkin: 0
   unlockCost: 300
+  isUnlocked: 0
   description: 
