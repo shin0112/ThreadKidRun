@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     private int currentScore = 0; //현재 스코어
     private int getItemCount = 0; //획득한 아이템 수
-    private int buyItemCount = 0; //구매한 캐릭터 수
+    private int buyCharacterCount = 0; //구매한 캐릭터 수
 
     [SerializeField]
     private AchievementManager achievementManager;
@@ -115,8 +115,8 @@ public class GameManager : MonoBehaviour
     public void EarnCharacter(int amount)
     {
         if (amount < 0) return;
-        buyItemCount += amount;
-        UnityEngine.Debug.Log($"캐릭터 구매! 구매된 캐릭터 수: {buyItemCount}");
+        buyCharacterCount += amount;
+        UnityEngine.Debug.Log($"캐릭터 구매! 구매된 캐릭터 수: {buyCharacterCount}");
         if (achievementManager != null)
         {
             achievementManager.CheckAchievements(getItemCount, AchievementType.BuySomething);
@@ -132,14 +132,17 @@ public class GameManager : MonoBehaviour
         }
         totalCoinCount = PlayerPrefs.GetInt("CurrentCoin", 0);
         getItemCount = PlayerPrefs.GetInt("CurrentUseItem", 0);
+        buyCharacterCount = PlayerPrefs.GetInt("CurrentBuyCharacter", 0);
         EarnCoin(0);
         EarnItem(0);
+        EarnCharacter(0);
     }
 
     public void SaveData()
     {
         PlayerPrefs.SetInt("CurrentCoin", totalCoinCount);
         PlayerPrefs.SetInt("CurrentUseItem", getItemCount);
+        PlayerPrefs.SetInt("CurrentBuyCharacter", buyCharacterCount);
         PlayerPrefs.Save();
     }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: BuyCharacter_01
   achievementName: Buy Character (Lv1)
-  description: Unlocked when you buy 1 items.
+  description: Unlocked when you buy 1 Character.
   requiredCount: 1
   type: 1
   isUnlocked: 0
