@@ -65,7 +65,7 @@
 
 <table>
   <tr>
-    <th align="left" width="100">구분</th>
+    <th align="left" width="180">구분</th>
     <th align="left" width="500">링크</th>
   </tr>
   <tr>
@@ -82,7 +82,7 @@
 
 <table>
   <tr>
-    <th align="left" width="100">항목</th>
+    <th align="left" width="180">항목</th>
     <th align="left" width="500">내용</th>
   </tr>
   <tr><td>프로젝트명</td><td>ThreadRun</td></tr>
@@ -98,7 +98,7 @@
 
 <table>
   <tr>
-    <th align="left" width="100">구분</th>
+    <th align="left" width="180">구분</th>
     <th align="left" width="500">기술</th>
   </tr>
   <tr>
