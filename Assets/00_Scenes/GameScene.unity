@@ -5743,6 +5743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapLoop
       objectReference: {fileID: 0}
+    - target: {fileID: 4378400049106823655, guid: 5690149baa03b924eb480a585a78d803, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
