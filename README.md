@@ -51,7 +51,7 @@
 
 ### 2. 와이터프레임
 
-![와이어프레임](Docs\Img\Wireframe.png)
+![와이어프레임](Docs/Img/Wireframe.png)
 
 ---
 
@@ -65,14 +65,14 @@
   - 슬라이딩 (Control)
 - 애니메이션 적용
 
-![Movement](Docs\Img\Movement.gif)
+![Movement](Docs/Img/Movement.gif)
 
 ### 2. 맵
 
 - 배경 무한 생성
   - LastPivot, DeadZone을 통해 맵 무한 생성
 
-![MapLoop](Docs\Img\MapLoop.gif)
+![MapLoop](Docs/Img/MapLoop.gif)
 
 - 장애물 충돌
 
@@ -85,23 +85,23 @@
 - 캐릭터 선택, 구매
 - 캐릭터 커스터마이징
 
-![Shop](Docs\Img\Shop.gif)
+![Shop](Docs/Img/Shop.gif)
 
 ### 5. 업적
 
 - 업적 기능
 
-![Achievement](Docs\Img\Achievement.jpg)
+![Achievement](Docs/Img/Achievement.jpg)
 
 ### 6. 튜토리얼
 
 - 튜툐리얼
 
-![Tutorial](Docs\Img\Tutorial.gif)
+![Tutorial](Docs/Img/Tutorial.gif)
 
 ### 7. 로딩 씬
 
-![Loading](Docs\Img\Loading.jpg)
+![Loading](Docs/Img/Loading.jpg)
 
 ## [트러블슈팅]
 
