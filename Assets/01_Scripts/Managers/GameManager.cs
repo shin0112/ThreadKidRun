@@ -192,6 +192,7 @@ public class GameManager : MonoBehaviour
         totalCoinCount = PlayerPrefs.GetInt("CurrentCoin", 0);
         getItemCount = PlayerPrefs.GetInt("CurrentUseItem", 0);
         buyCharacterCount = PlayerPrefs.GetInt("CurrentBuyCharacter", 0);
+        _finishedTutorial = PlayerPrefs.GetInt(_finishiedTutorialKey, 0) == 0 ? false : true;
         EarnCoin(0);
         EarnItem(0);
         EarnCharacter(0);
@@ -235,11 +236,14 @@ public class GameManager : MonoBehaviour
     #region 튜토리얼
     private bool _finishedTutorial = false;
     public bool FinishedTutorial => _finishedTutorial;
+    private string _finishiedTutorialKey = "FinishTutorial";
 
     public void EndTutorial()
     {
         Logger.Log("튜토리얼 완료");
         _finishedTutorial = true;
+        PlayerPrefs.SetInt(_finishiedTutorialKey, (_finishedTutorial ? 1 : 0));
+        PlayerPrefs.Save();
     }
 
     public void ResetTutorial()
