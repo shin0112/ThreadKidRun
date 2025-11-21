@@ -138,8 +138,17 @@ public class GameManager : MonoBehaviour
     public bool CheckSpendCoinAndGetSkin(int amount)
     {
         Logger.Log($"코인 {amount}개 사용");
-        TotalCoinCount -= amount;
-        return true;
+
+        if (totalCoinCount > amount)
+        {
+            TotalCoinCount -= amount;
+            return true;
+        }
+        else
+        {
+            Logger.Log("코인 부족");
+            return false;
+        }
     }
 
     public void ResetCoin()

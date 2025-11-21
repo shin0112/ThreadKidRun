@@ -43,7 +43,7 @@ public class ShopUI : MonoBehaviour, IUIActive
         int price = shopCharacter.GetPriceValue();
         bool selected = _curSelectIndex == shopCharacter.Index;
 
-        if (price == 0 || shopCharacter.CheckSold() || selected)
+        if (price == 0 || shopCharacter.CheckSold())
         {
             _buttonIcon.SetActive(false);
             _price.rectTransform.sizeDelta = new Vector2(Define.SoldTextWidth, Define.SoldTextHeight);
@@ -60,8 +60,11 @@ public class ShopUI : MonoBehaviour, IUIActive
     {
         CharacterSlot selected = _controller.GetSkin();
 
-        // 스킨 인덱스 변경
-        GameManager.Instance.CurSkinIndex = selected.Index;
+        if (selected.CheckSold())
+        {
+            // 스킨 인덱스 변경
+            GameManager.Instance.CurSkinIndex = selected.Index;
+        }
         _curSelectIndex = selected.Index;
 
         UpdateButtonText(selected);
