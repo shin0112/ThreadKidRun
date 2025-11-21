@@ -5775,9 +5775,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 87652540}
+    - target: {fileID: 356493345615203812, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1532470333797858924, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4235484486924400755, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4854770020763329035, guid: e60baa878267c044f8e846dc0af7b978, type: 3}
       propertyPath: m_LocalPosition.x
